@@ -242,7 +242,7 @@ section .container .owl-nav {
 .container .resume-section .resume-section-content .subheading{
     font-size: 3rem;
     font-family: var(--Noto_1);
-    padding: 2rem 1rem;
+    padding: 2rem .1rem;
     display: inherit;
     flex-direction: column;
     box-shadow:  20px 5px 20px rgba(0, 0, 0, 0.2);
