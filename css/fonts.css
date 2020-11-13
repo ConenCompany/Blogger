@@ -1,0 +1,45 @@
+/*---Font Family: Bubblegum-----*/
+@font-face{
+    font-family: Bubblegum; 
+    src: url('../fonts/Bubblegum_Sans/BubblegumSans-Regular.ttf');
+}
+
+/*---Font Family: Livvic-----*/
+@font-face{
+    font-family: Livvic;
+    src: url('../fonts/Livvic/Livvic-Regular.ttf');
+}
+/*---Font Family: Livvic_1-----*/
+@font-face{
+    font-family: Livvic_1;
+    src: url('../fonts/Livvic/Livvic-MediumItalic.ttf');
+}
+/*---Font Family: Ultra -----*/
+@font-face{
+    font-family: Ultra;
+    src: url('../fonts/Ultra/Ultra-Regular.ttf');
+}
+@font-face{
+    font-family: Noto_1;
+    src: url('../fonts/Noto_Sans_JP/NotoSansJP-Black.otf');
+}
+@font-face{
+    font-family: Noto_2;
+    src: url('../fonts/Noto_Sans_JP/NotoSansJP-Bold.otf');
+}
+@font-face{
+    font-family: Noto_3;
+    src: url('../fonts/Noto_Sans_JP/NotoSansJP-Light.otf');
+}
+@font-face{
+    font-family: Noto_4;
+    src: url('../fonts/Noto_Sans_JP/NotoSansJP-Medium.otf');
+}
+@font-face{
+    font-family: Noto_5;
+    src: url('../fonts/Noto_Sans_JP/NotoSansJP-Regular.otf');
+}
+@font-face{
+    font-family: Noto_6;
+    src: url('../fonts/Noto_Sans_JP/NotoSansJP-Thin.otf');
+}

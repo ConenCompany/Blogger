@@ -1,0 +1,105 @@
+ header {
+     position: relative;
+     background-color: black;
+     height: 100vh;
+     min-height: 50rem;
+     width: 100%;
+     overflow: hidden;
+ }
+
+ header video {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     min-width: 10%;
+     min-height: 10%;
+     width: auto;
+     height: auto;
+     z-index: 0;
+     -ms-transform: translateX(-50%) translateY(-50%);
+     -moz-transform: translateX(-50%) translateY(-50%);
+     -webkit-transform: translateX(-50%) translateY(-50%);
+     transform: translateX(-50%) translateY(-50%);
+ }
+
+ header .container {
+
+
+     z-index: 2;
+     text-align: center;
+     top: 30%;
+     left: 15%;
+     width: 8px;
+     min-width: 70%;
+     min-height: 10%;
+     border: rgb(255 255 255 / 37%);
+     border-radius: 10px;
+     position: sticky;
+     height:auto;
+ }
+
+ header .container1 {
+     position: inherit;
+     background: #ffffff82;
+     z-index: 2;
+
+     text-align: center;
+     margin: 10px;
+     top: 1%;
+     min-width: 30%;
+     min-height: 10%;
+     border: rgb(255 255 255 / 37%);
+     border-radius: 100px;
+     position: sticky;
+     height: auto;
+ }
+
+ header .overlay {
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 100%;
+     background-color: black;
+     opacity: 0.5;
+     z-index: 1;
+ }
+
+ @media (pointer: coarse) and (hover: none) {
+     header {
+         background: url("video3.mp4") black no-repeat center center scroll;
+     }
+
+     header video {
+         display:run-in;
+     }
+ }
+
+@media (min-width: 400px) {
+            .header .container {
+                font-size: 7rem;
+                width: 219px;
+                border: 5px solid #f1f1f1;
+                
+            }.header video {
+                width: auto;
+     height: auto;
+                
+            }
+        }
+
+ .input-outline,
+ .input-outline:focus {
+     background-color: #ffffff;
+     color: black;
+ }
+
+ input-outline::placeholder {
+     color: #ffffff;
+ }
+.bg-image-full {
+  background: no-repeat center center scroll;
+   background-repeat: no-repeat;
+  background-size: cover;
+  -o-background-size: cover;
+}
