@@ -157,7 +157,7 @@ section .container .owl-nav {
 
 /*------------------- navbar ----------------*/
 .nav {
-    background: var(--grey_navbar);
+    background: #56687c4d;
     padding: 0 2rem;
     height: 4rem;
     min-height: 0vh;
@@ -181,7 +181,7 @@ section .container .owl-nav {
 }
 
 .nav .nav-items .nav-link:hover {
-    background-color: rgb(4, 82, 75);
+    background-color: rgb(12, 94, 87);
     border-radius: 2rem;
 }
 
@@ -299,7 +299,7 @@ section .container .owl-nav {
 /*-------------------- Site Title -------------*/
 
 main .site-title {
-    background-image: url('../photos/biel-morro-HCha-UHkIg8-unsplash.jpg');
+    background-image: url('../photos/possessed-photography-DqpPwAC3QVY-unsplash.jpg');
     background-size: cover;
     height: 110vh;
     display: flex;
@@ -418,6 +418,9 @@ main .blog .blog-content {
 }
 
 main .blog .blog-title {
+    padding: 1rem 1rem;
+}
+main .blog .blog-title h2{
     padding: 1rem 1rem;
 }
 
@@ -557,7 +560,7 @@ main p {
 main .site-content .posts .post-content {
     margin: 4rem .5rem;
     display: flex;
-    height: 105vh;
+    height: 85vh;
     flex-direction: column;
     box-shadow: 17px 3px 20px rgba(0, 0, 0, 0.4);
     border: 1px solid var(--white);
