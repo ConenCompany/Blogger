@@ -40,7 +40,7 @@ body {
 /*----X---- Variable Definition ------X----------*/
 /*---------- Gallery ----------*/
 .container-gallery{
-    margin: 4rem 1.6rem;
+    margin: 4rem .1rem;
     box-shadow: 20px 1px 200px rgba(0, 0, 0, 0.8);
     border: 1px solid white;
     border-radius: 1rem;
@@ -48,14 +48,14 @@ body {
     text-align: center;
 }
 .gallery {
-    margin: 2rem .1rem;
+    margin: 2rem .01rem;
     text-align: center;
 }
 
 .gallery img{
     transition: .4s all ease-in;
     display: inline-flex;
-    padding: .9rem .9rem;
+    padding: .2rem .2rem;
     box-shadow: 20px 5px 80px rgba(0, 0, 0, 0.6);
     justify-content: center;
     border: 1px solid black;
@@ -356,7 +356,7 @@ main .site-title .site-background1 h1{
 .site-title .site-background2 {
     padding-top: 4em;
     text-align: center;
-    background-image: url('../photos/andreas-gucklhorn-Ilpf2eUPpUE-unsplash.jpg');
+    background-image: url('../photos/moran-Qag2mu8d2r0-unsplash.jpg');
     background-size: cover;
     height: 40vh;
     justify-content: center;
