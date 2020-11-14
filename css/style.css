@@ -40,7 +40,7 @@ body {
 /*----X---- Variable Definition ------X----------*/
 /*---------- Gallery ----------*/
 .container-gallery{
-    margin: 4rem 2rem;
+    margin: 4rem 1.6rem;
     box-shadow: 20px 1px 200px rgba(0, 0, 0, 0.8);
     border: 1px solid white;
     border-radius: 1rem;
@@ -55,7 +55,7 @@ body {
 .gallery img{
     transition: .4s all ease-in;
     display: inline-flex;
-    padding: 2rem 2rem;
+    padding: .9rem .9rem;
     box-shadow: 20px 5px 80px rgba(0, 0, 0, 0.6);
     justify-content: center;
     border: 1px solid black;
