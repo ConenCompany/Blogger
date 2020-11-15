@@ -252,7 +252,7 @@ section .container .owl-nav {
 }
 .container .resume-section .resume-section-content .subheading a{
     font-size: 3rem;
-    font-family: var(--Bubblegum);
+    font-family: var(--Noto_1);
     margin: 3rem 0;
     color: coral;
 }
@@ -299,9 +299,9 @@ section .container .owl-nav {
 /*-------------------- Site Title -------------*/
 
 main .site-title {
-    background-image: url('../photos/possessed-photography-DqpPwAC3QVY-unsplash.jpg');
+    background-image: url('../photos/american-public-power-association-dCx2xFuPWks-unsplash.jpg');
     background-size: cover;
-    height: 110vh;
+    height: 89vh;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -312,12 +312,12 @@ main .site-title {
 }
 
 main .site-title .site-background {
-    padding-top: 10rem;
+    padding-top: .5rem;
     text-align: center;
 
 }
 main .site-title .site-background1 {
-    padding-top: 20rem;
+    padding-top: 13rem;
     text-align: center;
 }
 main .site-title .site-background1 h3{
@@ -413,7 +413,7 @@ main .blog .blog-content {
     text-align: center;
     width: 100%;
     margin: 1rem 0rem;
-    box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.5);
     border: 1px solid black;
 }
 
@@ -438,8 +438,8 @@ main .blog .btn-blog {
 
 .blog-post .sidebar .category .category-list li {
     padding: 1rem .7rem;
-    font-family: var(--Bubblegum);
-    font-size: 1rem;
+    font-family: var(--Noto_1);
+    font-size: .91rem;
     margin: 2rem .5rem;
     border-radius: 3rem;
     background: var(--Color_Button);
@@ -471,7 +471,7 @@ main .blog .btn-blog {
     height: 1.8rem;
     padding: 0.3rem 2rem;
     font-size: 1rem;
-    font-family: var(--Bubblegum);
+    font-family: var(--Noto_1);
 }
 
 .site-content .newsletter .form-element .btn {
@@ -538,12 +538,12 @@ main .site-content .post-content>.post-image .img:hover {
 
 
 main .site-content .post-content .post-title a {
-    font-family: var(--Livvic_1);
+    font-family: var(--Noto_1);
     font-size: 2rem;
 }
 
 main .post-btn {
-    margin: 1rem 0;
+    margin: .5rem 0;
     background: var(--AbstractColor);
 }
 
@@ -562,7 +562,7 @@ main .site-content .posts .post-content {
     display: flex;
     height: 85vh;
     flex-direction: column;
-    box-shadow: 17px 3px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 17px 3px 20px rgba(0, 0, 0, 0.8);
     border: 1px solid var(--white);
 }
 
@@ -570,7 +570,7 @@ main .site-content .blog-post {
     margin: 4rem 2rem;
     display: flex;
     flex-direction: column;
-    box-shadow: 17px 3px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 17px 3px 20px rgba(0, 0, 0, 0.8);
     border: 1px solid var(--white);
 }
 
@@ -592,10 +592,10 @@ main .site-content .newsletter {
 
 main .popular-post {
     padding: 1rem 0rem;
-    margin: 1rem .5rem;
+    margin: .8rem .5rem;
     display: flex;
     flex-direction: column;
-    box-shadow: 17px 3px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 17px 3px 20px rgba(0, 0, 0, 0.8);
     border: 1px solid var(--white);
 }
 
