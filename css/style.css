@@ -51,11 +51,13 @@ body {
     margin: 2rem .01rem;
     text-align: center;
 }
-
+.follow{
+    text-align: center;
+}
 .gallery img{
     transition: .4s all ease-in;
     display: inline-flex;
-    padding: .2rem .2rem;
+    margin: 1rem 1rem;
     box-shadow: 20px 5px 80px rgba(0, 0, 0, 0.6);
     justify-content: center;
     border: 1px solid black;
@@ -251,10 +253,10 @@ section .container .owl-nav {
     background: rgb(226, 226, 226);
 }
 .container .resume-section .resume-section-content .subheading a{
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: var(--Noto_1);
     margin: 3rem 0;
-    color: coral;
+    color: var(--text-gray);
 }
 
 .container .resume-section .resume-section-content .Gesellschaft{
@@ -319,6 +321,7 @@ main .site-title .site-background {
 main .site-title .site-background1 {
     padding-top: 13rem;
     text-align: center;
+    
 }
 main .site-title .site-background1 h3{
     margin: 2rem 4rem;
@@ -363,6 +366,7 @@ main .site-title .site-background1 h1{
 
     
 }
+
 .site-title .site-background2 h3{
     font-size: 8rem;
     color: var(--white);
@@ -523,17 +527,20 @@ main .site-content .post-content .post-image>div {
 }
 
 main .site-content .post-content .post-image .img {
+ 
     overflow: hidden;
     image-rendering: optimizeSpeed;
     image-rendering: auto;
     width: 100%;
-    transition: all 50s ease-in;
+    transition: all 1s ease-in;
+   
 }
 
 main .site-content .post-content>.post-image .img:hover {
+    border-radius: 4rem;
     opacity: 100; 
     image-rendering: optimizeQuality;
-    transform: scale(1.051);
+    transform: scale(1.0251);
 }
 
 
