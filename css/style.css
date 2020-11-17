@@ -94,6 +94,7 @@ a {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-self: flex-start;
 }
 
 ul {
@@ -180,11 +181,6 @@ section .container .owl-nav {
     right:200px;
     top: 20px;
 }
-.nav .topbar-section-menu{
-    border-right: 1px solid grey;
-    padding-right: 8px;
-    height: 4rem;
-}
 .nav .topbar-section{
     float: left;
     border-left: 1px solid grey;
@@ -202,7 +198,7 @@ nav .toggle-collapse{
 }
 
 .nav .nav-items .nav-link {
-    padding: 1.6rem 1rem;
+    padding: 1.6rem 2rem;
     font-size: 1.4rem;
     font-family: var(--Noto_1);
     font-size: 1.3rem;
@@ -213,7 +209,7 @@ nav .toggle-collapse{
 
 .nav .nav-items .nav-link:hover {
     background-color: rgb(12, 94, 87);
-    border-radius: 2rem;
+    border-radius: 10rem;
 }
 
 .nav .nav-items .nav-link:hover a {
@@ -221,7 +217,7 @@ nav .toggle-collapse{
 }
 
 .nav .social {
-    padding: 1.6rem 0rem;
+    padding: 1.8rem 0rem;
     display: block;
 }
 
@@ -262,11 +258,11 @@ nav .toggle-collapse{
 
 .collapse {
     height: 50rem;
-    background-color: lightblue;
+    background-color: rgba(168, 189, 189, 0.473);
 }
 
 .nav .social i {
-    padding: 0rem .22rem;
+    padding: 4.60rem .22rem;
 }
 
 .nav .social i:hover {
@@ -443,6 +439,11 @@ main .blog .blog-post {
     padding-top: 3rem;
 
 }
+.blog-post h2 {
+    position: relative;
+    left: 30px;
+
+}
 
 main .blog .blog-content {
     image-rendering: -moz-crisp-edges;
@@ -533,7 +534,7 @@ main .blog .btn-blog {
 
 main .site-content {
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 60% 40%;
 }
 
 main .post-content {
@@ -580,7 +581,7 @@ main .site-content .post-content>.post-image .img:hover {
 
 main .site-content .post-content .post-title a {
     font-family: var(--Noto_1);
-    font-size: 2rem;
+    font-size: 1.2rem;
 }
 
 main .post-btn {
@@ -1594,7 +1595,7 @@ ul li {
     width: 4000;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 790px) {
 
     .nav .nav-menu,
     .nav .nav-items {
@@ -1660,9 +1661,26 @@ ul li {
     main .site-content .blog-post {
         padding: 220rem 1rem;
     }
+    .site-title .site-background2 {
+        position: relative;
+        height: 16rem;
+        right: 90px;
+    
+    }
+    .site-title .site-background2 h3 {
+        font-size: 2rem;
+        position: center;
+    
+    }
+    .site-title .site-background2 h1 {
+        font-size: 2rem;
+        position: center;
+    
+    }
+   
 }
-.container .site-content .posts .post-content .post-image img{
-    width: 400;
-}
+
+
+
 
 /*-----X-- Viewport less than 750px ----X--*/
