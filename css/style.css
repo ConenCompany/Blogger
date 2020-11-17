@@ -89,6 +89,7 @@ a {
     color: black
 }
 
+
 .flex-row {
     display: flex;
     flex-direction: row;
@@ -98,21 +99,24 @@ a {
 ul {
     list-style-type: none;
 }
+.fa-solar-panel{
+    margin-left: 1.5rem;
+}
 
 h1 {
-    font-family: var(--Noto_1);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 3rem;
     text-align: center;
     color: var(--white);
 }
 
 h2 {
-    font-family: var(--Noto_1);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
 }
 
 h3 {
-    font-family: var(--Noto_1);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
     color: var(--white);
 }
@@ -124,7 +128,7 @@ h3 {
 }
 
 h4 {
-    font-family: var(--Noto_1);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 4rem;
     margin: .5rem 1rem;
     color: var(--text-gray);
@@ -135,7 +139,7 @@ h4 {
     border-radius: 2rem;
     padding: 1rem 3rem;
     font-size: 1rem;
-    font-family: var(--Livvic_1);
+    font-family: Arial, Helvetica, sans-serif;
     color: var(--text-gray);
     cursor: pointer;
 }
@@ -161,12 +165,35 @@ section .container .owl-nav {
 .nav {
     background: #56687c4d;
     padding: 0 2rem;
+    width: auto;
+    margin: 0 auto;
     height: 4rem;
     min-height: 0vh;
     overflow: hidden;
     transition: height 1s ease-in-out;
     border-radius: .7rem;
     border: 2px solid black;
+}
+#icon-bar{
+    width: 30px;
+    position: relative;
+    right:200px;
+    top: 20px;
+}
+.nav .topbar-section-menu{
+    border-right: 1px solid grey;
+    padding-right: 8px;
+    height: 4rem;
+}
+.nav .topbar-section{
+    float: left;
+    border-left: 1px solid grey;
+    height: 4rem;
+}
+nav .toggle-collapse{
+    float: left;
+    border-right: 1px solid rgb(14, 12, 12);
+    height: 4rem;
 }
 
 .nav .nav-items {
@@ -177,7 +204,6 @@ section .container .owl-nav {
 .nav .nav-items .nav-link {
     padding: 1.6rem 1rem;
     font-size: 1.4rem;
-    position: relative;
     font-family: var(--Noto_1);
     font-size: 1.3rem;
 }
@@ -213,6 +239,11 @@ section .container .owl-nav {
     width: 90%;
     cursor: pointer;
     display: none;
+}
+#company{
+    text-align: right;
+    position: relative;
+    display: block;
 }
 
 .nav .toggle-collapse .toggle-icons {
