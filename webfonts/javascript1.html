@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            position: relative;
+            left: 36rem;
+            margin: 1rem;
+            width: 200px;
+            height: 80px;
+
+        }
+
+        h2 {
+            position: relative;
+            top: 5rem;
+            margin: 1rem;
+            font-style: italic;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="text">Guten Morgen</h2>
+    <button id="myButtonOn">Get text</button>
+    <h2 id="Vorname">Ahmed</h2>
+    <button id="myButtonReset">Reset text</button>
+    <h2 id="Name">Chebbi</h2>
+    <button id="Append-text">Append text</button>
+    <h2 id="Result"></h2>
+    
+    <button id="styleText">styleText</button>
+
+    <button id="ResetStyleText">ResetStyleText</button>
+    <h2 id="MoreText">More Text</h2>
+    <script type="text/javascript">
+        document.getElementById("myButtonOn").onclick = function () {
+            document.getElementById("Result").innerHTML = " Ich wünsche dir einen schönen Tag" + " Herr " + document.getElementById("Name").innerHTML
+        }
+    </script>
+    <script type="text/javascript">
+        document.getElementById("myButtonReset").onclick = function () {
+            document.getElementById("text").innerHTML = "Guten Morgen" 
+            document.getElementById("Name").innerHTML = "Chebbi"
+            document.getElementById("Vorname").innerHTML = " "
+            document.getElementById("Result").innerHTML = " "
+        }
+    </script>
+    <script type="text/javascript">
+        document.getElementById("Append-text").onclick = function () {
+            document.getElementById("Result").innerHTML = document.getElementById("text").innerHTML + " Herr " + document.getElementById("Name").innerHTML;
+        }
+    </script>
+    <script>
+        document.getElementById("styleText").onclick = function () {
+            document.getElementById("MoreText").style.color = "red";
+            document.getElementById("MoreText").style.fontSize = "50px";
+            
+        }
+        document.getElementById("ResetStyleText").onclick = function () {
+            document.getElementById("MoreText").style.color = "";
+            document.getElementById("MoreText").style.fontSize = "";
+        }
+    </script>
+</body>
+
+</html>

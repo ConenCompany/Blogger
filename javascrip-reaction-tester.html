@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            width: 50rem;
+            height: 50rem;
+            border: 1px solid black;
+        }
+
+        .container p {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            text-align: center;
+
+        }
+
+        .container h1 {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            width: 900px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p id="Form"></p>
+    </div>
+    <h1 id="TimeTaken"></h1>
+
+    <script type="text/javascript">
+        var start = new Date().getTime();
+
+        function Random() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color = color + letters[Math.round((Math.random() * 16))];
+            }
+            return (color)
+        }
+
+        function RandomForm() {
+            var pos = ["50%", "", "30%", "20%", "80%"]; 
+            pos1 =pos[Math.round((Math.random() * 4))];
+            return (pos1)
+        }
+
+
+        function RandomPos() {
+            var border0 = ""; 
+            border0 =Math.round((Math.random() * 600));
+            return (border0)
+        }
+    
+
+
+
+        function MakeAppearForm() {
+            document.getElementById("Form").style.left = RandomPos() + "px";
+            document.getElementById("Form").style.top = RandomPos() + "px";
+            document.getElementById("Form").style.borderRadius = RandomForm();
+            document.getElementById("Form").style.display = "block";
+            document.getElementById("Form").style.background = Random();
+            start = new Date().getTime();
+
+        }
+
+        
+        document.getElementById("Form").onclick = function () {
+            document.getElementById("Form").style.display = "none";
+            var end = new Date().getTime();
+            var timeTaken = (end - start) / 1000;
+            document.getElementById("TimeTaken").innerHTML = "the taked Time is : " + timeTaken + " s // and the width number is : " + RandomPos() + " px // and the top number is : " + RandomPos() + " px // the % Radius is : " + RandomForm() ;
+            setTimeout(MakeAppearForm, 500);
+        }
+    </script>
+</body>
+
+</html>

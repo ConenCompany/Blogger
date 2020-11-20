@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            font-size: x-large;
+        }
+    </style>
+</head>
+
+<body>
+    <p> what is the magic word </p>
+    <input type="text" id="InputText">
+    <button id="CheckWord">CheckWord</button>
+    <p id="Result"></p>
+    <script type="text/javascript">
+        document.getElementById("CheckWord").onclick = function () {
+            var x = 2;
+            if (document.getElementById("InputText").value == x) {
+                document.getElementById("Result").innerHTML = "all right";
+                document.getElementById("Result").style.color = "green";
+            } else {
+                document.getElementById("Result").innerHTML = "not yet found";
+                document.getElementById("Result").style.color = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>

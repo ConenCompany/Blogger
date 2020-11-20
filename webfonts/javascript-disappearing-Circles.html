@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            position: static;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            border-radius: 100px;
+            float: left;
+            margin: 2rem;
+        }
+
+        #Cyrcle1 {
+            background: blue;
+        }
+
+        #Cyrcle2 {
+            background: red;
+        }
+
+        #Cyrcle3 {
+            background: green;
+        }
+
+        button {
+            display: table-row;
+            position: fixed;
+            padding: 2rem 2rem;
+            left: 30rem;
+            bottom: 30rem;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="Cyrcle1">Cyrcle1</p>
+    <p id="Cyrcle2">Cyrcle2</p>
+    <p id="Cyrcle3">Cyrcle3</p>
+    <button id="ResetCyrcles">Reset All</button>
+</body>
+<script type="text/javascript">
+    document.getElementById("Cyrcle1").onclick = function () {
+        document.getElementById("Cyrcle1").style.display = "none";
+    }
+    document.getElementById("Cyrcle2").onclick = function () {
+        document.getElementById("Cyrcle2").style.display = "none";
+    }
+    document.getElementById("Cyrcle3").onclick = function () {
+        document.getElementById("Cyrcle3").style.display = "none";
+    }
+    document.getElementById("ResetCyrcles").onclick = function () {
+        document.getElementById("Cyrcle1").style.display = "";
+        document.getElementById("Cyrcle2").style.display = "";
+        document.getElementById("Cyrcle3").style.display = "";
+    }
+</script>
+
+</html>

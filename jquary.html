@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquary</title>
+    <script type="text/javascript" src="js/jquery3.5.1.min.js"></script>
+    <style>
+        .container #circle{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            border-radius: 50%;
+            background: green;
+        }
+        .container #squares1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background: red;
+
+        }
+        .container #squares2{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background: red;
+
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <p id="circle"></p>
+        <p id="squares1"></p>
+        <p id="squares2"></p>
+        <h1>this is some text</h1>
+    </div>
+
+
+
+
+    <script type="text/javascript">
+       
+
+        $("#circle").click(function() {
+            $("h1").html("this text has changed");
+        });
+        $("#circle").mouseover(function() {
+           alert( "Mouse is Over Circle");
+        });
+        
+        $("#squares1").click(function() {
+            alert("square1 was clicked !! ")
+
+        });
+        $("#squares2").click(function() {
+            alert("square2 was clicked !! ")
+        });
+
+
+
+    </script>
+</body>
+</html>

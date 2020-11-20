@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            font-size: x-large;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <p> what is the magic word </p>
+    <input type="text" id="InputText">
+    <button id="CheckWord">CheckWord</button>
+    <p id="Result"></p>
+    <script type="text/javascript">
+        document.getElementById("CheckWord").onclick = function () {
+            Random = Math.round((Math.random() * 5))
+            
+            if (document.getElementById("InputText").value == Random) {
+                document.getElementById("Result").innerHTML = "all right";
+                document.getElementById("Result").style.color = "";
+                document.getElementById("Result").style.background = "green";
+            } else {
+                document.getElementById("Result").innerHTML = "not yet found";
+                document.getElementById("Result").style.color = "";
+                document.getElementById("Result").style.background = "red";
+                
+            }
+            alert("the number was " + Random);
+        }
+    </script>
+</body>
+
+</html>

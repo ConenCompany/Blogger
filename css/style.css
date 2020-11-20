@@ -203,9 +203,6 @@ nav .toggle-collapse{
     font-family: var(--Noto_1);
     font-size: 1.3rem;
 }
-#all-company:hover{
-
-}
 
 .nav .nav-items .nav-link:hover {
     background-color: rgb(12, 94, 87);
@@ -281,6 +278,7 @@ nav .toggle-collapse{
     border-radius: 4rem;
     border: 1px solid white;
     background: rgb(226, 226, 226);
+
 }
 .container .resume-section .resume-section-content .subheading a{
     font-size: 2rem;

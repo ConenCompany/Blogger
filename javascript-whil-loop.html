@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .element-content {
+            display: flex;
+            flex-direction: row;
+            margin: 3rem;
+        }
+
+        p {
+            padding: 2rem 2rem;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+        }
+
+        #InputElement {
+            width: 180px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="enterElement"> Guess</button>
+    <select id="InputElement">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+
+
+    <p id="output"></p>
+    <script type="text/javascript">
+        document.getElementById("enterElement").onclick = function () {
+            var Input = 0;
+            var tweetstring = "";
+            var i = 0;
+            var j = 1;
+            var GotIt = false;
+            
+            
+            var Input = document.getElementById("InputElement").value;
+            while (GotIt == false) {
+                Random = Math.round((Math.random() * 5));
+                if (Input == Random) {
+                    GotIt = true;
+                    alert(" we have found the secret number and it is  " + Random +  "  the number of attempts is " + j);
+                } else {
+                    j++;
+
+                }
+            }
+            
+        }
+
+        /* {
+           tweetstring = tweetstring + "<p>" + tweet[i] + "</p>";
+            i++; 
+        }*/
+    </script>
+</body>
+
+</html>

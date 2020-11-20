@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8>
+    <meta name=" viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="Press"> Average Number</button>
+    <input type="text" id="Input1">
+    <input type="text" id="Input2">
+    <p id="AverageResult"></p>
+    <script type="text/javascript">
+        document.getElementById("Press").onclick = function () {
+            var Input1 = "0";
+            var Input2 = "0";
+
+            function average(a, b) {
+                return ((+a + +b) / 2);
+            }
+            Input1 = document.getElementById('Input1').value;
+            alert(Input1);
+            Input2 = document.getElementById('Input2').value;
+            ResultAverage = average(Input1, Input2);
+            alert(ResultAverage);
+            document.getElementById("AverageResult").innerHTML = ResultAverage;
+
+
+        }
+    </script>
+</body>
+
+</html>
