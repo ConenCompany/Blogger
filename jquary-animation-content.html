@@ -38,23 +38,21 @@
             width: 200px;
             height: 40px;
         }
-
     </style>
 
 </head>
 
 <body>
     <div class="container">
+        <button id="buttonPressed">Press Her to fade text out</button>
+        <button id="buttonDisplay">Press Her to fade text in</button>
         <p id="circle"></p>
         <p id="squares1"></p>
         <p id="squares2"></p>
         <h1>this is some text</h1>
         <p id="text">Enhances standard form elements like buttons, inputs and anchors to themeable buttons with
             appropriate hover and active styles.</p>
-        <button id="buttonPressed">Press Her to fade text out</button>
-        <button id="buttonDisplay">Press Her to fade text in</button>
-        <button id="ToggleText">Toggle Text</button>
-        <iframe id="iframeLink" src="https://jqueryui.com/button/" frameborder="10"></iframe>
+
     </div>
 
 
@@ -62,39 +60,37 @@
 
     <script type="text/javascript">
         $("#circle").click(function () {
-            $("#iframeLink").attr("src", "https://jqueryui.com/progressbar/");
-            $(this).fadeOut();
+            $(this).animate({
+                width: "400px"
+            }, 200)
         });
 
         $("#squares1").click(function () {
-            $(this).fadeOut();
+            $(this).animate({
+                width: "400px",
+                height: "400px",
+                marginLeft: "100px",
+                marginTop: "100px"
+                
+            }, 3000, function(){
+                $("#squares1").css("background", "green");
+            });
+            
         });
 
         $("#squares2").click(function () {
-            $(this).fadeOut("slow", function () {
-                alert("Fade out has finished !")
-            });
+            $(this).fadeOut("slow", function () {});
         });
-
         $("#buttonPressed").click(function () {
-            $("#text").fadeOut();
+            $("#squares1").css("width", "200px");
+            $("#squares1").css("height", "200px");
+            $("#squares1").css("margin", "");
+            $("#squares1").fadeOut();
 
         });
 
         $("#buttonDisplay").click(function () {
-            $("#text").fadeIn();
-        });
-
-        $("#ToggleText").click(function () {
-            if ($("#text").css("display") == "none") {
-                $("#text").fadeIn();
-
-            } else {
-                $("#text").fadeOut();
-
-            }
-
-
+            $("#squares1").fadeIn();
         });
     </script>
 </body>

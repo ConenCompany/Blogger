@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/jquery-ui.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery3.5.1.min.js"></script>
+    <style>
+        #draggable {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+        }
+
+        #draggable1 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            background-color: white;
+            background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+            background-size: cover;
+        }
+
+        #draggable2 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            background-color: white;
+            background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+            background-size: cover;
+        }
+
+        #draggable3 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            background-color: white;
+            background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+            background-size: cover;
+        }
+
+        #draggable4 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            background-color: white;
+            background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+            background-size: cover;
+        }
+
+        #draggable5 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+        }
+
+        #draggable6 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+        }
+
+        .beauty {
+            display: flex;
+            flex-direction: row;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: white;
+            background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="draggable1" class="draggable ui-widget-content">
+        <p>I can be dragged only vertically</p>
+      </div>
+       
+      <div id="draggable2" class="draggable ui-widget-content">
+        <p>I can be dragged only horizontally</p>
+      </div>
+       
+      <h3>Or to within another DOM element:</h3>
+      <div id="containment-wrapper">
+        <div id="draggable3" class="draggable ui-widget-content">
+          <p>I&apos;m contained within the box</p>
+        </div>
+       
+        <div class="draggable ui-widget-content">
+          <p id="draggable4" class="ui-widget-header">I&apos;m contained within my parent</p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="./js/jquery-ui.js"></script>
+    <script>
+        $( function() {
+          $( "#draggable1" ).draggable({ axis: "y" });
+          $( "#draggable2" ).draggable({ axis: "x" });
+       
+          $( "#draggable3" ).draggable({ containment: "#containment-wrapper", scroll: false });
+          $( "#draggable4" ).draggable({ containment: "parent" });
+        } );
+        </script>
+
+</body>
+
+</html>

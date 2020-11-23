@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/jquery-ui.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery3.5.1.min.js"></script>
+    <style>
+        #draggable {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+        }
+
+        #draggable1 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            background-color: white;
+            background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+            background-size: cover;
+        }
+
+        #draggable2 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            background-color: white;
+            background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+            background-size: cover;
+        }
+
+        #draggable3 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            background-color: white;
+            background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+            background-size: cover;
+        }
+
+        #draggable4 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            background-color: white;
+            background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+            background-size: cover;
+        }
+
+        #draggable5 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+        }
+
+        #draggable6 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+        }
+
+        .beauty {
+            display: flex;
+            flex-direction: row;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: white;
+            background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+            background-size: cover;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin: 5px;
+            padding: 5px;
+            width: 150px;
+        }
+
+        .category-list {
+            padding: 1rem .7rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .91rem;
+            margin: .2rem .5rem;
+            border-radius: 3rem;
+            background: gray;
+            color: black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <ul>
+        <li id="draggable" class="ui-state-highlight">Drag me down</li>
+    </ul>
+
+    <ul id="sortable">
+        <li class="category-list">Item 1</li>
+        <li class="category-list">Item 2</li>
+        <li class="category-list">Item 3</li>
+        <li class="category-list">Item 4</li>
+        <li class="category-list">Item 5</li>
+    </ul>
+
+    <script src="./js/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#sortable").sortable({
+                revert: true
+            });
+            $("#draggable").draggable({
+                connectToSortable: "#sortable",
+                helper: "clone",
+                revert: "invalid"
+            });
+            $("ul, li").disableSelection();
+        });
+    </script>
+
+</body>
+
+</html>
