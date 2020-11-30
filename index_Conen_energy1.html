@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="./photos/iconfinder_Untitled-1-19_2419681.svg" />
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="../photos/icons8-edit-image-64.jpg" />
+
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -18,6 +19,27 @@
     <script src="js/scripts.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="./js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+
+    <style>
+        #mapid {
+            width: 99.5%;
+            height: 500px;
+            border: 3px solid black;
+            border-radius: 2.5rem;
+
+        }
+       
+    </style>
+
 
 
 </head>
@@ -95,6 +117,9 @@
                  
                     <a href="#"><u>Conenstraße 3, 54497 Morbach-Gonzerath</u></a>
                 </div>
+                <div class="card">
+                    <div id="mapid"></div>
+                  </div>
                 
                 <br>
                 <br>
@@ -463,7 +488,50 @@
             <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=&timezone=Europe%2FParis" width="100%" height="150" frameborder="0" seamless>
             </iframe> 
     </div>
+    <script>
+        var mymap = L.map('mapid').setView([49.79100066421143, 7.116591606845117], 10);
 
+        L.tileLayer(
+            'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                maxZoom: 180,
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1
+            }).addTo(mymap);
+        
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.79100066421143, 7.116591606845117]).bindPopup(
+            '<b>Auf der Heide 54497 Morbach</b><br> PV-1E21 ').addTo(mymap);
+        var circle = L.circle([49.79100066421143, 7.116591606845117], {
+            color: 'blue',
+            fillColor: 'blue',
+            fillOpacity: 0.5,
+            radius: 1000
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+
+        var marker = L.marker([49.81517857169074, 7.151946929466601]).addTo(mymap).bindPopup(
+            "<b>St. Georg Weg 7 Z54497 Morbach-Merscheid</b> <br>PV-1E9").addTo(mymap);
+        var circle = L.circle([49.81517857169074, 7.151946929466601], {
+            color: 'blue',
+            fillColor: 'blue',
+            fillOpacity: 0.5,
+            radius: 1000
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.80762196237015, 7.1143907217686975]).bindPopup(
+            '<a class="mybox" href="./photos/Auto 24 3.jpg" title="Auto 24  [177 KWP]" data-lcl-txt="Anlage 2"data-lcl-author="Conen Energy"><img src="./photos/Auto 24 3-klein.jpg" width="300" height="300"></a>  <b>   Morbach Esso Tankstelle An der Hunsrückhöhenstraße 3 54497 Morbach</b><br> PV-1E22 ---- 99[kWp]  ').addTo(mymap);
+        var circle = L.circle([49.80762196237015, 7.1143907217686975], {
+            color: 'blue',
+            fillColor: 'blue',
+            fillOpacity: 0.5,
+            radius: 1000
+        }).addTo(mymap);
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      #map {
+        position: absolute;
+        height: 500px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiZXhhbXBsZXMiLCJhIjoiY2p0MG01MXRqMW45cjQzb2R6b2ptc3J4MSJ9.zA2W0IkI0c6KaAhJfk9bWg';
+
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        minZoom: 10,
+        maxZoom: 18,
+        center: [-122.413184, 37.775715],
+        scrollZoom: false
+      });
+
+      function rotate() {
+        map.easeTo({ bearing: 40, duration: 10000, pitch: 0, zoom: 18 });
+        window.setTimeout(function () {
+          map.easeTo({ bearing: 180, duration: 10000, pitch: 0, zoom: 14 });
+          window.setTimeout(function () {
+            map.easeTo({ bearing: 270, duration: 10000, pitch: 0, zoom: 16 });
+            window.setTimeout(function () {
+              rotator();
+            }, 10000);
+          }, 10000);
+        }, 10000);
+      }
+
+      map.on('load', function () {
+        rotate();
+      });
+    </script>
+  </body>
+</html>
