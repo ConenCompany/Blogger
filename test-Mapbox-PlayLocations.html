@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Center the map on a clicked symbol</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #menu {
+            position: absolute;
+            background: #fff;
+            padding: 10px;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="menu">
+        <input id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked" />
+        <label for="streets-v11">streets</label>
+        <input id="light-v10" type="radio" name="rtoggle" value="light" />
+        <label for="light-v10">light</label>
+        <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
+        <label for="dark-v10">dark</label>
+        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
+        <label for="outdoors-v11">outdoors</label>
+        <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
+        <label for="satellite-v9">satellite</label>
+    </div>
+    <script>
+        mapboxgl.accessToken =
+            'pk.eyJ1IjoiaWNoZWJiaSIsImEiOiJja2h6Nzl1cTEwM3NiMnlzd243MDJlODQ1In0.760oEjl5KceluQs-c5M-1A';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [7.151946929466601, 49.81517857169074],
+            zoom: 13
+        });
+        map.addControl(new mapboxgl.NavigationControl());
+
+        map.on('load', function () {
+            // Add an image to use as a custom marker
+            map.loadImage(
+                'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+                function (error, image) {
+                    if (error) throw error;
+                    map.addImage('custom-marker', image);
+                    // Add a GeoJSON source with 3 points.
+                    map.addSource('points', {
+                        'type': 'geojson',
+                        'data': {
+                            'type': 'FeatureCollection',
+                            'features': [{
+                                    'type': 'Feature',
+                                    'properties': {},
+                                    'geometry': {
+                                        'type': 'Point',
+                                        'coordinates': [
+                                            7.1143907217686975,
+                                            49.80762196237015
+                                        ]
+                                    }
+                                },
+                                {
+                                    'type': 'Feature',
+                                    'properties': {},
+                                    'geometry': {
+                                        'type': 'Point',
+                                        'coordinates': [
+                                        7.116591606845117,
+                                        49.79100066421143
+                                        ]
+                                    }
+                                },
+                                {
+                                    'type': 'Feature',
+                                    'properties': {},
+                                    'geometry': {
+                                        'type': 'Point',
+                                        'coordinates': [
+                                        7.151946929466601,
+                                        49.81517857169074
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    });
+
+                    // Add a symbol layer
+                    map.addLayer({
+                        'id': 'symbols',
+                        'type': 'symbol',
+                        'source': 'points',
+                        'layout': {
+                            'icon-image': 'custom-marker'
+                        }
+                    });
+                }
+            );
+
+            // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
+            map.on('click', 'symbols', function (e) {
+                map.flyTo({
+                    center: e.features[0].geometry.coordinates
+                });
+            });
+
+            // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+            map.on('mouseenter', 'symbols', function () {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+
+            // Change it back to a pointer when it leaves.
+            map.on('mouseleave', 'symbols', function () {
+                map.getCanvas().style.cursor = '';
+            });
+        });
+
+        var layerList = document.getElementById('menu');
+        var inputs = layerList.getElementsByTagName('input');
+
+        function switchLayer(layer) {
+            var layerId = layer.target.id;
+            map.setStyle('mapbox://styles/mapbox/' + layerId);
+        }
+
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].onclick = switchLayer;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -491,7 +491,7 @@
             width="100%" height="150" frameborder="0" seamless>
         </iframe>
     </div>
-
+    
     <script>
         var cities = L.layerGroup();
 
@@ -501,16 +501,7 @@
             mbUrl =
             'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 
-        var
-            satellite = L.tileLayer(mbUrl, {
-                id: 'mapbox/satellite-v9',
-                tileSize: 512,
-                zoomOffset: -1,
-                attribution: mbAttr
-            }),
-
-
-            grayscale = L.tileLayer(mbUrl, {
+        var grayscale = L.tileLayer(mbUrl, {
                 id: 'mapbox/light-v9',
                 tileSize: 512,
                 zoomOffset: -1,
@@ -533,44 +524,36 @@
                 tileSize: 512,
                 zoomOffset: -1,
                 attribution: mbAttr
+            }),
+            satellite = L.tileLayer(mbUrl, {
+                id: 'mapbox/satellite-v9',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
             })
 
 
-
-            var mymap = L.map('mapid', {
-                center: [50.533071, 9.758844],
-                zoom: 5,
-                layers: [satellite, cities]
-            });
+        var mymap = L.map('mapid', {
+            center: [49.80762196237015, 7.1143907217686975],
+            zoom: 10,
+            layers: [grayscale, cities]
+        });
         var baseLayers = {
-            "Satellite": satellite,
             "Outdoors": outdoors,
             "Grayscale": grayscale,
             "Streets": streets,
             "Dark": dark,
-            
+            "Satellite": satellite
 
         };
 
 
         L.control.layers(baseLayers).addTo(mymap);
-
-
-        var popup = L.popup();
-
-        function onMapClick(e) {
-            popup
-                .setLatLng(e.latlng)
-                .setContent("Koordinaten eines Orts ermitteln " + e.latlng.toString())
-                .openOn(mymap);
-        }
-
-        mymap.on('click', onMapClick);
         /******************************************************************************************************************************************************/
 
-        var marker = L.marker([49.8252074286213, 7.064703986352461]).bindPopup(
+        var marker = L.marker([49.81517857169074, 7.151946929466601]).bindPopup(
             "<b>St. Georg Weg 7 Z54497 Morbach-Merscheid</b> <br>PV-1E9").addTo(mymap);
-        var circle = L.circle([49.8252074286213, 7.064703986352461], {
+        var circle = L.circle([49.81517857169074, 7.151946929466601], {
             color: 'blue',
             fillColor: 'transparent',
             fillOpacity: 0.5,
@@ -578,10 +561,10 @@
         }).addTo(mymap);
 
         /******************************************************************************************************************************************************/
-        var marker = L.marker([49.80774871354025, 7.114322076707525]).bindPopup(
+        var marker = L.marker([49.80762196237015, 7.1143907217686975]).bindPopup(
             '<a class="mybox" href="./photos/Auto 24 3.jpg" title="Auto 24  [177 KWP]" data-lcl-txt="Anlage 2"data-lcl-author="Conen Energy"><img src="./photos/Auto 24 3-klein.jpg" width="300" height="300"></a>  <b>   Morbach Esso Tankstelle An der Hunsrückhöhenstraße 3 54497 Morbach</b><br> PV-1E22 ---- 99[kWp] '
         ).addTo(mymap);
-        var circle = L.circle([49.80774871354025, 7.114322076707525], {
+        var circle = L.circle([49.80762196237015, 7.1143907217686975], {
             color: 'blue',
             fillColor: 'transparent',
             fillOpacity: 0.5,
@@ -659,9 +642,9 @@
         }).addTo(mymap);
 
         /******************************************************************************************************************************************************/
-        var marker = L.marker([49.79068668052287, 7.115025593635773]).bindPopup(
+        var marker = L.marker([49.79100066421143, 7.116591606845117]).bindPopup(
             '<b>Auf der Heide 54497 Morbach</b><br> PV-1E21------99[kWp]').addTo(mymap);
-        var circle = L.circle([49.79068668052287, 7.115025593635773], {
+        var circle = L.circle([49.79100066421143, 7.116591606845117], {
             color: 'blue',
             fillColor: 'transparent',
             fillOpacity: 0.5,
@@ -669,87 +652,13 @@
         }).addTo(mymap);
 
         /******************************************************************************************************************************************************/
-        var marker = L.marker([49.81507833988377, 7.151076283771945]).bindPopup(
-            '<b>  Idarwaldstr. 16, 54497 Morbach Bischofsdhron</b><br> PV-1E9 ------ 130[kWp]').addTo(mymap);
-        var circle = L.circle([49.81507833988377, 7.151076283771945], {
+        var marker = L.marker([49.815437661585044, 7.153231760150733]).bindPopup(
+            '<b>  Idarwaldstr. 16, 54497 Morbach Bischofsdhron</b><br> PV-1E9 ------ 99[kWp]').addTo(mymap);
+        var circle = L.circle([49.815437661585044, 7.153231760150733], {
             color: 'blue',
             fillColor: 'transparent',
             fillOpacity: 0.5,
             radius: 50
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.86172886270462, 7.12463125067508]).bindPopup(
-            '<b>  Gewerbestr. 8, 54497 Morbach Gonzerath</b><br> PV-1E6 ------ 94,25[kWp]').addTo(mymap);
-        var circle = L.circle([49.86172886270462, 7.12463125067508], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 18
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([50.05503109657376, 12.177053069996443]).bindPopup(
-            '<b> Arzberg Edeka Marktredwitzer Str. 28, 95659 Arzberg</b><br> PV-1E11 ------ 209,79[kWp]').addTo(
-            mymap);
-        var circle = L.circle([50.05503109657376, 12.177053069996443], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 50
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.48412469650521, 7.252542137411973]).bindPopup(
-            '<b> Hundheim Erlenhof Erlenhof 1 Z 54497 Morbach Hundheim </b><br> PV-1E18 ------ 160,05[kWp]').addTo(
-            mymap);
-        var circle = L.circle([49.48412469650521, 7.252542137411973], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 50
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.8610006959286, 7.125092237317544]).bindPopup(
-                '<b> Gonzerath Herlach Metall Gewerbestr. 4 54497 Morbach Gonzerath </b><br> PV-1E4 ------ 130[kWp]')
-            .addTo(mymap);
-        var circle = L.circle([49.8610006959286, 7.125092237317544], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 18
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.86148940956437, 7.124909546971596]).bindPopup(
-            '<b> Gonzerath Herlach Bau Gewerbestr. 6, 54497 Morbach Gonzerath </b><br> PV-1E5------ 99[kWp]').addTo(
-            mymap);
-        var circle = L.circle([49.86148940956437, 7.124909546971596], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 18
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.82130972503102, 7.123378318286416]).bindPopup(
-            '<b> Morbach Hof Geierslay Hof Geierslay 1 54497 Morbach </b><br> PV-1E16------ 130[kWp]').addTo(mymap);
-        var circle = L.circle([49.82130972503102, 7.123378318286416], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 38
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.955535828245466, 6.955899920622974]).bindPopup(
-            '<b>Platten Auto Mambo Zum Bieberbach 1, 554518 Platten </b><br> PV-1E23------ 75,03[kWp]').addTo(mymap);
-        var circle = L.circle([49.955535828245466, 6.955899920622974], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 38
         }).addTo(mymap);
     </script>
 </body>
