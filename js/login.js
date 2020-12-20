@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         if (user && user.password === password) {
             window.localStorage.setItem('loggedIn', true)
-            window.location.pathname = '/index1.html'
+            window.location.pathname = '/index.html'
         } else {
             document.getElementById('login-failed').classList.remove('d-none')
         }
