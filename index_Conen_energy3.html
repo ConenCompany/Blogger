@@ -18,7 +18,24 @@
     <script src="js/scripts.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
 
+    <style>
+        #mapid {
+            width: 99.5%;
+            height: 500px;
+            border: 3px solid black;
+            border-radius: 2.5rem;
+
+        }
+    </style>
 
 </head>
 
@@ -28,7 +45,7 @@
     <nav class="nav">
         <div class="nav-menu flex-row ">
             <div class="nav-brand">
-                <a href="./index.html" class="text-gray">   Tunnel Website  <i class="fas fa-solar-panel"></i></a>
+                <a href="./index.html" class="text-gray"> Tunnel Website <i class="fas fa-solar-panel"></i></a>
             </div>
             <div class="div toggle-collapse">
                 <div class="div toggle-icons">
@@ -94,9 +111,14 @@
                 </h4>
 
                 <div class="subheading "> Conen 3.Energy GmbH & Co. KG
-                 
+
                     <a href="#"><u>Conenstraße 3, 54497 Morbach-Gonzerath</u></a>
                 </div>
+                <div class="card">
+                    <div id="mapid"></div>
+
+                </div>
+
                 <br>
                 <br>
                 <table id="Conen 3.Energy GmbH & Co. KG" class="link-table">
@@ -303,12 +325,203 @@
         </section>
     </div>
 
-    <header class="bg2"
-        style="background-image: url('https://images.unsplash.com/photo-1497440001374-f26997328c1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80');">
-        <span class="bg-text">Willkomen</span>
-        <span class="bg-text1">zurück</span>
-    </header>
-    <div class="bg1"></div>
+    <div style="text-align:center;padding:1em 0;">
+        <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/country/fr">
+                <span style="color:gray;">Aktuelle Uhrzeit in</span><br />Deutschland</a></h2>
+        <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=&timezone=Europe%2FParis"
+            width="100%" height="150" frameborder="0" seamless>
+        </iframe>
+    </div>
+
+    <script>
+        var cities = L.layerGroup();
+
+        var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            mbUrl =
+            'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+        var
+            satellite = L.tileLayer(mbUrl, {
+                id: 'mapbox/satellite-v9',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            }),
+
+
+            grayscale = L.tileLayer(mbUrl, {
+                id: 'mapbox/light-v9',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            }),
+            streets = L.tileLayer(mbUrl, {
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            }),
+            outdoors = L.tileLayer(mbUrl, {
+                id: 'mapbox/outdoors-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            }),
+            dark = L.tileLayer(mbUrl, {
+                id: 'mapbox/dark-v10',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            })
+
+
+
+        var mymap = L.map('mapid', {
+            center: [50.502291, 5.603816],
+            zoom: 6.9,
+            layers: [outdoors, cities]
+        });
+        var baseLayers = {
+            "Satellite": satellite,
+            "Outdoors": outdoors,
+            "Grayscale": grayscale,
+            "Streets": streets,
+            "Dark": dark,
+
+
+        };
+
+
+        L.control.layers(baseLayers).addTo(mymap);
+
+
+        var popup = L.popup();
+
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent("Koordinaten eines Orts ermitteln " + e.latlng.toString())
+                .openOn(mymap);
+        }
+
+        mymap.on('click', onMapClick);
+
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([50.09193325253029, 7.519903654816963]).bindPopup(
+            '  <b>   Dorfstr. 3, 56288 Braunshorn	</b><br> PV-3E19 ---- 148.48 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([50.09193325253029, 7.519903654816963], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.83239790379163, 7.05772592611106]).bindPopup(
+            '  <b>  Gornhausener Weg 90 Z, 54497 Morbach Merscheid	</b><br> PV-3E7 ---- 140.8 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.83239790379163, 7.05772592611106], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.885318049646045, 7.231958454847976]).bindPopup(
+            ' <a class="mybox" href="./photos/Kleiyhof Horbruch.jpg" title="Anlage 38"data-lcl-txt="Kleiyhof Horbruch" data-lcl-author="Conen Energy"><img src="./photos/Kleiyhof Horbruch-klein.jpg" width="300" height="300"></a> <b>   Kleiyhof 1, 55483 Horbruch	 </b><br> PV-3E15 ---- 122.88 [kWp] ').addTo(mymap);
+        var circle = L.circle([49.885318049646045, 7.231958454847976], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([51.34696758996273, 7.05249348882488]).bindPopup(
+            '  <b>   Konrad Zuse Str. 5, Velbert	 </b><br> PV-3E2 ---- 99.825 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([51.34696758996273, 7.05249348882488], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.80308968239619, 7.2233368510439435]).bindPopup(
+            '<a class="mybox" href="./photos/Natursteinwerk Horbruch.jpg" title="Anlage 39"data-lcl-txt="Natursteinwerk Horbruch" data-lcl-author="Conen Energy"><img src="./photos/Natursteinwerk Horbruch-klein.jpg" width="300" height="300"></a>  <b>   Am Sportplatz 11 A, Horbruch	 </b><br> PV-3E16 ---- 99.52 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.80308968239619, 7.2233368510439435], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.75487755490075, 7.264819545317135]).bindPopup(
+            '  <b>   Kirschweiler Mühle 3, Kirchweiler </b><br> PV-3E17	 ---- 99.52	 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.75487755490075, 7.264819545317135], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([50.29359161544119, 6.31153755677247]).bindPopup(
+            '  <b>   Laudesfeld 901 Z, Auw bei Prüm	</b><br> PV-3E13	 ---- 99.43	[kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([50.29359161544119, 6.31153755677247], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.90111658580312, 7.23680513411718]).bindPopup(
+            '  <b>   Bahnhofstr. 39, Hirschfeld </b><br> PV-3E14 ---- 99.2 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.90111658580312, 7.23680513411718], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.69409449825623, 6.553757439707058]).bindPopup(
+            ' <b> Sabatierstr. 9, 54332 Wasserliesch	</b><br> PV-3E4	 ------ 97.29 [kWp]'
+        ).addTo(mymap);
+        var circle = L.circle([49.69409449825623, 6.553757439707058], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.91000390657707, 7.027815064609371]).bindPopup(
+            ' <a class="mybox" href="./photos/Auto 24 3.jpg" title="Auto 24  [177 KWP]" data-lcl-txt="Anlage 2"data-lcl-author="Conen Energy"><img src="./photos/Auto 24 3-klein.jpg" width="300" height="300"></a>  <b>  Industriestr. 36, Mülheim	</b><br> PV-3E6 ------ 75.52	 [kWp]'
+        ).addTo(mymap);
+        var circle = L.circle([49.91000390657707, 7.027815064609371], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([50.09134758541165, 7.520783775902132]).bindPopup(
+            ' <b> Gartenweg 900 Z/ Dorfstr. 2, 56288 Braunshorn	</b><br> PV-3E20 ------ 53.76 [kWp]'
+        ).addTo(mymap);
+        var circle = L.circle([50.09134758541165, 7.520783775902132], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+    </script>
 
 </body>
 
