@@ -18,7 +18,23 @@
     <script src="js/scripts.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+    <style>
+        #mapid {
+            width: 99.5%;
+            height: 500px;
+            border: 3px solid black;
+            border-radius: 2.5rem;
 
+        }
+    </style>
 
 </head>
 
@@ -28,7 +44,7 @@
     <nav class="nav">
         <div class="nav-menu flex-row ">
             <div class="nav-brand">
-                <a href="./index.html" class="text-gray">   Tunnel Website  <i class="fas fa-solar-panel"></i></a>
+                <a href="./index.html" class="text-gray"> Tunnel Website <i class="fas fa-solar-panel"></i></a>
             </div>
             <div class="div toggle-collapse">
                 <div class="div toggle-icons">
@@ -76,7 +92,7 @@
             <div class="site-background1">
                 <h3> Herzlich willkommen </h3>
                 <h1> auf unserer Tunnel Homepage </h1>
-                
+
 
             </div>
         </section>
@@ -94,9 +110,14 @@
                 </h4>
 
                 <div class="subheading "> Conen Vermögensverwaltungsgesellschaft
-                 
+
                     <a href="#"><u>Conenstraße 3, 54497 Morbach-Gonzerath</u></a>
                 </div>
+                <div class="card">
+                    <div id="mapid"></div>
+
+                </div>
+
                 <br>
                 <br>
 
@@ -183,7 +204,7 @@
                         <td>5</td>
                         <td>Conenstr. 3, 54497 Morbach Gonzerath</td>
                         <td>PV-1VV1</td>
-                        <td>109,3</td>
+                        <td>109.3</td>
                         <td><a href="https://24bff73e5a2c.eu.ngrok.io" target="_blank">
                                 <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
@@ -236,12 +257,162 @@
         </section>
     </div>
 
-    <header class="bg2"
-        style="background-image: url('https://images.unsplash.com/photo-1497440001374-f26997328c1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80');">
-        <span class="bg-text">Willkomen</span>
-        <span class="bg-text1">zurück</span>
-    </header>
-    <div class="bg1"></div>
+    <div style="text-align:center;padding:1em 0;">
+        <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/country/fr">
+                <span style="color:gray;">Aktuelle Uhrzeit in</span><br />Deutschland</a></h2>
+        <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=&timezone=Europe%2FParis"
+            width="100%" height="150" frameborder="0" seamless>
+        </iframe>
+    </div>
+
+    <script>
+        var cities = L.layerGroup();
+
+        var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            mbUrl =
+            'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+        var
+            satellite = L.tileLayer(mbUrl, {
+                id: 'mapbox/satellite-v9',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            }),
+
+
+            grayscale = L.tileLayer(mbUrl, {
+                id: 'mapbox/light-v9',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            }),
+            streets = L.tileLayer(mbUrl, {
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            }),
+            outdoors = L.tileLayer(mbUrl, {
+                id: 'mapbox/outdoors-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            }),
+            dark = L.tileLayer(mbUrl, {
+                id: 'mapbox/dark-v10',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            })
+
+
+
+        var mymap = L.map('mapid', {
+            center: [51.694693, 32.27678],
+            zoom: 3.9,
+            layers: [outdoors, cities]
+        });
+        var baseLayers = {
+            "Satellite": satellite,
+            "Outdoors": outdoors,
+            "Grayscale": grayscale,
+            "Streets": streets,
+            "Dark": dark,
+
+
+        };
+
+
+        L.control.layers(baseLayers).addTo(mymap);
+
+
+        var popup = L.popup();
+
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent("Koordinaten eines Orts ermitteln " + e.latlng.toString())
+                .openOn(mymap);
+        }
+
+        mymap.on('click', onMapClick);
+
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.859838979001054, 7.128257659651849]).bindPopup(
+            ' <a class="mybox" href="./photos/Möbelfabrik Conen Gonzerath.jpg" title="Anlage 37"data-lcl-txt="Möbelfabrik Conen Gonzerath" data-lcl-author="Conen Energy"><img src="./photos/Möbelfabrik Conen Gonzerath-klein.jpg" width="300" height="300"></a> <b>   Conenstr. 4, 54497 Morbach Gonzerath		</b><br> PV-1VV2 ---- 302.7 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.859838979001054, 7.128257659651849], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([51.301069075638146, 14.822491468298614]).bindPopup(
+            '  <b>  Rietschener Str., 02906 Niesky	</b><br> PV-1VV7 ---- 248 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([51.301069075638146, 14.822491468298614], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([51.30047010091857, 14.828834792316608]).bindPopup(
+            ' <b>   Neuhofer Str., 02906 Niesky	 </b><br> PV-1VV6 ---- 202 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([51.30047010091857, 14.828834792316608], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.80774625576062, 7.115582091068585]).bindPopup(
+                    ' <a class="mybox" href="./photos/Schollenfeld 1.jpg" title="Anlage 56" data-lcl-txt="Schollenfeld 1"data-lcl-author="Conen Energy"><img src="./photos/Schollenfeld 1-klein.jpg" width="300" height="300"></a> <b>  Im Schollenfeld, 54497 Morbach	 </b><br> PV-1VV3 ---- 150 [kWp] '
+                    ).addTo(mymap);
+                var circle = L.circle([49.80774625576062, 7.115582091068585], {
+                    color: 'blue',
+                    fillColor: 'transparent',
+                    fillOpacity: 0.5,
+                    radius: 8
+                }).addTo(mymap);
+                /******************************************************************************************************************************************************/
+                var marker = L.marker([49.860268600947386, 7.1267112307854585]).bindPopup(
+                    '<a class="mybox" href="./photos/Halle 8.jpg" title="Anlage 22" data-lcl-txt="Halle 8"data-lcl-author="Conen Energy"><img src="./photos/Halle 8-klein.jpg" width="300" height="300"></a>  <b>   Conenstr. 3, 54497 Morbach Gonzerathd	 </b><br> PV-1VV1 ---- 109.3 [kWp] '
+                    ).addTo(mymap);
+                var circle = L.circle([49.860268600947386, 7.1267112307854585], {
+                    color: 'blue',
+                    fillColor: 'transparent',
+                    fillOpacity: 0.5,
+                    radius: 8
+                }).addTo(mymap);
+                /******************************************************************************************************************************************************/
+                var marker = L.marker([49.859539985177314, 7.115156655417362]).bindPopup(
+                    '  <b>   Am Klettbach 2-4, 54497 Morbach Gonzerath	 </b><br> PV-1VV5 ---- 70 [kWp] '
+                ).addTo(mymap);
+                var circle = L.circle([49.859539985177314, 7.115156655417362], {
+                    color: 'blue',
+                    fillColor: 'transparent',
+                    fillOpacity: 0.5,
+                    radius: 8
+                }).addTo(mymap);
+                /******************************************************************************************************************************************************/
+                var marker = L.marker([49.85970930636022, 7.115215084525528]).bindPopup(
+                    '  <b>   Am Klettbach 2-4, 54497 Morbach Gonzerath	</b><br> PV-1VV4  ---- 27[kWp] '
+                ).addTo(mymap);
+                var circle = L.circle([49.85970930636022, 7.115215084525528], {
+                    color: 'blue',
+                    fillColor: 'transparent',
+                    fillOpacity: 0.5,
+                    radius: 8
+                }).addTo(mymap);
+    </script>
+
 
 </body>
 
