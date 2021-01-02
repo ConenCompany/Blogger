@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>ConenEnergy - Web Tunnel</title>
+    <link rel="icon" type="image/x-icon" href="./photos/iconfinder_Untitled-1-19_2419681.svg" />
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="../photos/icons8-edit-image-64.jpg" />
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+    <script>
+        ! function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://weatherwidget.io/js/widget.min.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'weatherwidget-io-js');
+    </script>
+
+    <style>
+        #mapid {
+            width: 99.5%;
+            height: 100vh;
+            
+
+        }
+    </style>
+
+
+
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+
+    <nav class="nav">
+        <div class="nav-menu flex-row ">
+            <div class="nav-brand">
+                <a href="./index.html" class="text-gray"> Tunnel Website <i class="fas fa-solar-panel"></i></a>
+            </div>
+            <div class="div toggle-collapse">
+                <div class="div toggle-icons">
+                    <i class="fas fa-bars">
+
+                    </i>
+                </div>
+            </div>
+            <div>
+                <ul class="nav-items flex-row ">
+                    <li class="nav-link topbar-section">
+                        <i class="fas fa-home"></i>
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-link topbar-section">
+                        <i class="fas fa-building"></i>
+                        <a href="#all-company">
+                            Firmenliste</a>
+                    </li>
+                    <li class="nav-link topbar-section">
+                        <i class="fas fa-photo-video"></i>
+                        <a href="./Gallery.html" target="_blank">Photos Design 1</a>
+                    </li>
+                    <li class="nav-link topbar-section">
+                        <i class="fas fa-photo-video"></i>
+                        <a href="./Gallery_Bootstrap.html" target="_blank">Photos Design 2</a>
+                    </li>
+                    <li class="nav-link topbar-section">
+                        <i class="fas fa-globe-europe"></i>
+                        <a href="./maps.html">Maps</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    <!-- Page Content-->
+    <div class="container">
+        <!-- About-->
+        <section class="resume-section" id="links">
+            <div class="resume-section-content">
+                <div class="Gesellschaft">
+                </div>
+                <h4><u>TUNNEL Website</u>
+                </h4>
+
+                <div class="subheading "> Conen 1.Energy GmbH & Co. KG
+
+                    <a href="#"><u>Conenstraße 3, 54497 Morbach-Gonzerath</u></a>
+                </div>
+                <div class="card">
+                    <div id="mapid"></div>
+
+                </div>
+                
+            </div>
+            
+
+
+    </div>
+
+    </section>
+    </div>
+    <div style="text-align:center;padding:1em 0;">
+        <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/country/fr">
+                <span style="color:gray;">Aktuelle Uhrzeit in</span><br />Deutschland</a></h2>
+        <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=&timezone=Europe%2FParis"
+            width="100%" height="150" frameborder="0" seamless>
+        </iframe>
+    </div>
+    <script>
+        var cities = L.layerGroup();
+
+        var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            mbUrl =
+            'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+        var
+            satellite = L.tileLayer(mbUrl, {
+                id: 'mapbox/satellite-v9',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            }),
+
+
+            grayscale = L.tileLayer(mbUrl, {
+                id: 'mapbox/light-v9',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            }),
+            streets = L.tileLayer(mbUrl, {
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            }),
+            outdoors = L.tileLayer(mbUrl, {
+                id: 'mapbox/outdoors-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            }),
+            dark = L.tileLayer(mbUrl, {
+                id: 'mapbox/dark-v10',
+                tileSize: 512,
+                zoomOffset: -1,
+                attribution: mbAttr
+            })
+
+
+
+        var mymap = L.map('mapid', {
+            center: [50.317408, 8.658174],
+            zoom: 5.9,
+            layers: [satellite, cities]
+        });
+        var baseLayers = {
+            "Satellite": satellite,
+            "Outdoors": outdoors,
+            "Grayscale": grayscale,
+            "Streets": streets,
+            "Dark": dark,
+
+
+        };
+
+
+        L.control.layers(baseLayers).addTo(mymap);
+
+
+        var popup = L.popup();
+
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent("Koordinaten eines Orts ermitteln " + e.latlng.toString())
+                .openOn(mymap);
+        }
+
+        mymap.on('click', onMapClick);
+
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.80774871354025, 7.114322076707525]).bindPopup(
+            '<a class="mybox" href="./photos/Auto 24 3.jpg" title="Auto 24  177 [KWP]" data-lcl-txt="Anlage 2"data-lcl-author="Conen Energy"><img src="./photos/Auto 24 3-klein.jpg" width="300" height="300" ></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >MORBACH Wetter Real Time</a> <br>   <b>   Morbach Esso Tankstelle An der Hunsrückhöhenstraße 3 54497 Morbach</b><br> PV-1E22 ---- 99 [kWp] '
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+
+        var circle = L.circle([49.80774871354025, 7.114322076707525], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.8596577540509, 7.12797549085363]).bindPopup(
+            '<a class="mybox" href="./photos/Auto 24 3.jpg" title="Auto 24  [177 KWP]" data-lcl-txt="Anlage 2"data-lcl-author="Conen Energy"><img src="./photos/Auto 24 3-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >MORBACH Wetter Real Time</a> <br>  <b>  Conen Produkte GmbH, Conenstraße, Morbach</b><br> PV-1E1 ---- 670[kWp] '
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+
+        var circle = L.circle([49.8596577540509, 7.12797549085363], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.807634145857584, 7.115260204606089]).bindPopup(
+            ' <a class="mybox" href="./photos/Lagerhalle Schollenfeld Morbach.jpg" title="Anlage 33"data-lcl-txt="Lagerhalle Schollenfeld Morbach" data-lcl-author="Conen Energy"><img src="./photos/Lagerhalle Schollenfeld Morbach-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >MORBACH Wetter Real Time</a> <br> <b>   Morbach Möbelhof (neu) Im Schollenfeld 8 54497 Morbach </b><br> PV-1E3 ---- 620 [kWp] '
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+
+        var circle = L.circle([49.807634145857584, 7.115260204606089], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([51.169043595622576, 8.487163308267279]).bindPopup(
+            '<a class="weatherwidget-io" href="https://forecast7.com/de/51d198d53/winterberg/" data-label_1="WINTERBERG" data-label_2="Wetter Real Time" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >WINTERBERG Wetter Real Time</a> <br> <b>   Winterberg Kartbahn Winterberger Str.2   59955 Winterberg </b><br> PV-1E12 ---- 616,276 [kWp] '
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+
+        var circle = L.circle([51.169043595622576, 8.487163308267279], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.80308968239619, 7.2233368510439435]).bindPopup(
+            ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d807d22/bruchweiler/" data-label_1="BRUCHWEILER" data-label_2="Wetter Real Time" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >BRUCHWEILER Wetter Real Time</a> <br>  <b>   Bruchweiler Reiterhof Waldhof 2 55758 Bruchweiler </b><br> PV-1E15 ---- 350 [kWp] '
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+
+        var circle = L.circle([49.80308968239619, 7.2233368510439435], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([50.091488924595694, 7.519006363352011]).bindPopup(
+            ' <a class="weatherwidget-io" href="https://forecast7.com/de/50d097d52/braunshorn/" data-label_1="BRAUNSHORN" data-label_2="Wetter Real Time" data-theme="metallic" >BRAUNSHORN Wetter Real Time</a>  <b> Braunshorn Rippel Viehhandel Gartenweg 12 Z. 56288 Braunshorn </b><br> PV-1E19 ---- 283 [kWp] '
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+
+        var circle = L.circle([50.091488924595694, 7.519006363352011], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.85563818491182, 7.1201755740310215]).bindPopup(
+            ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter Real Time" data-theme="metallic" >GONZERATH Wetter Real Time</a> <br> <b>   Gonzerath Hof Aans PietIn der Door 16, 54497 Morbach Gonzerath</b><br> PV-1E7 ---- 250[kWp] '
+        ).addTo(mymap);
+
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+
+        var circle = L.circle([49.85563818491182, 7.1201755740310215], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.97331893083356, 7.386410116911322]).bindPopup(
+            '  <a class="mybox" href="./photos/Reiterhof Holger Offers 1.jpg" title="Anlage 51"data-lcl-txt="Reioterhof Holger Offers [250 KWP]" data-lcl-author="Conen Energy"><img src="./photos/Reiterhof Holger Offers 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d977d42/heinzenbach/" data-label_1="HEINZENBACH" data-label_2="Wetter Real Time" data-theme="metallic" >HEINZENBACH Wetter Real Time</a> <br>  <b>   Heinzenbach Holger Offers Kücherhof 1 55483 Heinzenbach </b><br> PV-1E8 ---- 250 [kWp] '
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+
+        var circle = L.circle([49.97331893083356, 7.386410116911322], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.79068668052287, 7.115025593635773]).bindPopup(
+            ' <a class="mybox" href="./photos/Gertnerrei Berg 1.jpg" title="Anlage 14" data-lcl-txt="Gertnerrei Berg"data-lcl-author="Conen Energy"><img src="./photos/Gertnerrei Berg 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter Real Time" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >MORBACH Wetter Real Time</a> <br>  <b>Auf der Heide 54497 Morbach</b><br> PV-1E21 ------ 99 [kWp]'
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+
+        var circle = L.circle([49.79068668052287, 7.115025593635773], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.81332224968441, 7.155965571590137]).bindPopup(
+            ' <a class="mybox" href="./photos/Freizeitzentrum Idarwald Bischhofsdhron.jpg" title="Anlage 12"data-lcl-txt="Feinkost Fritschen Trier 1.jpg" data-lcl-author="Conen Energy"><img src="./photos/Freizeitzentrum Idarwald Bischhofsdhron-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d827d15/bischofsdhron/" data-label_1="BISCHOFSDHRON" data-label_2="Wetter" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >BISCHOFSDHRON Wetter</a> <br>  <b>  Idarwaldstr. 16, 54497 Morbach Bischofsdhron</b><br> PV-1E9 ------ 130 [kWp]'
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+
+        var circle = L.circle([49.81332224968441, 7.155965571590137], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.86172886270462, 7.12463125067508]).bindPopup(
+            ' <a class="mybox" href="./photos/Herlach 1.jpg" title="Anlage 26" data-lcl-txt="Herlach"data-lcl-author="Conen Energy"><img src="./photos/Herlach 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >GONZERATH Wetter Real time</a> <br> <b>  Gewerbestr. 8, 54497 Morbach Gonzerath</b><br> PV-1E6 ------ 94,25 [kWp]'
+        ).addTo(mymap);
+
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+
+        var circle = L.circle([49.86172886270462, 7.12463125067508], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([50.05503109657376, 12.177053069996443]).bindPopup(
+            ' <a class="weatherwidget-io" href="https://forecast7.com/de/50d0612d19/arzberg/" data-label_1="ARZBERG" data-label_2="Wetter Real Time" data-theme="metallic" >ARZBERG Wetter Real Time</a> <br> <b> Arzberg Edeka Marktredwitzer Str. 28, 95659 Arzberg</b><br> PV-1E11 ------ 209.79[kWp]'
+            ).addTo(
+            mymap);
+
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+        var circle = L.circle([50.05503109657376, 12.177053069996443], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.48412469650521, 7.252542137411973]).bindPopup(
+            ' <a class="mybox" href="./photos/Erlenhof Hundheim.jpg" title="Erlenhof Hundheim"data-lcl-txt=" Anlage 8" data-lcl-author="Conen Energy"><img src="./photos/Erlenhof Hundheim-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d837d15/hundheim/" data-label_1="HUNDHEIM" data-label_2="Wetter Real Time" data-theme="metallic" >HUNDHEIM Wetter Real Time</a> <br> <b> Hundheim Erlenhof Erlenhof 1 Z 54497 Morbach Hundheim </b><br> PV-1E18 ------ 160.05 [kWp]'
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+        var circle = L.circle([49.48412469650521, 7.252542137411973], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.8610006959286, 7.125092237317544]).bindPopup(
+                ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter Real Time" data-theme="metallic" >GONZERATH Wetter Real Time</a>  <br> <b> Gonzerath Herlach Metall Gewerbestr. 4 54497 Morbach Gonzerath </b><br> PV-1E4 ------ 130 [kWp]'
+                )
+            .addTo(mymap);
+            marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+        var circle = L.circle([49.8610006959286, 7.125092237317544], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.86148940956437, 7.124909546971596]).bindPopup(
+            '  <a class="mybox" href="./photos/Herlach 2.jpg" title="Anlage 27" data-lcl-txt="Herlach"data-lcl-author="Conen Energy"><img src="./photos/Herlach 2-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter Real Time" data-theme="metallic" >GONZERATH Wetter Real Time</a> <b> Gonzerath Herlach Bau Gewerbestr. 6, 54497 Morbach Gonzerath </b><br> PV-1E5  ------ 99 [kWp]'
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+        var circle = L.circle([49.86148940956437, 7.124909546971596], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.82130972503102, 7.123378318286416]).bindPopup(
+            ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter Real Time" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >MORBACH Wetter Real Time</a> <br> <b> Morbach Hof Geierslay Hof Geierslay 1 54497 Morbach </b><br> PV-1E16  ------ 130 [kWp]').addTo(
+            mymap);
+            marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+        var circle = L.circle([49.82130972503102, 7.123378318286416], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.955535828245466, 6.955899920622974]).bindPopup(
+            ' <a class="mybox" href="./photos/Auto 24 3.jpg" title="Auto 24  [177 KWP]" data-lcl-txt="Anlage 2"data-lcl-author="Conen Energy"><img src="./photos/Auto 24 3-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/48d659d20/plattenhardt/" data-label_1="PLATTENHARDT" data-label_2="Wetter Real Time" data-theme="metallic" >PLATTENHARDT Wetter Real Time</a> <br> <b>Platten Auto Mambo Zum Bieberbach 1, 554518 Platten </b><br> PV-1E23 ------ 75,03[kWp]'
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+        var circle = L.circle([49.955535828245466, 6.955899920622974], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+
+
+        /************************************Conen-Energy-2!!!!*****************************************************************************************************/
+
+        var marker = L.marker([49.8252074286213, 7.064703986352461]).bindPopup(
+            ' <a class="mybox" href="./photos/Merscheid Bushaltestelle.jpg" title="Anlage 35"data-lcl-txt="Merscheid Bushaltestelle.jpg" data-lcl-author="Conen Energy"><img src="./photos/Merscheid Bushaltestelle-klein.jpg" width="300" height="300"></a>   <b>St. Georg Weg 7 Z54497 Morbach-Merscheid</b> <br> PV-2E41 ------- 64.66 [kWp]'
+        ).addTo(mymap);
+        var circle = L.circle([49.8252074286213, 7.064703986352461], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.82133482688414, 7.060244783481014]).bindPopup(
+            ' <a class="mybox" href="./photos/Haagerstr 44 Adam Merscheid.jpg" title="Anlage 20"data-lcl-txt="Haagerstr 44 Adam Merscheid" data-lcl-author="Conen Energy"><img src="./photos/Haagerstr 44 Adam Merscheid-klein.jpg" width="300" height="300"></a> <b>   Haager Str. 44 54497 Morbach-Merscheid</b><br> PV-2E42 ---- 93.6 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.82133482688414, 7.060244783481014], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.87741271296963, 7.102225219398952]).bindPopup(
+            ' <a class="mybox" href="./photos/Birkenhof.jpg" title="Birkenhof" data-lcl-txt="Anlage 6"data-lcl-author="Conen Energy"><img src="./photos/Birkenhof-klein.jpg" width="300" height="300"></a> <b>    Birkenhof 2. 54472 Monzelfeld</b><br> PV-2E36 ---- 64.41 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.87741271296963, 7.102225219398952], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 50
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.68359994982033, 6.558047282076427]).bindPopup(
+            ' <a class="mybox" href="./photos/Gerüsstbau Horn.jpg" title="Anlage 16" data-lcl-txt="Gerüsstbau Horn"data-lcl-author="Conen Energy"><img src="./photos/Gerüsstbau Horn-klein.jpg" width="300" height="300"></a> <b>   Brunnenstraße 41. 54329 Konz </b><br> PV-2E33 ---- 93.48 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.68359994982033, 6.558047282076427], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 50
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.695178, 6.553007]).bindPopup(
+            ' <a class="mybox" href="./photos/B&B Wasserliesch.jpg" title="B&B Wasserliesch  [177 KWP]"data-lcl-txt="Anlage 3" data-lcl-author="Conen Energy"><img src="./photos/B&B Wasserliesch-klein.jpg" width="300" height="300"></a> <b>    Sabatierstraße 10-12, 54332 Wasserliesch </b><br> PV-2E23 ---- 176.28 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.695178, 6.553007], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.69442452754409, 6.553716310132426]).bindPopup(
+            ' <b>    Sabatierstr. 7  54332 Wasserliesch </b><br> PV-2E25 ---- 67.84 [kWp] ').addTo(mymap);
+        var circle = L.circle([49.69442452754409, 6.553716310132426], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.6947876355389, 6.55407765684606]).bindPopup(
+            ' <b>    Sabatierstr. 5  54332 Wasserliesch </b><br> PV-2E27 ---- 76.8 [kWp] ').addTo(mymap);
+        var circle = L.circle([49.6947876355389, 6.55407765684606], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.7241391286556, 6.589167699609916]).bindPopup(
+            ' <a class="mybox" href="./photos/Ex Telekom Trier 2.jpg" title=" Ex Telekom Trier"data-lcl-txt=" Anlage 9" data-lcl-author="Conen Energy"><img src="./photos/Ex Telekom Trier 2-klein.jpg" width="300" height="300"></a> <b>     Gottbillstr. 46 54294 Trier </b><br> PV-2E14 ---- 75.315 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.7241391286556, 6.589167699609916], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 30
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.70542248103671, 6.587789319071446]).bindPopup(
+            '<a class="mybox" href="./photos/Bauhof Ehlenz Bau Konz.jpg" title="Bauhof Ehlenz Bau Konz"data-lcl-txt="Anlage 5" data-lcl-author="Conen Energy"><img src="./photos/Bauhof Ehlenz Bau Konz-klein.jpg" width="300" height="300"></a> <b>     Domänestr. 1-3, Konz	 </b><br> PV-2E25 ---- 67.83 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.70542248103671, 6.587789319071446], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.66883907957001, 6.87806747445665]).bindPopup(
+            ' <a class="mybox" href="./photos/Reinsfeld 1.jpg" title="Anlage 48" data-lcl-txt="Reinsfeld"data-lcl-author="Conen Energy"><img src="./photos/Reinsfeld 1-klein.jpg" width="300" height="300"></a> <b>    Am Weiher 13. 54421 Reinsfeld </b><br> PV-2E30 ---- 99.18 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.66883907957001, 6.87806747445665], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.66921148894809, 6.878325912956618]).bindPopup(
+            '<a class="mybox" href="./photos/Reinsfeld 2.jpg" title="Anlage 49" data-lcl-txt="Reinsfeld"data-lcl-author="Conen Energy"><img src="./photos/Reinsfeld 2-klein.jpg" width="300" height="300"></a> <b>    Am Weiher 11. 54421 Reinsfeld </b><br> PV-2E31 ---- 70.68 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.66921148894809, 6.878325912956618], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.70265009983527, 6.901827315773897]).bindPopup(
+            ' <a class="mybox" href="./photos/Hinzert Pölert Hof Lauer.jpg" title="Anlage 30" data-lcl-txt="Hinzert Pölert Hof Lauer" data-lcl-author="Conen Energy"> <img src="./photos/Hinzert Pölert Hof Lauer-klein.jpg" width="300" height="300"> </a> <b>     Zum Wiesenthal 901 Z 54421 Hinzert - Pölert </b><br> PV-2E34 ---- 75.24 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.70265009983527, 6.901827315773897], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 30
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.91086373160874, 7.035984231680011]).bindPopup(
+            ' <a class="mybox" href="./photos/Gebr Keller Mühlheim.jpg" title="Anlage 13"data-lcl-txt="Gebr Keller Mühlheim" data-lcl-author="Conen Energy"><img src="./photos/Gebr Keller Mühlheim-klein.jpg" width="300" height="300"></a>  <b>    Zur Sandgrube 1. 54470 Bernkastel-Kues </b><br> PV-2E44 ---- 87.21 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.91086373160874, 7.035984231680011], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.91069688491104, 7.03609704005147]).bindPopup(
+            '<a class="mybox" href="./photos/Elekto Port 1.jpg" title="Elekto Port" data-lcl-txt=" Anlage 7"data-lcl-author="Conen Energy"><img src="./photos/Elekto Port 1-klein.jpg" width="300" height="300"></a>  <b>    Zur Sandgrube 2. 54470 Bernkastel-Kues </b><br> PV-2E28 ---- 90.88 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.91069688491104, 7.03609704005147], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.81665288924336, 7.0564323835988505]).bindPopup(
+            '<a class="mybox" href="./photos/Haagerstr 900z Merscheid 2.jpg" title="Anlage 21"data-lcl-txt="Haagerstr 900z Merscheid" data-lcl-author="Conen Energy"><img src="./photos/Haagerstr 900z Merscheid 2-klein.jpg" width="300" height="300"></a> <b> Haager Str. 900 Z. 54497 Morbach-Merscheid </b><br> PV-2E43 ---- 93.33 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.81665288924336, 7.0564323835988505], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.922173918791536, 6.93192608224064]).bindPopup(
+            '<a class="mybox" href="./photos/Reiterhof Osann.jpg" title="Anlage 52" data-lcl-txt="Reiterhof Osann [66 KWP]" data-lcl-author="Conen Energy"> <img src="./photos/Reiterhof Osann-klein.jpg" width="300" height="300"></a>  <b> Am Klausenweiher 3. 54518 Osann-Monzel </b><br> PV-2E35 ---- 66 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.922173918791536, 6.93192608224064], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.912280191634515, 7.020539272045727]).bindPopup(
+            ' <a class="mybox" href="./photos/Getränke Anhalt 1.jpg" title="Anlage 18" data-lcl-txt="Getränke Anhalt"data-lcl-author="Conen Energy"><img src="./photos/Getränke Anhalt 1-klein.jpg" width="300" height="300"></a> <b>    Industriestraße 5 A. 54486 Mülheim an der Mosel </b><br> PV-2E29 ---- 56.55 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.912280191634515, 7.020539272045727], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.88930875890855, 7.184883193688138]).bindPopup(
+            '<a class="mybox" href="./photos/Schwimmhalle Kleinich.jpg" title="Anlage 57" data-lcl-txt="Schwimmhalle Kleinich" data-lcl-author="Conen Energy"><img src="./photos/Schwimmhalle Kleinich-klein.jpg" width="300" height="300"></a> <b>  Ortsstr. 3554483 Kleinich </b><br> PV-2E39 ---- 40.26 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.88930875890855, 7.184883193688138], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.66850884236237, 6.878845691181393]).bindPopup(
+            ' <a class="mybox" href="./photos/Reonsfeld 3.jpg" title="Anlage 53" data-lcl-txt="Reinsfeld 3 [33 KWP]"data-lcl-author="Conen Energy"><img src="./photos/Reonsfeld 3-klein.jpg" width="300" height="300"></a> <b>    Am Weiher 999. 54421 Reinsfeld </b><br> PV-2E32 ---- 32.49 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.66850884236237, 6.878845691181393], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.813175116723556, 6.985338562718163]).bindPopup(
+            ' <a class="mybox" href="./photos/Huhnlandhof.jpg" title="Anlage 32" data-lcl-txt="/Huhnlandhof"data-lcl-author="Conen Energy"><img src="./photos/Huhnlandhof-klein.jpg" width="300" height="300"></a> <b>    Huhnlandhof 2, 54497 Morbach </b><br> PV-2E6	 ---- 449.15 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.813175116723556, 6.985338562718163], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.69870040467935, 6.579885710587655]).bindPopup(
+            ' <a class="mybox" href="./photos/Reifen Esser Konz 2.jpg" title="Anlage 47"data-lcl-txt="Reifen  Esser Konz" data-lcl-author="Conen Energy"><img src="./photos/Reifen Esser Konz 2-klein.jpg" width="300" height="300"></a> <b>    An der Eisenbahn 3, Konz </b><br> PV-2E18	 ---- 23.68 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.69870040467935, 6.579885710587655], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.829478131512396, 7.14966961708619]).bindPopup(
+            ' <a class="mybox" href="./photos/Adamshof Hundheim.jpg" title="Adamshof Hundheim [750 KWP]"data-lcl-txt="Anlage 1" data-lcl-author="Conen Energy"><img src="./photos/Adamshof Hundheim-klein.jpg" width="300" height="300"></a> <b>  Reinhardshof, 54497 Morbach-Hundheim </b><br>  PV-2E16 ---- 749.775 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.829478131512396, 7.14966961708619], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.70549791104754, 6.58902609648389]).bindPopup(
+            ' <b>  Am Kirschberg 1, 54329 Konz </b><br>  PV-2E17 ---- 471.96 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.70549791104754, 6.58902609648389], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([50.215589418115584, 7.080400008894057]).bindPopup(
+            ' <b>  Grubenstraße 90, 56739 Leienkaul </b><br>  PV-2E9 ---- 430 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([50.215589418115584, 7.080400008894057], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.90853815240005, 7.034902636757852]).bindPopup(
+            ' <b>  Kordelweg 1, 54470 Bernkastel-Kues </b><br>  PV-2E3 ---- 430 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.90853815240005, 7.034902636757852], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.60136506259537, 6.6860239144501685]).bindPopup(
+            ' <b>  Kalfertshaus 2, 54314 Zerf </b><br>  PV-2E24 ---- 235.98 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.60136506259537, 6.6860239144501685], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.888914203242386, 7.183082204203087]).bindPopup(
+            ' <a class="mybox" href="./photos/HG Markt Kleinich 2.jpg" title="Anlage 28"data-lcl-txt="HG Markt Kleinich" data-lcl-author="Conen Energy"><img src="./photos/HG Markt Kleinich 2-klein.jpg" width="300" height="300"></a> <b>  Ortstraße 40, 54483 Kleinich	 </b><br>  PV-2E5 ---- 226.31 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.888914203242386, 7.183082204203087], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.92258302033668, 6.933256565951123]).bindPopup(
+            ' <a class="mybox" href="./photos/Natursteinwerk Osann 1.jpg" title="Anlage 40"data-lcl-txt="Natursteinwerk Osann" data-lcl-author="Conen Energy"><img src="./photos/Natursteinwerk Osann 1-klein.jpg" width="300" height="300"></a> <b>  Am Klausenweiher 1, 54518 Osann-Monzel	 </b><br>  PV-2E12 ---- 218.132 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.92258302033668, 6.933256565951123], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([50.706930668175424, 12.107733398677043]).bindPopup(
+            ' <b>  Ortstraße 9, 07980 Kühdorf </b><br>  PV-2E7 ---- 212.28 [kWp] ').addTo(mymap);
+        var circle = L.circle([50.706930668175424, 12.107733398677043], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.57994827340719, 6.718420812168897]).bindPopup(
+            ' <a class="mybox" href="./photos/Zerf Kofferfabrik 2.jpg" title="Anlage 65"data-lcl-txt="Zerf Kofferfabrik" data-lcl-author="Conen Energy"><img src="./photos/Zerf Kofferfabrik 2-klein.jpg" width="300" height="300"></a> <b>  Hirschfelderhof 3, 54314 Zerf </b><br>  PV-2E1 ---- 212.04 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.57994827340719, 6.718420812168897], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.74422617210116, 6.622620515089324]).bindPopup(
+            ' <a class="mybox" href="./photos/Feinkost Fritschen Trier 1.jpg" title="Anlage 11"data-lcl-txt="Feinkost Fritschen Trier 1" data-lcl-author="Conen Energy"><img src="./photos/Feinkost Fritschen Trier 1-klein.jpg" width="300" height="300"></a> <b>  Luxemburger Straße 84, 54294 Trier </b><br>  PV-2E19 ---- 169.21 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.74422617210116, 6.622620515089324], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.589220765508266, 6.647216577352292]).bindPopup(
+            '  <b>  Neunhäuserstr. 8 ,54314 Vierherrenborn </b><br>  PV-2E20 ---- 144.3 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.589220765508266, 6.647216577352292], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.65092468014679, 6.687588300617597]).bindPopup(
+            ' <a class="mybox" href="./photos/Wernerhof Lampaden.jpg" title="Anlage 64"data-lcl-txt="Wernerhof Lampaden" data-lcl-author="Conen Energy"><img src="./photos/Wernerhof Lampaden-klein.jpg" width="300" height="300"></a>  <b>  Wenerhof ,54316 Lampaden </b><br>  PV-2E8 ---- 147.2 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.65092468014679, 6.687588300617597], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.66657685263443, 6.669279400158121]).bindPopup(
+            ' <a class="mybox" href="./photos/Pellingen 2.jpg" title="Anlage 42" data-lcl-txt="Pellingen"data-lcl-author="Conen Energy"><img src="./photos/Pellingen 2-klein.jpg" width="300" height="300"></a>  <b>  Hof Langenstein 1, 54331 Pellingen </b><br>  PV-2E15 ---- 138.47 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.66657685263443, 6.669279400158121], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.821972671268725, 7.072242459229505]).bindPopup(
+            '  <b>  Merscheider Straße 900 Z,54497 Morbach </b><br>  PV-2E11 ---- 137.25	 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.821972671268725, 7.072242459229505], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.9250344532958, 6.983630074784451]).bindPopup(
+            '  <a class="mybox" href="./photos/Sargfabrik Maring.jpg" title="Anlage 54"data-lcl-txt="Sargfabrik Maring [33 KWP]" data-lcl-author="Conen Energy"><img src="./photos/Sargfabrik Maring.jpg" width="300"height="300"></a>  <b>  Brunnenstraße 68 A,54484 Maring-Noviand	 </b><br>  PV-2E10 ---- 130 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.9250344532958, 6.983630074784451], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.835069772248126, 7.072275541776271]).bindPopup(
+            '  <a class="mybox" href="./photos/Sonnenhof 1.jpg" title="Anlage 58" data-lcl-txt="Sonnenhof 1"data-lcl-author="Conen Energy"><img src="./photos/Sonnenhof 1-klein.jpg" width="300" height="300"></a>  <b>  Sonnenhof 1,54497 Morbach-Elzerath	 </b><br>  PV-2E38 ---- 127 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.835069772248126, 7.072275541776271], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.759340697348925, 7.157691685798314]).bindPopup(
+            '  <a class="mybox" href="./photos/Teichhof Allenbach 2.jpg" title="Anlage 60"data-lcl-txt="Teichhof Allenbach 2" data-lcl-author="Conen Energy"><img src="./photos/Teichhof Allenbach 2-klein.jpg" width="300" height="300"></a>  <b>  In der Hohlbach 30 Z,55758 Allenbach </b><br>  PV-2E40 ---- 123.52	 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.759340697348925, 7.157691685798314], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.759340697348925, 7.157691685798314]).bindPopup(
+            '  <a class="mybox" href="./photos/Teichhof Allenbach 2.jpg" title="Anlage 60"data-lcl-txt="Teichhof Allenbach 2" data-lcl-author="Conen Energy"><img src="./photos/Teichhof Allenbach 2-klein.jpg" width="300" height="300"></a>  <b>  In der Hohlbach 30 Z,55758 Allenbach </b><br>  PV-2E37 ---- 123.52	 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.759340697348925, 7.157691685798314], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+
+
+        /*******************************************Conen-Energy-3!!!!!************************************************************************************************/
+        var marker = L.marker([50.09193325253029, 7.519903654816963]).bindPopup(
+            '  <b>   Dorfstr. 3, 56288 Braunshorn	</b><br> PV-3E19 ---- 148.48 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([50.09193325253029, 7.519903654816963], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.83239790379163, 7.05772592611106]).bindPopup(
+            '  <b>  Gornhausener Weg 90 Z, 54497 Morbach Merscheid	</b><br> PV-3E7 ---- 140.8 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.83239790379163, 7.05772592611106], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.885318049646045, 7.231958454847976]).bindPopup(
+            ' <a class="mybox" href="./photos/Kleiyhof Horbruch.jpg" title="Anlage 38"data-lcl-txt="Kleiyhof Horbruch" data-lcl-author="Conen Energy"><img src="./photos/Kleiyhof Horbruch-klein.jpg" width="300" height="300"></a> <b>   Kleiyhof 1, 55483 Horbruch	 </b><br> PV-3E15 ---- 122.88 [kWp] ').addTo(mymap);
+        var circle = L.circle([49.885318049646045, 7.231958454847976], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([51.34696758996273, 7.05249348882488]).bindPopup(
+            '  <b>   Konrad Zuse Str. 5, Velbert	 </b><br> PV-3E2 ---- 99.825 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([51.34696758996273, 7.05249348882488], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.80308968239619, 7.2233368510439435]).bindPopup(
+            '<a class="mybox" href="./photos/Natursteinwerk Horbruch.jpg" title="Anlage 39"data-lcl-txt="Natursteinwerk Horbruch" data-lcl-author="Conen Energy"><img src="./photos/Natursteinwerk Horbruch-klein.jpg" width="300" height="300"></a>  <b>   Am Sportplatz 11 A, Horbruch	 </b><br> PV-3E16 ---- 99.52 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.80308968239619, 7.2233368510439435], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.75487755490075, 7.264819545317135]).bindPopup(
+            '  <b>   Kirschweiler Mühle 3, Kirchweiler </b><br> PV-3E17	 ---- 99.52	 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.75487755490075, 7.264819545317135], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([50.29359161544119, 6.31153755677247]).bindPopup(
+            '  <b>   Laudesfeld 901 Z, Auw bei Prüm	</b><br> PV-3E13	 ---- 99.43	[kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([50.29359161544119, 6.31153755677247], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.90111658580312, 7.23680513411718]).bindPopup(
+            '  <b>   Bahnhofstr. 39, Hirschfeld </b><br> PV-3E14 ---- 99.2 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.90111658580312, 7.23680513411718], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.69409449825623, 6.553757439707058]).bindPopup(
+            ' <b> Sabatierstr. 9, 54332 Wasserliesch	</b><br> PV-3E4	 ------ 97.29 [kWp]'
+        ).addTo(mymap);
+        var circle = L.circle([49.69409449825623, 6.553757439707058], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.91000390657707, 7.027815064609371]).bindPopup(
+            ' <a class="mybox" href="./photos/Auto 24 3.jpg" title="Auto 24  [177 KWP]" data-lcl-txt="Anlage 2"data-lcl-author="Conen Energy"><img src="./photos/Auto 24 3-klein.jpg" width="300" height="300"></a>  <b>  Industriestr. 36, Mülheim	</b><br> PV-3E6 ------ 75.52	 [kWp]'
+        ).addTo(mymap);
+        var circle = L.circle([49.91000390657707, 7.027815064609371], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([50.09134758541165, 7.520783775902132]).bindPopup(
+            ' <b> Gartenweg 900 Z/ Dorfstr. 2, 56288 Braunshorn	</b><br> PV-3E20 ------ 53.76 [kWp]'
+        ).addTo(mymap);
+        var circle = L.circle([50.09134758541165, 7.520783775902132], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+
+
+
+
+        /***********************************Conen-Vermögen!!!****************************************************************************************************/
+        var marker = L.marker([49.859838979001054, 7.128257659651849]).bindPopup(
+            ' <a class="mybox" href="./photos/Möbelfabrik Conen Gonzerath.jpg" title="Anlage 37"data-lcl-txt="Möbelfabrik Conen Gonzerath" data-lcl-author="Conen Energy"><img src="./photos/Möbelfabrik Conen Gonzerath-klein.jpg" width="300" height="300"></a> <b>   Conenstr. 4, 54497 Morbach Gonzerath		</b><br> PV-1VV2 ---- 302.7 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([49.859838979001054, 7.128257659651849], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([51.301069075638146, 14.822491468298614]).bindPopup(
+            '  <b>  Rietschener Str., 02906 Niesky	</b><br> PV-1VV7 ---- 248 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([51.301069075638146, 14.822491468298614], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([51.30047010091857, 14.828834792316608]).bindPopup(
+            ' <b>   Neuhofer Str., 02906 Niesky	 </b><br> PV-1VV6 ---- 202 [kWp] '
+        ).addTo(mymap);
+        var circle = L.circle([51.30047010091857, 14.828834792316608], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.80774625576062, 7.115582091068585]).bindPopup(
+                    ' <a class="mybox" href="./photos/Schollenfeld 1.jpg" title="Anlage 56" data-lcl-txt="Schollenfeld 1"data-lcl-author="Conen Energy"><img src="./photos/Schollenfeld 1-klein.jpg" width="300" height="300"></a> <b>  Im Schollenfeld, 54497 Morbach	 </b><br> PV-1VV3 ---- 150 [kWp] '
+                    ).addTo(mymap);
+                var circle = L.circle([49.80774625576062, 7.115582091068585], {
+                    color: 'blue',
+                    fillColor: 'transparent',
+                    fillOpacity: 0.5,
+                    radius: 8
+                }).addTo(mymap);
+                /******************************************************************************************************************************************************/
+                var marker = L.marker([49.860268600947386, 7.1267112307854585]).bindPopup(
+                    '<a class="mybox" href="./photos/Halle 8.jpg" title="Anlage 22" data-lcl-txt="Halle 8"data-lcl-author="Conen Energy"><img src="./photos/Halle 8-klein.jpg" width="300" height="300"></a>  <b>   Conenstr. 3, 54497 Morbach Gonzerathd	 </b><br> PV-1VV1 ---- 109.3 [kWp] '
+                    ).addTo(mymap);
+                var circle = L.circle([49.860268600947386, 7.1267112307854585], {
+                    color: 'blue',
+                    fillColor: 'transparent',
+                    fillOpacity: 0.5,
+                    radius: 8
+                }).addTo(mymap);
+                /******************************************************************************************************************************************************/
+                var marker = L.marker([49.859539985177314, 7.115156655417362]).bindPopup(
+                    '  <b>   Am Klettbach 2-4, 54497 Morbach Gonzerath	 </b><br> PV-1VV5 ---- 70 [kWp] '
+                ).addTo(mymap);
+                var circle = L.circle([49.859539985177314, 7.115156655417362], {
+                    color: 'blue',
+                    fillColor: 'transparent',
+                    fillOpacity: 0.5,
+                    radius: 8
+                }).addTo(mymap);
+                /******************************************************************************************************************************************************/
+                var marker = L.marker([49.85970930636022, 7.115215084525528]).bindPopup(
+                    '  <b>   Am Klettbach 2-4, 54497 Morbach Gonzerath	</b><br> PV-1VV4  ---- 27[kWp] '
+                ).addTo(mymap);
+                var circle = L.circle([49.85970930636022, 7.115215084525528], {
+                    color: 'blue',
+                    fillColor: 'transparent',
+                    fillOpacity: 0.5,
+                    radius: 8
+                }).addTo(mymap);
+    </script>
+
+</body>
+
+</html>
