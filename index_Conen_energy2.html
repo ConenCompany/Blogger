@@ -25,6 +25,18 @@
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
 
+    <script>
+        ! function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://weatherwidget.io/js/widget.min.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'weatherwidget-io-js');
+    </script>
+
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
 
@@ -931,8 +943,13 @@
         /************************************Conen-Energy-2!!!!*****************************************************************************************************/
 
         var marker = L.marker([49.8252074286213, 7.064703986352461]).bindPopup(
-            ' <a class="mybox" href="./photos/Merscheid Bushaltestelle.jpg" title="Anlage 35"data-lcl-txt="Merscheid Bushaltestelle.jpg" data-lcl-author="Conen Energy"><img src="./photos/Merscheid Bushaltestelle-klein.jpg" width="300" height="300"></a>   <b>St. Georg Weg 7 Z54497 Morbach-Merscheid</b> <br> PV-2E41 ------- 64.66 [kWp]'
+            ' <a class="mybox" href="./photos/Merscheid Bushaltestelle.jpg" title="Anlage 35"data-lcl-txt="Merscheid Bushaltestelle.jpg" data-lcl-author="Conen Energy"><img src="./photos/Merscheid Bushaltestelle-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d827d06/merscheid/" data-label_1="MERSCHEID" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >MERSCHEID Wetter Real Time</a>   <b>St. Georg Weg 7 Z54497 Morbach-Merscheid</b> <br> PV-2E41 ------- 64.66 [kWp]'
         ).addTo(mymap);
+
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+
         var circle = L.circle([49.8252074286213, 7.064703986352461], {
             color: 'blue',
             fillColor: 'transparent',
@@ -942,8 +959,12 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.82133482688414, 7.060244783481014]).bindPopup(
-            ' <a class="mybox" href="./photos/Haagerstr 44 Adam Merscheid.jpg" title="Anlage 20"data-lcl-txt="Haagerstr 44 Adam Merscheid" data-lcl-author="Conen Energy"><img src="./photos/Haagerstr 44 Adam Merscheid-klein.jpg" width="300" height="300"></a> <b>   Haager Str. 44 54497 Morbach-Merscheid</b><br> PV-2E42 ---- 93.6 [kWp] '
+            ' <a class="mybox" href="./photos/Haagerstr 44 Adam Merscheid.jpg" title="Anlage 20"data-lcl-txt="Haagerstr 44 Adam Merscheid" data-lcl-author="Conen Energy"><img src="./photos/Haagerstr 44 Adam Merscheid-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d827d06/merscheid/" data-label_1="MERSCHEID" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >MERSCHEID Wetter Real Time</a> <b>   Haager Str. 44 54497 Morbach-Merscheid</b><br> PV-2E42 ---- 93.6 [kWp] '
         ).addTo(mymap);
+
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.82133482688414, 7.060244783481014], {
             color: 'blue',
             fillColor: 'transparent',
@@ -953,8 +974,12 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.87741271296963, 7.102225219398952]).bindPopup(
-            ' <a class="mybox" href="./photos/Birkenhof.jpg" title="Birkenhof" data-lcl-txt="Anlage 6"data-lcl-author="Conen Energy"><img src="./photos/Birkenhof-klein.jpg" width="300" height="300"></a> <b>    Birkenhof 2. 54472 Monzelfeld</b><br> PV-2E36 ---- 64.41 [kWp] '
+            ' <a class="mybox" href="./photos/Birkenhof.jpg" title="Birkenhof" data-lcl-txt="Anlage 6"data-lcl-author="Conen Energy"><img src="./photos/Birkenhof-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d897d07/monzelfeld/" data-label_1="MONZELFELD" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >MONZELFELD Wetter Real Time</a> <b>    Birkenhof 2. 54472 Monzelfeld</b><br> PV-2E36 ---- 64.41 [kWp] '
         ).addTo(mymap);
+
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.87741271296963, 7.102225219398952], {
             color: 'blue',
             fillColor: 'transparent',
@@ -964,8 +989,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.68359994982033, 6.558047282076427]).bindPopup(
-            ' <a class="mybox" href="./photos/Gerüsstbau Horn.jpg" title="Anlage 16" data-lcl-txt="Gerüsstbau Horn"data-lcl-author="Conen Energy"><img src="./photos/Gerüsstbau Horn-klein.jpg" width="300" height="300"></a> <b>   Brunnenstraße 41. 54329 Konz </b><br> PV-2E33 ---- 93.48 [kWp] '
+            ' <a class="mybox" href="./photos/Gerüsstbau Horn.jpg" title="Anlage 16" data-lcl-txt="Gerüsstbau Horn"data-lcl-author="Conen Energy"><img src="./photos/Gerüsstbau Horn-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d706d57/konz/" data-label_1="KONZ" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >KONZ Wetter Real Time</a> <b>   Brunnenstraße 41. 54329 Konz </b><br> PV-2E33 ---- 93.48 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.68359994982033, 6.558047282076427], {
             color: 'blue',
             fillColor: 'transparent',
@@ -975,8 +1003,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.695178, 6.553007]).bindPopup(
-            ' <a class="mybox" href="./photos/B&B Wasserliesch.jpg" title="B&B Wasserliesch  [177 KWP]"data-lcl-txt="Anlage 3" data-lcl-author="Conen Energy"><img src="./photos/B&B Wasserliesch-klein.jpg" width="300" height="300"></a> <b>    Sabatierstraße 10-12, 54332 Wasserliesch </b><br> PV-2E23 ---- 176.28 [kWp] '
+            ' <a class="mybox" href="./photos/B&B Wasserliesch.jpg" title="B&B Wasserliesch  [177 KWP]"data-lcl-txt="Anlage 3" data-lcl-author="Conen Energy"><img src="./photos/B&B Wasserliesch-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d706d55/wasserliesch/" data-label_1="WASSERLIESCH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >WASSERLIESCH Wetter Real Time</a> <b>    Sabatierstraße 10-12, 54332 Wasserliesch </b><br> PV-2E23 ---- 176.28 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.695178, 6.553007], {
             color: 'blue',
             fillColor: 'transparent',
@@ -986,7 +1017,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.69442452754409, 6.553716310132426]).bindPopup(
-            ' <b>    Sabatierstr. 7  54332 Wasserliesch </b><br> PV-2E25 ---- 67.84 [kWp] ').addTo(mymap);
+            ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d706d55/wasserliesch/" data-label_1="WASSERLIESCH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >WASSERLIESCH Wetter Real Time</a> <b>    Sabatierstr. 7  54332 Wasserliesch </b><br> PV-2E25 ---- 67.84 [kWp] '
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.69442452754409, 6.553716310132426], {
             color: 'blue',
             fillColor: 'transparent',
@@ -996,7 +1031,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.6947876355389, 6.55407765684606]).bindPopup(
-            ' <b>    Sabatierstr. 5  54332 Wasserliesch </b><br> PV-2E27 ---- 76.8 [kWp] ').addTo(mymap);
+            '<a class="weatherwidget-io" href="https://forecast7.com/de/49d706d55/wasserliesch/" data-label_1="WASSERLIESCH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >WASSERLIESCH Wetter Real Time</a> <b>    Sabatierstr. 5  54332 Wasserliesch </b><br> PV-2E27 ---- 76.8 [kWp] '
+            ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.6947876355389, 6.55407765684606], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1006,8 +1045,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.7241391286556, 6.589167699609916]).bindPopup(
-            ' <a class="mybox" href="./photos/Ex Telekom Trier 2.jpg" title=" Ex Telekom Trier"data-lcl-txt=" Anlage 9" data-lcl-author="Conen Energy"><img src="./photos/Ex Telekom Trier 2-klein.jpg" width="300" height="300"></a> <b>     Gottbillstr. 46 54294 Trier </b><br> PV-2E14 ---- 75.315 [kWp] '
+            ' <a class="mybox" href="./photos/Ex Telekom Trier 2.jpg" title=" Ex Telekom Trier"data-lcl-txt=" Anlage 9" data-lcl-author="Conen Energy"><img src="./photos/Ex Telekom Trier 2-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d756d64/trier/" data-label_1="TRIER" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >TRIER Wetter Real Time</a> <b>     Gottbillstr. 46 54294 Trier </b><br> PV-2E14 ---- 75.315 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.7241391286556, 6.589167699609916], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1017,8 +1059,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.70542248103671, 6.587789319071446]).bindPopup(
-            '<a class="mybox" href="./photos/Bauhof Ehlenz Bau Konz.jpg" title="Bauhof Ehlenz Bau Konz"data-lcl-txt="Anlage 5" data-lcl-author="Conen Energy"><img src="./photos/Bauhof Ehlenz Bau Konz-klein.jpg" width="300" height="300"></a> <b>     Domänestr. 1-3, Konz	 </b><br> PV-2E25 ---- 67.83 [kWp] '
+            '<a class="mybox" href="./photos/Bauhof Ehlenz Bau Konz.jpg" title="Bauhof Ehlenz Bau Konz"data-lcl-txt="Anlage 5" data-lcl-author="Conen Energy"><img src="./photos/Bauhof Ehlenz Bau Konz-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d706d57/konz/" data-label_1="KONZ" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >KONZ Wetter Real Time</a> <b>     Domänestr. 1-3, Konz	 </b><br> PV-2E25 ---- 67.83 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.70542248103671, 6.587789319071446], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1028,8 +1073,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.66883907957001, 6.87806747445665]).bindPopup(
-            ' <a class="mybox" href="./photos/Reinsfeld 1.jpg" title="Anlage 48" data-lcl-txt="Reinsfeld"data-lcl-author="Conen Energy"><img src="./photos/Reinsfeld 1-klein.jpg" width="300" height="300"></a> <b>    Am Weiher 13. 54421 Reinsfeld </b><br> PV-2E30 ---- 99.18 [kWp] '
+            ' <a class="mybox" href="./photos/Reinsfeld 1.jpg" title="Anlage 48" data-lcl-txt="Reinsfeld"data-lcl-author="Conen Energy"><img src="./photos/Reinsfeld 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d686d87/reinsfeld/" data-label_1="REINSFELD" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >REINSFELD Wetter Real Time</a><b>    Am Weiher 13. 54421 Reinsfeld </b><br> PV-2E30 ---- 99.18 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.66883907957001, 6.87806747445665], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1039,8 +1087,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.66921148894809, 6.878325912956618]).bindPopup(
-            '<a class="mybox" href="./photos/Reinsfeld 2.jpg" title="Anlage 49" data-lcl-txt="Reinsfeld"data-lcl-author="Conen Energy"><img src="./photos/Reinsfeld 2-klein.jpg" width="300" height="300"></a> <b>    Am Weiher 11. 54421 Reinsfeld </b><br> PV-2E31 ---- 70.68 [kWp] '
+            '<a class="mybox" href="./photos/Reinsfeld 2.jpg" title="Anlage 49" data-lcl-txt="Reinsfeld"data-lcl-author="Conen Energy"><img src="./photos/Reinsfeld 2-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d686d87/reinsfeld/" data-label_1="REINSFELD" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >REINSFELD Wetter Real Time</a> <b>    Am Weiher 11. 54421 Reinsfeld </b><br> PV-2E31 ---- 70.68 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.66921148894809, 6.878325912956618], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1050,8 +1101,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.70265009983527, 6.901827315773897]).bindPopup(
-            ' <a class="mybox" href="./photos/Hinzert Pölert Hof Lauer.jpg" title="Anlage 30" data-lcl-txt="Hinzert Pölert Hof Lauer" data-lcl-author="Conen Energy"> <img src="./photos/Hinzert Pölert Hof Lauer-klein.jpg" width="300" height="300"> </a> <b>     Zum Wiesenthal 901 Z 54421 Hinzert - Pölert </b><br> PV-2E34 ---- 75.24 [kWp] '
+            ' <a class="mybox" href="./photos/Hinzert Pölert Hof Lauer.jpg" title="Anlage 30" data-lcl-txt="Hinzert Pölert Hof Lauer" data-lcl-author="Conen Energy"> <img src="./photos/Hinzert Pölert Hof Lauer-klein.jpg" width="300" height="300"> </a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d706d91/hinzert-polert/" data-label_1="HINZERT-PÖLERT" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >HINZERT-PÖLERT Wetter Real Time</a> <b>     Zum Wiesenthal 901 Z 54421 Hinzert - Pölert </b><br> PV-2E34 ---- 75.24 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.70265009983527, 6.901827315773897], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1061,8 +1115,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.91086373160874, 7.035984231680011]).bindPopup(
-            ' <a class="mybox" href="./photos/Gebr Keller Mühlheim.jpg" title="Anlage 13"data-lcl-txt="Gebr Keller Mühlheim" data-lcl-author="Conen Energy"><img src="./photos/Gebr Keller Mühlheim-klein.jpg" width="300" height="300"></a>  <b>    Zur Sandgrube 1. 54470 Bernkastel-Kues </b><br> PV-2E44 ---- 87.21 [kWp] '
+            ' <a class="mybox" href="./photos/Gebr Keller Mühlheim.jpg" title="Anlage 13"data-lcl-txt="Gebr Keller Mühlheim" data-lcl-author="Conen Energy"><img src="./photos/Gebr Keller Mühlheim-klein.jpg" width="300" height="300"></a>  <a class="weatherwidget-io" href="https://forecast7.com/de/49d917d07/bernkastel/" data-label_1="BERNKASTEL" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >BERNKASTEL Wetter Real Time</a> <b>    Zur Sandgrube 1. 54470 Bernkastel-Kues </b><br> PV-2E44 ---- 87.21 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.91086373160874, 7.035984231680011], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1073,8 +1130,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.91069688491104, 7.03609704005147]).bindPopup(
-            '<a class="mybox" href="./photos/Elekto Port 1.jpg" title="Elekto Port" data-lcl-txt=" Anlage 7"data-lcl-author="Conen Energy"><img src="./photos/Elekto Port 1-klein.jpg" width="300" height="300"></a>  <b>    Zur Sandgrube 2. 54470 Bernkastel-Kues </b><br> PV-2E28 ---- 90.88 [kWp] '
+            '<a class="mybox" href="./photos/Elekto Port 1.jpg" title="Elekto Port" data-lcl-txt=" Anlage 7"data-lcl-author="Conen Energy"><img src="./photos/Elekto Port 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d917d07/bernkastel/" data-label_1="BERNKASTEL" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >BERNKASTEL Wetter Real Time</a>  <b>    Zur Sandgrube 2. 54470 Bernkastel-Kues </b><br> PV-2E28 ---- 90.88 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.91069688491104, 7.03609704005147], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1084,8 +1144,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.81665288924336, 7.0564323835988505]).bindPopup(
-            '<a class="mybox" href="./photos/Haagerstr 900z Merscheid 2.jpg" title="Anlage 21"data-lcl-txt="Haagerstr 900z Merscheid" data-lcl-author="Conen Energy"><img src="./photos/Haagerstr 900z Merscheid 2-klein.jpg" width="300" height="300"></a> <b> Haager Str. 900 Z. 54497 Morbach-Merscheid </b><br> PV-2E43 ---- 93.33 [kWp] '
+            '<a class="mybox" href="./photos/Haagerstr 900z Merscheid 2.jpg" title="Anlage 21"data-lcl-txt="Haagerstr 900z Merscheid" data-lcl-author="Conen Energy"><img src="./photos/Haagerstr 900z Merscheid 2-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d827d06/merscheid/" data-label_1="MERSCHEID" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >MERSCHEID Wetter Real Time</a> <b> Haager Str. 900 Z. 54497 Morbach-Merscheid </b><br> PV-2E43 ---- 93.33 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.81665288924336, 7.0564323835988505], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1096,8 +1159,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.922173918791536, 6.93192608224064]).bindPopup(
-            '<a class="mybox" href="./photos/Reiterhof Osann.jpg" title="Anlage 52" data-lcl-txt="Reiterhof Osann [66 KWP]" data-lcl-author="Conen Energy"> <img src="./photos/Reiterhof Osann-klein.jpg" width="300" height="300"></a>  <b> Am Klausenweiher 3. 54518 Osann-Monzel </b><br> PV-2E35 ---- 66 [kWp] '
+            '<a class="mybox" href="./photos/Reiterhof Osann.jpg" title="Anlage 52" data-lcl-txt="Reiterhof Osann [66 KWP]" data-lcl-author="Conen Energy"> <img src="./photos/Reiterhof Osann-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d926d95/osann-monzel/" data-label_1="OSANN-MONZEL" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >OSANN-MONZEL Wetter Real Time</a>  <b> Am Klausenweiher 3. 54518 Osann-Monzel </b><br> PV-2E35 ---- 66 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.922173918791536, 6.93192608224064], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1107,8 +1173,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.912280191634515, 7.020539272045727]).bindPopup(
-            ' <a class="mybox" href="./photos/Getränke Anhalt 1.jpg" title="Anlage 18" data-lcl-txt="Getränke Anhalt"data-lcl-author="Conen Energy"><img src="./photos/Getränke Anhalt 1-klein.jpg" width="300" height="300"></a> <b>    Industriestraße 5 A. 54486 Mülheim an der Mosel </b><br> PV-2E29 ---- 56.55 [kWp] '
+            ' <a class="mybox" href="./photos/Getränke Anhalt 1.jpg" title="Anlage 18" data-lcl-txt="Getränke Anhalt"data-lcl-author="Conen Energy"><img src="./photos/Getränke Anhalt 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d917d01/mulheim-moselle/" data-label_1="MÜLHEIM AN DER MOSEL" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >MÜLHEIM AN DER MOSEL Wetter Real Time</a><b>    Industriestraße 5 A. 54486 Mülheim an der Mosel </b><br> PV-2E29 ---- 56.55 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.912280191634515, 7.020539272045727], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1118,8 +1187,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.88930875890855, 7.184883193688138]).bindPopup(
-            '<a class="mybox" href="./photos/Schwimmhalle Kleinich.jpg" title="Anlage 57" data-lcl-txt="Schwimmhalle Kleinich" data-lcl-author="Conen Energy"><img src="./photos/Schwimmhalle Kleinich-klein.jpg" width="300" height="300"></a> <b>  Ortsstr. 3554483 Kleinich </b><br> PV-2E39 ---- 40.26 [kWp] '
+            '<a class="mybox" href="./photos/Schwimmhalle Kleinich.jpg" title="Anlage 57" data-lcl-txt="Schwimmhalle Kleinich" data-lcl-author="Conen Energy"><img src="./photos/Schwimmhalle Kleinich-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d897d19/kleinich/" data-label_1="KLEINICH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >KLEINICH Wetter Real Time</a><b>  Ortsstr. 3554483 Kleinich </b><br> PV-2E39 ---- 40.26 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.88930875890855, 7.184883193688138], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1129,8 +1201,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.66850884236237, 6.878845691181393]).bindPopup(
-            ' <a class="mybox" href="./photos/Reonsfeld 3.jpg" title="Anlage 53" data-lcl-txt="Reinsfeld 3 [33 KWP]"data-lcl-author="Conen Energy"><img src="./photos/Reonsfeld 3-klein.jpg" width="300" height="300"></a> <b>    Am Weiher 999. 54421 Reinsfeld </b><br> PV-2E32 ---- 32.49 [kWp] '
+            ' <a class="mybox" href="./photos/Reonsfeld 3.jpg" title="Anlage 53" data-lcl-txt="Reinsfeld 3 [33 KWP]"data-lcl-author="Conen Energy"><img src="./photos/Reonsfeld 3-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d686d87/reinsfeld/" data-label_1="REINSFELD" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >REINSFELD Wetter Real Time</a> <b>    Am Weiher 999. 54421 Reinsfeld </b><br> PV-2E32 ---- 32.49 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.66850884236237, 6.878845691181393], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1140,8 +1215,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.813175116723556, 6.985338562718163]).bindPopup(
-            ' <a class="mybox" href="./photos/Huhnlandhof.jpg" title="Anlage 32" data-lcl-txt="/Huhnlandhof"data-lcl-author="Conen Energy"><img src="./photos/Huhnlandhof-klein.jpg" width="300" height="300"></a> <b>    Huhnlandhof 2, 54497 Morbach </b><br> PV-2E6	 ---- 449.15 [kWp] '
+            ' <a class="mybox" href="./photos/Huhnlandhof.jpg" title="Anlage 32" data-lcl-txt="/Huhnlandhof"data-lcl-author="Conen Energy"><img src="./photos/Huhnlandhof-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >MORBACH Wetter Real Time</a> <b>    Huhnlandhof 2, 54497 Morbach </b><br> PV-2E6	 ---- 449.15 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.813175116723556, 6.985338562718163], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1151,8 +1229,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.69870040467935, 6.579885710587655]).bindPopup(
-            ' <a class="mybox" href="./photos/Reifen Esser Konz 2.jpg" title="Anlage 47"data-lcl-txt="Reifen  Esser Konz" data-lcl-author="Conen Energy"><img src="./photos/Reifen Esser Konz 2-klein.jpg" width="300" height="300"></a> <b>    An der Eisenbahn 3, Konz </b><br> PV-2E18	 ---- 23.68 [kWp] '
+            ' <a class="mybox" href="./photos/Reifen Esser Konz 2.jpg" title="Anlage 47"data-lcl-txt="Reifen  Esser Konz" data-lcl-author="Conen Energy"><img src="./photos/Reifen Esser Konz 2-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d706d57/konz/" data-label_1="KONZ" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >KONZ Wetter Real Time</a> <b>    An der Eisenbahn 3, Konz </b><br> PV-2E18	 ---- 23.68 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.69870040467935, 6.579885710587655], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1162,8 +1243,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.829478131512396, 7.14966961708619]).bindPopup(
-            ' <a class="mybox" href="./photos/Adamshof Hundheim.jpg" title="Adamshof Hundheim [750 KWP]"data-lcl-txt="Anlage 1" data-lcl-author="Conen Energy"><img src="./photos/Adamshof Hundheim-klein.jpg" width="300" height="300"></a> <b>  Reinhardshof, 54497 Morbach-Hundheim </b><br>  PV-2E16 ---- 749.775 [kWp] '
+            ' <a class="mybox" href="./photos/Adamshof Hundheim.jpg" title="Adamshof Hundheim [750 KWP]"data-lcl-txt="Anlage 1" data-lcl-author="Conen Energy"><img src="./photos/Adamshof Hundheim-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d837d15/hundheim/" data-label_1="HUNDHEIM" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >HUNDHEIM Wetter Real Time</a><b>  Reinhardshof, 54497 Morbach-Hundheim </b><br>  PV-2E16 ---- 749.775 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.829478131512396, 7.14966961708619], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1173,8 +1257,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.70549791104754, 6.58902609648389]).bindPopup(
-            ' <b>  Am Kirschberg 1, 54329 Konz </b><br>  PV-2E17 ---- 471.96 [kWp] '
+            '<a class="weatherwidget-io" href="https://forecast7.com/de/49d706d57/konz/" data-label_1="KONZ" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >KONZ Wetter Real Time</a> <b>  Am Kirschberg 1, 54329 Konz </b><br>  PV-2E17 ---- 471.96 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.70549791104754, 6.58902609648389], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1184,8 +1271,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([50.215589418115584, 7.080400008894057]).bindPopup(
-            ' <b>  Grubenstraße 90, 56739 Leienkaul </b><br>  PV-2E9 ---- 430 [kWp] '
+            '<a class="weatherwidget-io" href="https://forecast7.com/de/50d227d09/leienkaul/" data-label_1="LEIENKAUL" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >LEIENKAUL Wetter Real Time</a> <b>  Grubenstraße 90, 56739 Leienkaul </b><br>  PV-2E9 ---- 430 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([50.215589418115584, 7.080400008894057], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1195,8 +1285,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.90853815240005, 7.034902636757852]).bindPopup(
-            ' <b>  Kordelweg 1, 54470 Bernkastel-Kues </b><br>  PV-2E3 ---- 430 [kWp] '
+            '<a class="weatherwidget-io" href="https://forecast7.com/de/49d927d06/bernkastel-kues/" data-label_1="BERNKASTEL-KUES" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >BERNKASTEL-KUES Wetter Real Time</a> <b>  Kordelweg 1, 54470 Bernkastel-Kues </b><br>  PV-2E3 ---- 430 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.90853815240005, 7.034902636757852], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1206,8 +1299,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.60136506259537, 6.6860239144501685]).bindPopup(
-            ' <b>  Kalfertshaus 2, 54314 Zerf </b><br>  PV-2E24 ---- 235.98 [kWp] '
+            '<a class="weatherwidget-io" href="https://forecast7.com/de/49d606d69/zerf/" data-label_1="ZERF" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >ZERF Wetter Real Time</a> <b>  Kalfertshaus 2, 54314 Zerf </b><br>  PV-2E24 ---- 235.98 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.60136506259537, 6.6860239144501685], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1217,8 +1313,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.888914203242386, 7.183082204203087]).bindPopup(
-            ' <a class="mybox" href="./photos/HG Markt Kleinich 2.jpg" title="Anlage 28"data-lcl-txt="HG Markt Kleinich" data-lcl-author="Conen Energy"><img src="./photos/HG Markt Kleinich 2-klein.jpg" width="300" height="300"></a> <b>  Ortstraße 40, 54483 Kleinich	 </b><br>  PV-2E5 ---- 226.31 [kWp] '
+            ' <a class="mybox" href="./photos/HG Markt Kleinich 2.jpg" title="Anlage 28"data-lcl-txt="HG Markt Kleinich" data-lcl-author="Conen Energy"><img src="./photos/HG Markt Kleinich 2-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d897d19/kleinich/" data-label_1="KLEINICH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >KLEINICH Wetter Real Time</a>  <b>  Ortstraße 40, 54483 Kleinich	 </b><br>  PV-2E5 ---- 226.31 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.888914203242386, 7.183082204203087], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1228,8 +1327,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.92258302033668, 6.933256565951123]).bindPopup(
-            ' <a class="mybox" href="./photos/Natursteinwerk Osann 1.jpg" title="Anlage 40"data-lcl-txt="Natursteinwerk Osann" data-lcl-author="Conen Energy"><img src="./photos/Natursteinwerk Osann 1-klein.jpg" width="300" height="300"></a> <b>  Am Klausenweiher 1, 54518 Osann-Monzel	 </b><br>  PV-2E12 ---- 218.132 [kWp] '
+            ' <a class="mybox" href="./photos/Natursteinwerk Osann 1.jpg" title="Anlage 40"data-lcl-txt="Natursteinwerk Osann" data-lcl-author="Conen Energy"><img src="./photos/Natursteinwerk Osann 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d926d95/osann-monzel/" data-label_1="OSANN-MONZEL" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >OSANN-MONZEL Wetter Real Time</a> <b>  Am Klausenweiher 1, 54518 Osann-Monzel	 </b><br>  PV-2E12 ---- 218.132 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.92258302033668, 6.933256565951123], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1239,7 +1341,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([50.706930668175424, 12.107733398677043]).bindPopup(
-            ' <b>  Ortstraße 9, 07980 Kühdorf </b><br>  PV-2E7 ---- 212.28 [kWp] ').addTo(mymap);
+            ' <a class="weatherwidget-io" href="https://forecast7.com/de/50d7112d11/kuhdorf/" data-label_1="KÜHDORF" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >KÜHDORF Wetter Real Time</a> <b>  Ortstraße 9, 07980 Kühdorf </b><br>  PV-2E7 ---- 212.28 [kWp] '
+            ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([50.706930668175424, 12.107733398677043], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1249,8 +1355,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.57994827340719, 6.718420812168897]).bindPopup(
-            ' <a class="mybox" href="./photos/Zerf Kofferfabrik 2.jpg" title="Anlage 65"data-lcl-txt="Zerf Kofferfabrik" data-lcl-author="Conen Energy"><img src="./photos/Zerf Kofferfabrik 2-klein.jpg" width="300" height="300"></a> <b>  Hirschfelderhof 3, 54314 Zerf </b><br>  PV-2E1 ---- 212.04 [kWp] '
+            ' <a class="mybox" href="./photos/Zerf Kofferfabrik 2.jpg" title="Anlage 65"data-lcl-txt="Zerf Kofferfabrik" data-lcl-author="Conen Energy"><img src="./photos/Zerf Kofferfabrik 2-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d606d69/zerf/" data-label_1="ZERF" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >ZERF Wetter Real Time</a> <b>  Hirschfelderhof 3, 54314 Zerf </b><br>  PV-2E1 ---- 212.04 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.57994827340719, 6.718420812168897], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1260,8 +1369,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.74422617210116, 6.622620515089324]).bindPopup(
-            ' <a class="mybox" href="./photos/Feinkost Fritschen Trier 1.jpg" title="Anlage 11"data-lcl-txt="Feinkost Fritschen Trier 1" data-lcl-author="Conen Energy"><img src="./photos/Feinkost Fritschen Trier 1-klein.jpg" width="300" height="300"></a> <b>  Luxemburger Straße 84, 54294 Trier </b><br>  PV-2E19 ---- 169.21 [kWp] '
+            ' <a class="mybox" href="./photos/Feinkost Fritschen Trier 1.jpg" title="Anlage 11"data-lcl-txt="Feinkost Fritschen Trier 1" data-lcl-author="Conen Energy"><img src="./photos/Feinkost Fritschen Trier 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d756d64/trier/" data-label_1="TRIER" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >TRIER Wetter Real Time</a> <b>  Luxemburger Straße 84, 54294 Trier </b><br>  PV-2E19 ---- 169.21 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.74422617210116, 6.622620515089324], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1271,8 +1383,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.589220765508266, 6.647216577352292]).bindPopup(
-            '  <b>  Neunhäuserstr. 8 ,54314 Vierherrenborn </b><br>  PV-2E20 ---- 144.3 [kWp] '
+            ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d606d66/vierherrenborn/" data-label_1="VIERHERRENBORN" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >VIERHERRENBORN Wetter Real Time</a> <b>  Neunhäuserstr. 8 ,54314 Vierherrenborn </b><br>  PV-2E20 ---- 144.3 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.589220765508266, 6.647216577352292], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1282,8 +1397,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.65092468014679, 6.687588300617597]).bindPopup(
-            ' <a class="mybox" href="./photos/Wernerhof Lampaden.jpg" title="Anlage 64"data-lcl-txt="Wernerhof Lampaden" data-lcl-author="Conen Energy"><img src="./photos/Wernerhof Lampaden-klein.jpg" width="300" height="300"></a>  <b>  Wenerhof ,54316 Lampaden </b><br>  PV-2E8 ---- 147.2 [kWp] '
+            ' <a class="mybox" href="./photos/Wernerhof Lampaden.jpg" title="Anlage 64"data-lcl-txt="Wernerhof Lampaden" data-lcl-author="Conen Energy"><img src="./photos/Wernerhof Lampaden-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d656d70/lampaden/" data-label_1="LAMPADEN" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >LAMPADEN Wetter Real Time</a>  <b>  Wenerhof ,54316 Lampaden </b><br>  PV-2E8 ---- 147.2 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.65092468014679, 6.687588300617597], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1293,8 +1411,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.66657685263443, 6.669279400158121]).bindPopup(
-            ' <a class="mybox" href="./photos/Pellingen 2.jpg" title="Anlage 42" data-lcl-txt="Pellingen"data-lcl-author="Conen Energy"><img src="./photos/Pellingen 2-klein.jpg" width="300" height="300"></a>  <b>  Hof Langenstein 1, 54331 Pellingen </b><br>  PV-2E15 ---- 138.47 [kWp] '
+            ' <a class="mybox" href="./photos/Pellingen 2.jpg" title="Anlage 42" data-lcl-txt="Pellingen"data-lcl-author="Conen Energy"><img src="./photos/Pellingen 2-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d686d67/pellingen/" data-label_1="PELLINGEN" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >PELLINGEN Wetter Real Time</a> <b>  Hof Langenstein 1, 54331 Pellingen </b><br>  PV-2E15 ---- 138.47 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.66657685263443, 6.669279400158121], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1304,8 +1425,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.821972671268725, 7.072242459229505]).bindPopup(
-            '  <b>  Merscheider Straße 900 Z,54497 Morbach </b><br>  PV-2E11 ---- 137.25	 [kWp] '
+            ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >MORBACH Wetter Real Time</a> <b>  Merscheider Straße 900 Z,54497 Morbach </b><br>  PV-2E11 ---- 137.25	 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.821972671268725, 7.072242459229505], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1315,8 +1439,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.9250344532958, 6.983630074784451]).bindPopup(
-            '  <a class="mybox" href="./photos/Sargfabrik Maring.jpg" title="Anlage 54"data-lcl-txt="Sargfabrik Maring [33 KWP]" data-lcl-author="Conen Energy"><img src="./photos/Sargfabrik Maring.jpg" width="300"height="300"></a>  <b>  Brunnenstraße 68 A,54484 Maring-Noviand	 </b><br>  PV-2E10 ---- 130 [kWp] '
+            '  <a class="mybox" href="./photos/Sargfabrik Maring.jpg" title="Anlage 54"data-lcl-txt="Sargfabrik Maring [33 KWP]" data-lcl-author="Conen Energy"><img src="./photos/Sargfabrik Maring.jpg" width="300"height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d936d99/maring-noviand/" data-label_1="MARING-NOVIAND" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >MARING-NOVIAND Wetter Real Time</a>  <b>  Brunnenstraße 68 A,54484 Maring-Noviand	 </b><br>  PV-2E10 ---- 130 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.9250344532958, 6.983630074784451], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1326,8 +1453,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.835069772248126, 7.072275541776271]).bindPopup(
-            '  <a class="mybox" href="./photos/Sonnenhof 1.jpg" title="Anlage 58" data-lcl-txt="Sonnenhof 1"data-lcl-author="Conen Energy"><img src="./photos/Sonnenhof 1-klein.jpg" width="300" height="300"></a>  <b>  Sonnenhof 1,54497 Morbach-Elzerath	 </b><br>  PV-2E38 ---- 127 [kWp] '
+            '  <a class="mybox" href="./photos/Sonnenhof 1.jpg" title="Anlage 58" data-lcl-txt="Sonnenhof 1"data-lcl-author="Conen Energy"><img src="./photos/Sonnenhof 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d847d08/elzerath/" data-label_1="ELZERATH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >ELZERATH Wetter Real Time</a>  <b>  Sonnenhof 1,54497 Morbach-Elzerath	 </b><br>  PV-2E38 ---- 127 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.835069772248126, 7.072275541776271], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1337,8 +1467,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.759340697348925, 7.157691685798314]).bindPopup(
-            '  <a class="mybox" href="./photos/Teichhof Allenbach 2.jpg" title="Anlage 60"data-lcl-txt="Teichhof Allenbach 2" data-lcl-author="Conen Energy"><img src="./photos/Teichhof Allenbach 2-klein.jpg" width="300" height="300"></a>  <b>  In der Hohlbach 30 Z,55758 Allenbach </b><br>  PV-2E40 ---- 123.52	 [kWp] '
+            '  <a class="mybox" href="./photos/Teichhof Allenbach 2.jpg" title="Anlage 60"data-lcl-txt="Teichhof Allenbach 2" data-lcl-author="Conen Energy"><img src="./photos/Teichhof Allenbach 2-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d757d17/allenbach/" data-label_1="ALLENBACH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >ALLENBACH Wetter Real Time</a>  <b>  In der Hohlbach 30 Z,55758 Allenbach </b><br>  PV-2E40 ---- 123.52	 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.759340697348925, 7.157691685798314], {
             color: 'blue',
             fillColor: 'transparent',
@@ -1348,8 +1481,11 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.759340697348925, 7.157691685798314]).bindPopup(
-            '  <a class="mybox" href="./photos/Teichhof Allenbach 2.jpg" title="Anlage 60"data-lcl-txt="Teichhof Allenbach 2" data-lcl-author="Conen Energy"><img src="./photos/Teichhof Allenbach 2-klein.jpg" width="300" height="300"></a>  <b>  In der Hohlbach 30 Z,55758 Allenbach </b><br>  PV-2E37 ---- 123.52	 [kWp] '
+            '  <a class="mybox" href="./photos/Teichhof Allenbach 2.jpg" title="Anlage 60"data-lcl-txt="Teichhof Allenbach 2" data-lcl-author="Conen Energy"><img src="./photos/Teichhof Allenbach 2-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d757d17/allenbach/" data-label_1="ALLENBACH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >ALLENBACH Wetter Real Time</a>  <b>  In der Hohlbach 30 Z,55758 Allenbach </b><br>  PV-2E37 ---- 123.52	 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.759340697348925, 7.157691685798314], {
             color: 'blue',
             fillColor: 'transparent',
