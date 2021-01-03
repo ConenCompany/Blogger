@@ -1829,7 +1829,7 @@ main .blog {
             border: 2px solid black;
             border-radius: 0px;
             margin: 0rem ;
-            height: 100vh;
+            height: 98vh;
             width: auto;
         
     }
@@ -1936,7 +1936,7 @@ main .blog {
         border: 2px solid black;
         border-radius: 0px;
         margin: 0rem ;
-        height: 110vh;
+        height: 96vh;
         width: auto;
     
 }
@@ -1944,20 +1944,5 @@ main .blog {
     padding-top: 2rem;
 }
 }
-@media only screen and (max-width: 700px) {
 
-    main .blog {
-       
-        
-        border: 2px solid black;
-        border-radius: 0px;
-        margin: 0rem ;
-        height: 80vh;
-        width: auto;
-    
-}
-.frameWeather {
-    padding-top: 2rem;
-}
-}
 
