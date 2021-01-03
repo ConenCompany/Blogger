@@ -469,8 +469,7 @@ main .site-title .site-background1 h1 {
 .site-title .site-background2 {
     padding-top: 1rem;
     text-align: center;
-    width: 80%;
-    margin: 1rem 10rem;
+    width: 100%;
     box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
     border: 1px solid black;
     border-radius: 1rem;
