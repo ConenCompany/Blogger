@@ -26,6 +26,17 @@
         crossorigin=""></script>
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+    <script>
+        ! function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://weatherwidget.io/js/widget.min.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'weatherwidget-io-js');
+    </script>
     <style>
         #mapid {
             width: 99.5%;
@@ -343,8 +354,11 @@
 
         /***********************************Conen-Vermögen!!!****************************************************************************************************/
         var marker = L.marker([49.859838979001054, 7.128257659651849]).bindPopup(
-            ' <a class="mybox" href="./photos/Möbelfabrik Conen Gonzerath.jpg" title="Anlage 37"data-lcl-txt="Möbelfabrik Conen Gonzerath" data-lcl-author="Conen Energy"><img src="./photos/Möbelfabrik Conen Gonzerath-klein.jpg" width="300" height="300"></a> <b>   Conenstr. 4, 54497 Morbach Gonzerath		</b><br> PV-1VV2 ---- 302.7 [kWp] '
+            ' <a class="mybox" href="./photos/Möbelfabrik Conen Gonzerath.jpg" title="Anlage 37"data-lcl-txt="Möbelfabrik Conen Gonzerath" data-lcl-author="Conen Energy"><img src="./photos/Möbelfabrik Conen Gonzerath-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >GONZERATH Wetter Real Time</a> <b>   Conenstr. 4, 54497 Morbach Gonzerath		</b><br> PV-1VV2 ---- 302.7 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([49.859838979001054, 7.128257659651849], {
             color: 'blue',
             fillColor: 'transparent',
@@ -353,8 +367,11 @@
         }).addTo(mymap);
         /******************************************************************************************************************************************************/
         var marker = L.marker([51.301069075638146, 14.822491468298614]).bindPopup(
-            '  <b>  Rietschener Str., 02906 Niesky	</b><br> PV-1VV7 ---- 248 [kWp] '
+            ' <a class="weatherwidget-io" href="https://forecast7.com/de/51d2914d83/niesky/" data-label_1="NIESKY" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >NIESKY Wetter Real Time</a>  <b>  Rietschener Str., 02906 Niesky	</b><br> PV-1VV7 ---- 248 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([51.301069075638146, 14.822491468298614], {
             color: 'blue',
             fillColor: 'transparent',
@@ -363,8 +380,11 @@
         }).addTo(mymap);
         /******************************************************************************************************************************************************/
         var marker = L.marker([51.30047010091857, 14.828834792316608]).bindPopup(
-            ' <b>   Neuhofer Str., 02906 Niesky	 </b><br> PV-1VV6 ---- 202 [kWp] '
+            '<a class="weatherwidget-io" href="https://forecast7.com/de/51d2914d83/niesky/" data-label_1="NIESKY" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >NIESKY Wetter Real Time</a>  <b>   Neuhofer Str., 02906 Niesky	 </b><br> PV-1VV6 ---- 202 [kWp] '
         ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
         var circle = L.circle([51.30047010091857, 14.828834792316608], {
             color: 'blue',
             fillColor: 'transparent',
@@ -373,44 +393,56 @@
         }).addTo(mymap);
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.80774625576062, 7.115582091068585]).bindPopup(
-                    ' <a class="mybox" href="./photos/Schollenfeld 1.jpg" title="Anlage 56" data-lcl-txt="Schollenfeld 1"data-lcl-author="Conen Energy"><img src="./photos/Schollenfeld 1-klein.jpg" width="300" height="300"></a> <b>  Im Schollenfeld, 54497 Morbach	 </b><br> PV-1VV3 ---- 150 [kWp] '
-                    ).addTo(mymap);
-                var circle = L.circle([49.80774625576062, 7.115582091068585], {
-                    color: 'blue',
-                    fillColor: 'transparent',
-                    fillOpacity: 0.5,
-                    radius: 8
-                }).addTo(mymap);
-                /******************************************************************************************************************************************************/
-                var marker = L.marker([49.860268600947386, 7.1267112307854585]).bindPopup(
-                    '<a class="mybox" href="./photos/Halle 8.jpg" title="Anlage 22" data-lcl-txt="Halle 8"data-lcl-author="Conen Energy"><img src="./photos/Halle 8-klein.jpg" width="300" height="300"></a>  <b>   Conenstr. 3, 54497 Morbach Gonzerathd	 </b><br> PV-1VV1 ---- 109.3 [kWp] '
-                    ).addTo(mymap);
-                var circle = L.circle([49.860268600947386, 7.1267112307854585], {
-                    color: 'blue',
-                    fillColor: 'transparent',
-                    fillOpacity: 0.5,
-                    radius: 8
-                }).addTo(mymap);
-                /******************************************************************************************************************************************************/
-                var marker = L.marker([49.859539985177314, 7.115156655417362]).bindPopup(
-                    '  <b>   Am Klettbach 2-4, 54497 Morbach Gonzerath	 </b><br> PV-1VV5 ---- 70 [kWp] '
-                ).addTo(mymap);
-                var circle = L.circle([49.859539985177314, 7.115156655417362], {
-                    color: 'blue',
-                    fillColor: 'transparent',
-                    fillOpacity: 0.5,
-                    radius: 8
-                }).addTo(mymap);
-                /******************************************************************************************************************************************************/
-                var marker = L.marker([49.85970930636022, 7.115215084525528]).bindPopup(
-                    '  <b>   Am Klettbach 2-4, 54497 Morbach Gonzerath	</b><br> PV-1VV4  ---- 27[kWp] '
-                ).addTo(mymap);
-                var circle = L.circle([49.85970930636022, 7.115215084525528], {
-                    color: 'blue',
-                    fillColor: 'transparent',
-                    fillOpacity: 0.5,
-                    radius: 8
-                }).addTo(mymap);
+            ' <a class="mybox" href="./photos/Schollenfeld 1.jpg" title="Anlage 56" data-lcl-txt="Schollenfeld 1"data-lcl-author="Conen Energy"><img src="./photos/Schollenfeld 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >MORBACH Wetter Real Time</a> <b>  Im Schollenfeld, 54497 Morbach	 </b><br> PV-1VV3 ---- 150 [kWp] '
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+        var circle = L.circle([49.80774625576062, 7.115582091068585], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.860268600947386, 7.1267112307854585]).bindPopup(
+            '<a class="mybox" href="./photos/Halle 8.jpg" title="Anlage 22" data-lcl-txt="Halle 8"data-lcl-author="Conen Energy"><img src="./photos/Halle 8-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >GONZERATH Wetter Real Time</a>  <b>   Conenstr. 3, 54497 Morbach Gonzerath	 </b><br> PV-1VV1 ---- 109.3 [kWp] '
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+        var circle = L.circle([49.860268600947386, 7.1267112307854585], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.859539985177314, 7.115156655417362]).bindPopup(
+            '<a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >GONZERATH Wetter Real Time</a>  <b>   Am Klettbach 2-4, 54497 Morbach Gonzerath	 </b><br> PV-1VV5 ---- 70 [kWp] '
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+        var circle = L.circle([49.859539985177314, 7.115156655417362], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
+        /******************************************************************************************************************************************************/
+        var marker = L.marker([49.85970930636022, 7.115215084525528]).bindPopup(
+            ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >GONZERATH Wetter Real Time</a>  <b>   Am Klettbach 2-4, 54497 Morbach Gonzerath	</b><br> PV-1VV4  ---- 27[kWp] '
+        ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
+            __weatherwidget_init()
+        })
+        var circle = L.circle([49.85970930636022, 7.115215084525528], {
+            color: 'blue',
+            fillColor: 'transparent',
+            fillOpacity: 0.5,
+            radius: 8
+        }).addTo(mymap);
     </script>
 
 
