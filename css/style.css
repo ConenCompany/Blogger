@@ -1745,6 +1745,7 @@ ul li {
         font-size: .6rem;
         padding: 0rem .51rem;
     }
+    
 
     .blog-post .newsletter .form-element .btn {
         font-size: .1rem;
@@ -1785,7 +1786,161 @@ ul li {
    
 }
 
+.frameWeather {
+    padding-top: 1rem;
+}
+
+main .blog {
+       
+        
+    border: 2px solid black;
+    border-radius: 0px;
+    margin: 0rem ;
+    height: 100vh;
+    width: auto;
+
+}
+
+
+
 
 
 
 /*-----X-- Viewport less than 750px ----X--*/
+@media only screen and (max-width: 850px) {
+
+    .nav .nav-menu,
+    .nav .nav-items {
+        flex-direction: column;
+    }
+
+    .nav .toggle-collapse {
+        display: initial;
+    }
+
+    main .posts {
+        
+        padding: 0rem 2rem;
+    }
+    main .blog {
+       
+            background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+            background-size: cover;
+            border: 2px solid black;
+            border-radius: 0px;
+            margin: 0rem ;
+            height: 100vh;
+            width: auto;
+        
+    }
+
+
+    .blog-post .sidebar .category .category-list li {
+        margin: .22rem .1rem;
+    }
+
+    .blog-post .sidebar .category {
+        padding: 1rem 0rem;
+    }
+
+    .blog-post .popular-post .post-image img {
+        width: 300;
+        height: 300;
+    }
+
+    .blog-post .popular-post .post-content .post-title {
+        font-size: .7rem;
+    }
+
+    .blog-post .popular-post .post-content .post-title {
+        font-size: .7rem;
+    }
+
+    .blog-post .newsletter .form-element .input-element {
+        font-size: .6rem;
+    }
+
+    .blog-post .newsletter .form-element .input-element {
+        font-size: .6rem;
+        padding: 0rem .51rem;
+    }
+    
+
+    .blog-post .newsletter .form-element .btn {
+        font-size: .1rem;
+        padding: 1rem 1rem;
+    }
+
+    main .site-content .blog-post {
+        margin: 1rem .5rem;
+        box-shadow: 0px 0px 00 var(--white);
+        border: none;
+    }
+
+    main .site-content {
+        display: grid;
+        grid-template-columns: 100%;
+
+    }
+
+    main .site-content .blog-post {
+        padding: -11rem 1rem;
+    }
+    .site-title .site-background2 {
+        position: relative;
+        height: 16rem;
+        right: 90px;
+    
+    }
+    
+    main .site-title .site-background1 h3{
+        margin: 2rem 4rem;
+        font-size: 2rem;
+        text-align: center;
+        box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
+        border: 1px solid black;
+        border-radius: 1rem;
+        background-color: rgba(255,255,255,0.1);
+    
+    }
+    main .site-title .site-background1 h1{
+        margin: 4rem 4rem;
+        font-size: 2rem;
+        text-align: center;
+        box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
+        border: 1px solid black;
+        border-radius: 1rem;
+        background-color: rgba(255,255,255,0.1);
+    
+    }
+
+    main .blog .blog-content {
+        display: relative;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+       height: 100%;
+    }
+    .frameWeather {
+        padding-top: 1rem;
+    }
+   
+    
+}
+
+@media only screen and (max-width: 500px) {
+
+    main .blog {
+       
+        
+        border: 2px solid black;
+        border-radius: 0px;
+        margin: 0rem ;
+        height: 100vh;
+        width: auto;
+    
+}
+.frameWeather {
+    padding-top: 2rem;
+}
+}
