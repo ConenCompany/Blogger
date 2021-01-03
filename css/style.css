@@ -33,13 +33,13 @@ body {
     --blue_Sky: linear-gradient(to top, #30cfd0 0%, #330867 100%);
     --braun_Button: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
     --Color_Button: linear-gradient(to right, #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%, #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%);
-    --grey_navbar : linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    --grey_navbar: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
 
 
 /*----X---- Variable Definition ------X----------*/
 /*---------- Gallery ----------*/
-.container-gallery{
+.container-gallery {
     background-image: url('../photos/moran-Qag2mu8d2r0-unsplash.jpg');
     margin: 4rem .1rem;
     box-shadow: 20px 1px 200px rgba(0, 0, 0, 0.8);
@@ -48,6 +48,7 @@ body {
     background: white;
     text-align: center;
 }
+
 .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -85,25 +86,26 @@ body {
     margin: 2rem .01rem;
     text-align: center;
 }
-.follow{
+
+.follow {
     text-align: center;
 }
-#gray-transparent{
+
+#gray-transparent {
     background-color: rgba(0, 0, 0, .2);
     padding: 0rem auto;
     padding: 2rem;
-    font-size: 150%
-    ;
+    font-size: 150%;
 }
-#gray-transparent-name{
+
+#gray-transparent-name {
     background-color: rgba(0, 0, 0, .2);
     padding: 0rem auto;
     padding: 1rem;
-    font-size: 150%
-    ;
+    font-size: 150%;
 }
 
-.gallery img{
+.gallery img {
     transition: .4s all ease-in;
     display: inline-flex;
     margin: 1rem 1rem;
@@ -111,20 +113,22 @@ body {
     justify-content: center;
     border: 1px solid black;
     text-align: center;
-    
-}
-#all-company{
+
 }
 
-.gallery img:hover{
+#all-company {}
+
+.gallery img:hover {
     image-rendering: optimizeQuality;
     transform: scale(1.051);
 }
-.gallery a{
+
+.gallery a {
     width: 1000px;
     height: 10px;
 }
-.container-page{
+
+.container-page {
     box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.6);
     justify-content: center;
     border: 5px solid black;
@@ -150,7 +154,8 @@ a {
 ul {
     list-style-type: none;
 }
-.fa-solar-panel{
+
+.fa-solar-panel {
     margin-left: 1.5rem;
 }
 
@@ -171,7 +176,8 @@ h3 {
     font-size: 2rem;
     color: var(--white);
 }
-.Gesellschaft p{
+
+.Gesellschaft p {
     font-size: 3rem;
     color: black;
     font-family: var(--Noto_1);
@@ -208,7 +214,8 @@ section .container .owl-nav {
     background: transparent;
     font-size: 2rem;
 }
-.container-gallery p{
+
+.container-gallery p {
     color: black;
     font-size: 200%;
     float: left;
@@ -230,18 +237,21 @@ section .container .owl-nav {
     border-radius: .7rem;
     border: 2px solid black;
 }
-#icon-bar{
+
+#icon-bar {
     width: 30px;
     position: relative;
-    right:200px;
+    right: 200px;
     top: 20px;
 }
-.nav .topbar-section{
+
+.nav .topbar-section {
     float: left;
     border-left: 1px solid grey;
     height: 4rem;
 }
-nav .toggle-collapse{
+
+nav .toggle-collapse {
     float: left;
     border-right: 1px solid rgb(14, 12, 12);
     height: 4rem;
@@ -291,7 +301,8 @@ nav .toggle-collapse{
     cursor: pointer;
     display: none;
 }
-#company{
+
+#company {
     text-align: right;
     position: relative;
     display: block;
@@ -323,43 +334,46 @@ nav .toggle-collapse{
 
 /*--------X----------- navbar --------X--------*/
 /*------------------>Table<--------------------*/
-.container .resume-section .resume-section-content .subheading{
+.container .resume-section .resume-section-content .subheading {
     font-size: 3rem;
     font-family: var(--Noto_1);
     padding: 2rem .1rem;
     display: inherit;
     flex-direction: column;
-    box-shadow:  20px 5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
     border-radius: 4rem;
     border: 1px solid white;
     background: rgb(226, 226, 226);
 
 }
-.container .resume-section .resume-section-content .subheading a{
+
+.container .resume-section .resume-section-content .subheading a {
     font-size: 2rem;
     font-family: var(--Noto_1);
     margin: 3rem 0;
     color: var(--text-gray);
 }
-.container-gallery .subheading{
+
+.container-gallery .subheading {
     font-size: 4em;
     font-family: var(--Noto_1);
     padding: 1rem 0rem;
     display: inherit;
     flex-direction: column;
-    box-shadow: 0px  2px 5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 5px 20px rgba(0, 0, 0, 0.2);
     border: 1px solid white;
     background: rgb(226, 226, 226);
 
 }
-.container-gallery .subheading a{
+
+.container-gallery .subheading a {
     font-size: 2rem;
     font-family: var(--Noto_1);
     margin: 3rem 0;
     color: var(--text-gray);
 }
 
-.container .resume-section .resume-section-content .Gesellschaft{
+.container .resume-section .resume-section-content .Gesellschaft {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -367,14 +381,18 @@ nav .toggle-collapse{
     margin: 1rem 0rem;
     box-shadow: 0 20px 5px 20px rgba(0, 0, 0, 0.2);
     border: 1px solid white;
-    
+
 }
-.container .resume-section .resume-section-content .link-table tr, th, td{
+
+.container .resume-section .resume-section-content .link-table tr,
+th,
+td {
     box-shadow: 2px 5px 20px rgba(124, 108, 108, 0.164);
     border: .8px solid white;
     border-radius: 3rem;
 }
-.container .resume-section .resume-section-content{
+
+.container .resume-section .resume-section-content {
     box-shadow: 2px 5px 20px rgba(124, 108, 108, 0.164);
     border: .8px solid white;
     border-radius: 5rem;
@@ -410,7 +428,7 @@ main .site-title {
     box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
     border: 1px solid black;
     border-radius: 1rem;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 main .site-title .site-background {
@@ -418,28 +436,31 @@ main .site-title .site-background {
     text-align: center;
 
 }
+
 main .site-title .site-background1 {
     padding-top: 13rem;
     text-align: center;
-    
+
 }
-main .site-title .site-background1 h3{
+
+main .site-title .site-background1 h3 {
     margin: 2rem 4rem;
     font-size: 8rem;
     text-align: center;
     box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
     border: 1px solid black;
     border-radius: 1rem;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
 
 }
-main .site-title .site-background1 h1{
+
+main .site-title .site-background1 h1 {
     font-size: 5rem;
     text-align: center;
     box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
     border: 1px solid black;
     border-radius: 1rem;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
 
 
 }
@@ -454,15 +475,15 @@ main .site-title .site-background1 h1{
     border: 1px solid black;
     border-radius: 1rem;
     background: var(--white)
-
 }
 
 
-.site-title .site-background2 h3{
+.site-title .site-background2 h3 {
     font-size: 8rem;
     color: var(--white);
 }
-.site-title .site-background2 h1{
+
+.site-title .site-background2 h1 {
     font-size: 5rem;
     color: var(--white);
 }
@@ -483,6 +504,7 @@ main .site-title .btn:hover {
     color: var(--white);
 
 }
+
 .site-title .site-background2 {
     padding-top: 4rem;
     text-align: center;
@@ -491,19 +513,21 @@ main .site-title .btn:hover {
     height: 40vh;
     justify-content: center;
 
-    
+
 }
-#Background-color-photos{
+
+#Background-color-photos {
     background-image: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
     background-size: cover;
 }
-#Background-container{
+
+#Background-container {
 
     background-image: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
     background-size: cover;
     border: 1px solid black;
-    
-    
+
+
 }
 
 
@@ -516,7 +540,7 @@ main .blog {
     background-size: cover;
     border: 2px solid black;
     border-radius: 0px;
-    margin: 0rem ;
+    margin: 0rem;
     height: 84vh;
     width: auto;
 }
@@ -543,7 +567,8 @@ main .blog .blog-content {
 main .blog .blog-title {
     padding: 1rem 1rem;
 }
-main .blog .blog-title h2{
+
+main .blog .blog-title h2 {
     padding: 1rem 1rem;
 }
 
@@ -647,18 +672,18 @@ main .site-content .post-content .post-image>div {
 }
 
 main .site-content .post-content .post-image .img {
- 
+
     overflow: hidden;
     image-rendering: optimizeSpeed;
     image-rendering: auto;
     width: 100%;
     transition: all 1s ease;
-   
+
 }
 
 main .site-content .post-content>.post-image .img:hover {
     border-radius: 1px;
-    opacity: 100%; 
+    opacity: 100%;
     image-rendering: optimizeQuality;
     transform: scale(1.0251);
     border-radius: 1rem;
@@ -692,7 +717,7 @@ main .site-content .posts .post-content {
     border-radius: 20px;
     box-shadow: 17px 3px 20px rgba(0, 0, 0, 0.8);
     border: 1px solid black;
-    
+
 }
 
 main .site-content .blog-post {
@@ -729,7 +754,8 @@ main .popular-post {
     border: 1px solid black;
     height: 600px;
 }
-main .sidebar{
+
+main .sidebar {
     border-radius: 20px;
     box-shadow: 17px 3px 20px rgba(0, 0, 0, 0.8);
     border: 1px solid var(--white);
@@ -861,7 +887,8 @@ section.resume-section .resume-section-content {
     }
 }
 
-.link-table td, .link-table th {
+.link-table td,
+.link-table th {
     border: 2px solid none;
     border-top: 1px solid #a0a0a0;
     text-align: center;
@@ -875,29 +902,30 @@ section.resume-section .resume-section-content {
     padding-right: 30rem;
     padding-top: 50rem;
     padding-bottom: 55rem;
-  }
+}
 
 table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 
 tr {
-          background-color: var(--white);
-      }
+    background-color: var(--white);
+}
 
 th {
-          background-color:#e9ebed;
+    background-color: #e9ebed;
     padding: 7px;
-      }
+}
+
 .circular--square {
-  display:table-caption;
-  position: relative;
-  width: 200px;
-  height: 200px;
-  overflow: scroll;
-  border-radius: 50%;
+    display: table-caption;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: scroll;
+    border-radius: 50%;
 }
 
 .link-table {
@@ -1665,6 +1693,7 @@ ul li {
     .nav .nav-items {
         flex-direction: column;
     }
+
     .nav .toggle-collapse {
         display: initial;
     }
@@ -1695,7 +1724,7 @@ ul li {
     }
 }
 
-.container .site-content .posts .post-content .post-image img{
+.container .site-content .posts .post-content .post-image img {
     width: 4000;
 }
 
@@ -1711,7 +1740,7 @@ ul li {
     }
 
     main .posts {
-        
+
         padding: 0rem 2rem;
     }
 
@@ -1745,7 +1774,7 @@ ul li {
         font-size: .6rem;
         padding: 0rem .51rem;
     }
-    
+
 
     .blog-post .newsletter .form-element .btn {
         font-size: .1rem;
@@ -1767,23 +1796,26 @@ ul li {
     main .site-content .blog-post {
         padding: -11rem 1rem;
     }
+
     .site-title .site-background2 {
         position: relative;
         height: 16rem;
         right: 90px;
-    
+
     }
+
     .site-title .site-background2 h3 {
         font-size: 2rem;
         position: center;
-    
+
     }
+
     .site-title .site-background2 h1 {
         font-size: 2rem;
         position: center;
-    
+
     }
-   
+
 }
 
 .frameWeather {
@@ -1791,11 +1823,11 @@ ul li {
 }
 
 main .blog {
-       
-        
+
+
     border: 2px solid black;
     border-radius: 0px;
-    margin: 0rem ;
+    margin: 0rem;
     height: 100vh;
     width: auto;
 
@@ -1819,19 +1851,20 @@ main .blog {
     }
 
     main .posts {
-        
+
         padding: 0rem 2rem;
     }
+
     main .blog {
-       
-            background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
-            background-size: cover;
-            border: 2px solid black;
-            border-radius: 0px;
-            margin: 0rem ;
-            height: 98vh;
-            width: auto;
-        
+
+        background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
+        background-size: cover;
+        border: 2px solid black;
+        border-radius: 0px;
+        margin: 0rem;
+        height: 98vh;
+        width: auto;
+
     }
 
 
@@ -1864,7 +1897,7 @@ main .blog {
         font-size: .6rem;
         padding: 0rem .51rem;
     }
-    
+
 
     .blog-post .newsletter .form-element .btn {
         font-size: .1rem;
@@ -1886,32 +1919,34 @@ main .blog {
     main .site-content .blog-post {
         padding: -11rem 1rem;
     }
+
     .site-title .site-background2 {
         position: relative;
         height: 16rem;
         right: 90px;
-    
+
     }
-    
-    main .site-title .site-background1 h3{
+
+    main .site-title .site-background1 h3 {
         margin: 2rem 4rem;
         font-size: 3rem;
         text-align: center;
         box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
         border: 1px solid black;
         border-radius: 1rem;
-        background-color: rgba(255,255,255,0.1);
-    
+        background-color: rgba(255, 255, 255, 0.1);
+
     }
-    main .site-title .site-background1 h1{
+
+    main .site-title .site-background1 h1 {
         margin: 4rem 4rem;
         font-size: 2rem;
         text-align: center;
         box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
         border: 1px solid black;
         border-radius: 1rem;
-        background-color: rgba(255,255,255,0.1);
-    
+        background-color: rgba(255, 255, 255, 0.1);
+
     }
 
     main .blog .blog-content {
@@ -1919,30 +1954,44 @@ main .blog {
         flex-direction: column;
         text-align: center;
         width: 100%;
-       height: 100%;
+        height: 100%;
     }
+
     .frameWeather {
         padding-top: 1rem;
     }
-   
-    
+
+
 }
 
 @media only screen and (max-width: 500px) {
 
     main .blog {
-       
-        
+
+
         border: 2px solid black;
         border-radius: 0px;
-        margin: 0rem ;
+        margin: 0rem;
         height: 96vh;
         width: auto;
+
+    }
+
+    main .site-content .post-content .post-image .img {
+
+        overflow: hidden;
+        image-rendering: optimizeSpeed;
+        image-rendering: auto;
+        width: 100%;
+        height: 300px;
+        transition: all 1s ease;
     
-}
-.frameWeather {
-    padding-top: 2rem;
-}
+    }
+    main .posts {
+        padding: 0rem .51rem;
+    }
+
 }
 
-
+    
+    
