@@ -1820,12 +1820,7 @@ ul li {
 }
 
 main .blog {
-
-
-    border: 2px solid black;
-    border-radius: 0px;
-    margin: 0rem;
-    height: 90vh;
+    height: auto;
     width: auto;
 
 }
@@ -1853,13 +1848,7 @@ main .blog {
     }
 
     main .blog {
-
-        background: url('../photos/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
-        background-size: cover;
-        border: 2px solid black;
-        border-radius: 0px;
-        margin: 0rem;
-        height: 98vh;
+        height: auto;
         width: auto;
 
     }
@@ -1956,7 +1945,7 @@ main .blog {
 
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 500px){
 
     main .blog {
 
@@ -1964,7 +1953,7 @@ main .blog {
         border: 2px solid black;
         border-radius: 0px;
         margin: 0rem;
-        height: 96vh;
+        height: auto;
         width: auto;
 
     }
@@ -1981,6 +1970,40 @@ main .blog {
     }
     main .posts {
         padding: 0rem .51rem;
+    }
+
+}
+
+
+@media screen and (max-width: 500px), screen and (max-height: 750) {
+
+    main .blog {
+
+
+        border: 2px solid black;
+        border-radius: 0px;
+        margin: 0rem;
+        height: auto;
+        width: auto;
+
+    }
+
+    main .site-content .post-content .post-image .img {
+
+        overflow: hidden;
+        image-rendering: optimizeSpeed;
+        image-rendering: auto;
+        width: 100%;
+        height: 300px;
+        transition: all 1s ease;
+    
+    }
+    main .posts {
+        padding: 0rem .51rem;
+    }
+
+    .frameWeather{
+        padding-top: 80rem;;
     }
 
 }
