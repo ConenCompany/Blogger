@@ -18,13 +18,8 @@
     <script src="js/scripts.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
     <script>
         ! function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -1029,7 +1024,7 @@
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.6947876355389, 6.55407765684606]).bindPopup(
             '<a class="weatherwidget-io" href="https://forecast7.com/de/49d706d55/wasserliesch/" data-label_1="WASSERLIESCH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >WASSERLIESCH Wetter Real Time</a> <b>    Sabatierstr. 5  54332 Wasserliesch </b><br> PV-2E27 ---- 76.8 [kWp] '
-            ).addTo(mymap);
+        ).addTo(mymap);
         marker.addEventListener('popupopen', function (e) {
             __weatherwidget_init()
         })
@@ -1339,7 +1334,7 @@
         /******************************************************************************************************************************************************/
         var marker = L.marker([50.706930668175424, 12.107733398677043]).bindPopup(
             ' <a class="weatherwidget-io" href="https://forecast7.com/de/50d7112d11/kuhdorf/" data-label_1="KÜHDORF" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >KÜHDORF Wetter Real Time</a> <b>  Ortstraße 9, 07980 Kühdorf </b><br>  PV-2E7 ---- 212.28 [kWp] '
-            ).addTo(mymap);
+        ).addTo(mymap);
         marker.addEventListener('popupopen', function (e) {
             __weatherwidget_init()
         })

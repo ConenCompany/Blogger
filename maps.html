@@ -20,14 +20,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="./js/bootstrap.min.js">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
     <script>
         ! function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -437,7 +431,7 @@
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.82130972503102, 7.123378318286416]).bindPopup(
             ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter Real Time" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >MORBACH Wetter Real Time</a> <br> <b> Morbach Hof Geierslay Hof Geierslay 1 54497 Morbach </b><br> PV-1E16  ------ 130 [kWp]'
-            ).addTo(
+        ).addTo(
             mymap);
         marker.addEventListener('popupopen', function (e) {
             __weatherwidget_init()
@@ -1019,8 +1013,8 @@
         }).addTo(mymap);
 
 
-                /*******************************************Conen-Energy-3!!!!!************************************************************************************************/
-                var marker = L.marker([50.09193325253029, 7.519903654816963]).bindPopup(
+        /*******************************************Conen-Energy-3!!!!!************************************************************************************************/
+        var marker = L.marker([50.09193325253029, 7.519903654816963]).bindPopup(
             '  <a class="weatherwidget-io" href="https://forecast7.com/de/50d097d52/braunshorn/" data-label_1="BRAUNSHORN" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >BRAUNSHORN Wetter Real Time</a><b>   Dorfstr. 3, 56288 Braunshorn	</b><br> PV-3E19 ---- 148.48 [kWp] '
         ).addTo(mymap);
         marker.addEventListener('popupopen', function (e) {
@@ -1047,8 +1041,9 @@
         }).addTo(mymap);
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.885318049646045, 7.231958454847976]).bindPopup(
-            ' <a class="mybox" href="./photos/Kleiyhof Horbruch.jpg" title="Anlage 38"data-lcl-txt="Kleiyhof Horbruch" data-lcl-author="Conen Energy"><img src="./photos/Kleiyhof Horbruch-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d897d24/horbruch/" data-label_1="HORBRUCH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >HORBRUCH Wetter Real Time</a> <b>   Kleiyhof 1, 55483 Horbruch	 </b><br> PV-3E15 ---- 122.88 [kWp] ').addTo(mymap);
-            marker.addEventListener('popupopen', function (e) {
+            ' <a class="mybox" href="./photos/Kleiyhof Horbruch.jpg" title="Anlage 38"data-lcl-txt="Kleiyhof Horbruch" data-lcl-author="Conen Energy"><img src="./photos/Kleiyhof Horbruch-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d897d24/horbruch/" data-label_1="HORBRUCH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >HORBRUCH Wetter Real Time</a> <b>   Kleiyhof 1, 55483 Horbruch	 </b><br> PV-3E15 ---- 122.88 [kWp] '
+            ).addTo(mymap);
+        marker.addEventListener('popupopen', function (e) {
             __weatherwidget_init()
         })
         var circle = L.circle([49.885318049646045, 7.231958454847976], {

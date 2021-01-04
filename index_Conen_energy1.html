@@ -20,14 +20,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="./js/bootstrap.min.js">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    
-    
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+
+
     <script>
         ! function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -740,7 +736,7 @@
         /******************************************************************************************************************************************************/
         var marker = L.marker([50.05503109657376, 12.177053069996443]).bindPopup(
             ' <a class="weatherwidget-io" href="https://forecast7.com/de/50d0612d19/arzberg/" data-label_1="ARZBERG" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >ARZBERG Wetter Real Time</a>  <br> <b> Arzberg Edeka Marktredwitzer Str. 28, 95659 Arzberg</b><br> PV-1E11 ------ 209.79[kWp]'
-            ).addTo(
+        ).addTo(
             mymap);
 
         marker.addEventListener('popupopen', function (e) {
@@ -770,9 +766,9 @@
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.8610006959286, 7.125092237317544]).bindPopup(
                 ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >GONZERATH Wetter Real Time</a>  <br> <b> Gonzerath Herlach Metall Gewerbestr. 4 54497 Morbach Gonzerath </b><br> PV-1E4 ------ 130 [kWp]'
-                )
+            )
             .addTo(mymap);
-            marker.addEventListener('popupopen', function (e) {
+        marker.addEventListener('popupopen', function (e) {
             __weatherwidget_init()
         })
         var circle = L.circle([49.8610006959286, 7.125092237317544], {
@@ -798,9 +794,10 @@
 
         /******************************************************************************************************************************************************/
         var marker = L.marker([49.82130972503102, 7.123378318286416]).bindPopup(
-            ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter Real Time" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >MORBACH Wetter Real Time</a> <br> <b> Morbach Hof Geierslay Hof Geierslay 1 54497 Morbach </b><br> PV-1E16  ------ 130 [kWp]').addTo(
+            ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter Real Time" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >MORBACH Wetter Real Time</a> <br> <b> Morbach Hof Geierslay Hof Geierslay 1 54497 Morbach </b><br> PV-1E16  ------ 130 [kWp]'
+            ).addTo(
             mymap);
-            marker.addEventListener('popupopen', function (e) {
+        marker.addEventListener('popupopen', function (e) {
             __weatherwidget_init()
         })
         var circle = L.circle([49.82130972503102, 7.123378318286416], {
