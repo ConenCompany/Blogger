@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const users = [
             {
                 username: 'Gerd',
-                password: 'GerdConen1000='
+                password: 'Conen'
            }
        ]
         
