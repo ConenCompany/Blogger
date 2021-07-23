@@ -45,11 +45,367 @@
         }
     </style>
 
+    <style>
+        #messages {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #messages1 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg1 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg2 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg3 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg4 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg5 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg6 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg7 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg8 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg9 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg10 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg11 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg12 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg13 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msg14 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #status {
+            background-color: green;
+            font-size: 4;
+            font-weight: bold;
+            color: white;
+            line-height: 140%;
+        }
+
+        #status1 {
+            background-color: rgb(27, 175, 173);
+            font-size: 4;
+            font-weight: bold;
+            color: white;
+            line-height: 140%;
+        }
+
+        table {
+            border: 6px solid black;
+            box-shadow: 20px 5px 20px white;
+            border-radius: 20rem;
+        }
+
+        .edit {
+            width: 80%;
+            margin-bottom: 10rem;
+            margin-left: 10rem;
+            color: #181a18;
+        }
+
+        .out {
+            background-color: gray;
+        }
+    </style>
+
+    <head>
+        <title>Simple Web Page Control Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            var connected_flag = 0
+            var mqtt;
+            var reconnectTimeout = 1000;
+            var host = "broker.hivemq.com";
+            var port = 8000;
+            var sub_topic = "raspberry/topic";
+
+
+            function onConnectionLost() {
+                console.log("connection lost");
+                document.getElementById("status").innerHTML = "Connection Lost";
+                document.getElementById("messages").innerHTML = "Connection Lost";
+                connected_flag = 0;
+            }
+
+
+            function onFailure(message) {
+                console.log("Failed");
+                document.getElementById("messages").innerHTML = "Connection Failed- Retrying";
+                setTimeout(MQTTconnect, reconnectTimeout);
+            }
+
+
+            function onMessageArrived(r_message) {
+                var message_out = document.getElementById("messages")
+                out_msg = "Message received " + r_message.payloadString + "<br>";
+                out_msg = out_msg + "Message received Topic " + r_message.destinationName;
+                console.log("Message received ", r_message.payloadString);
+                console.log(out_msg);
+                var topic = r_message.destinationName;
+                console.log(topic);
+                var out = r_message.payloadString;
+                if (topic == "raspberry/topic") {
+                    document.getElementById("messages").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    if (out == "") {
+                        document.getElementById("messages").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+                }
+                if (topic == "raspberry/topic1") {
+                    document.getElementById("msg1").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    if (out == "gestoert") {
+                        document.getElementById("msg1").innerHTML = "<p style='color: red;'>gestoert</p>";
+                    }
+
+
+                }
+                if (topic == "raspberry/topic2") {
+                    document.getElementById("msg2").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    if (out == "ka") {
+                        document.getElementById("msg2").innerHTML = "<p style='color: red;'>K.A</p>";
+                    }
+                }
+                if (topic == "raspberry/topic3") {
+                    document.getElementById("msg3").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    if (out == "") {
+                        document.getElementById("msg3").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+                }
+                if (topic == "raspberry/topic4") {
+                    document.getElementById("msg4").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+
+                }
+                if (topic == "raspberry/topic5") {
+                    document.getElementById("msg5").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                }
+                if (topic == "raspberry/topic6") {
+                    document.getElementById("msg6").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    if (out == "") {
+                        document.getElementById("msg6").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+                }
+                if (topic == "raspberry/topic7") {
+                    document.getElementById("msg7").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+
+                }
+                if (topic == "raspberry/topic8") {
+                    document.getElementById("msg8").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                }
+                if (topic == "raspberry/topic9") {
+                    document.getElementById("msg9").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    if (out == "") {
+                        document.getElementById("msg9").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+                }
+                if (topic == "raspberry/topic10") {
+                    document.getElementById("msg10").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+
+                }
+                if (topic == "raspberry/topic11") {
+                    document.getElementById("msg11").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                }
+                if (topic == "raspberry/topic12") {
+                    document.getElementById("msg12").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    if (out == "") {
+                        document.getElementById("msg12").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+                }
+                if (topic == "raspberry/topic13") {
+                    document.getElementById("msg13").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+
+                }
+                if (topic == "raspberry/topic14") {
+                    document.getElementById("msg14").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                }
+
+
+            }
+
+
+            function onConnected(recon, url) {
+                console.log(" in onConnected " + reconn);
+            }
+
+
+            function onConnect() {
+                // Once a connection has been made, make a subscription and send a message.
+                document.getElementById("messages").innerHTML = "Connected to " + host + "on port " + port;
+                connected_flag = 1
+                document.getElementById("status").innerHTML = "Connected";
+                console.log("on Connect " + connected_flag);
+                mqtt.subscribe(sub_topic);
+                mqtt.subscribe("raspberry/topic1");
+                mqtt.subscribe("raspberry/topic2");
+                mqtt.subscribe("raspberry/topic3");
+                mqtt.subscribe("raspberry/topic4");
+                mqtt.subscribe("raspberry/topic5");
+                mqtt.subscribe("raspberry/topic6");
+                mqtt.subscribe("raspberry/topic7");
+                mqtt.subscribe("raspberry/topic8");
+                mqtt.subscribe("raspberry/topic9");
+                mqtt.subscribe("raspberry/topic10");
+                mqtt.subscribe("raspberry/topic11");
+                mqtt.subscribe("raspberry/topic12");
+                mqtt.subscribe("raspberry/topic13");
+                mqtt.subscribe("raspberry/topic14");
+            }
+
+
+            function MQTTconnect() {
+                console.log("connecting to " + host + " " + port);
+                var x = Math.floor(Math.random() * 10000);
+                var cname = "controlform-" + x;
+                mqtt = new Paho.MQTT.Client(host, port, cname);
+                //document.write("connecting to "+ host);
+                var options = {
+                    timeout: 3,
+                    onSuccess: onConnect,
+                    onFailure: onFailure,
+                };
+                mqtt.onConnectionLost = onConnectionLost;
+                mqtt.onMessageArrived = onMessageArrived;
+                mqtt.onConnected = onConnected;
+                mqtt.connect(options);
+                return false;
+            }
+
+
+            function sub_topics() {
+                document.getElementById("messages").innerHTML = "";
+                if (connected_flag == 0) {
+                    out_msg = "<b>Not Connected so can't subscribe</b>"
+                    console.log(out_msg);
+                    document.getElementById("messages").innerHTML = out_msg;
+                    return false;
+                }
+                var stopic = document.forms["subs"]["Stopic"].value;
+                console.log("Subscribing to topic =" + stopic);
+                mqtt.subscribe(stopic);
+                return false;
+            }
+
+
+            function send_message(msg, topic) {
+                if (connected_flag == 0) {
+                    out_msg = "<b>Not Connected so can't send</b>"
+                    console.log(out_msg);
+                    document.getElementById("messages").innerHTML = out_msg;
+                    return false;
+                }
+                var value = msg.value;
+                console.log("value= " + value);
+                console.log("topic= " + topic);
+                message = new Paho.MQTT.Message(value);
+                message.destinationName = "house/" + topic;
+
+                mqtt.send(message);
+                return false;
+            }
+        </script>
+
+    </head>
+
 
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="MQTTconnect()">
     <!-- Navigation-->
 
     <nav class="nav">
@@ -161,9 +517,9 @@
                     </tr>
 
                 </table>
-                
+
             </div>
-           
+
             <hr class="m-100" />
 
 
@@ -507,7 +863,72 @@
         }).addTo(mymap);
     </script>
 
+    <div class="edit">
 
+
+        <h1>Simple Web Page Control Dashboard</h1>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Anlage Nummer</th>
+                    <th scope="col">Echtzeitsproduktion</th>
+                    <th scope="col">Internet status</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">5806 PV Droyßig</th>
+                    <td id="messages">Mark</td>
+                    <td id="msg1">Otto</td>
+                    <td id="msg2">@mdo</td>
+                </tr>
+                <tr class="table-success">
+                    <th scope="row">5740 PV Conenstraße</th>
+                    <td id="msg3">Jacob</td>
+                    <td id="msg4">Thornton</td>
+                    <td id="msg5">@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">5741 PV Schollenfeld</th>
+                    <td id="msg6">Larry</td>
+                    <td id="msg7">the Bird</td>
+                    <td id="msg8">@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">5742 PV HerlachMetall</th>
+                    <td id="msg9">Larry</td>
+                    <td id="msg10">the Bird</td>
+                    <td id="msg11">@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">5744 PV InDerDoor</th>
+                    <td id="msg12">Larry</td>
+                    <td id="msg13">the Bird</td>
+                    <td id="msg14">@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="status">Connection Status: Not Connected</div>
+        <br>
+        <br>
+
+
+    </div>
+
+
+    <hr>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
