@@ -412,6 +412,11 @@ td {
     margin-left: auto;
 }
 
+.iframe-modify{
+    width: 100%;
+    border-radius: 5rem;
+}
+
 
 
 /*------------------>Table<--------------------*/

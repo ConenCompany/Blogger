@@ -10160,7 +10160,7 @@ section.resume-section .resume-section-content {
     padding-top: 50rem;
     padding-bottom: 55rem;
   }
-}
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -10190,3 +10190,4 @@ ul {
 ul li {
     list-style: black ;
     display: table-row;
+}
