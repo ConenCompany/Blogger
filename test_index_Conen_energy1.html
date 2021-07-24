@@ -272,8 +272,8 @@
                     document.getElementById("msg11").innerHTML = "<p style='color: green;'>" + out + "</p>";
 
                 }
-                if (topic == "raspberry/topic12") {
-                    document.getElementById("msg12").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                if (topic == "raspberry/InDerDoor") {
+                    document.getElementById("msg12").innerHTML = "<p style='color: green;'>" + out/1000 + " kW </p>";
                     if (out == "") {
                         document.getElementById("msg12").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -315,7 +315,7 @@
                 mqtt.subscribe("raspberry/topic9");
                 mqtt.subscribe("raspberry/topic10");
                 mqtt.subscribe("raspberry/topic11");
-                mqtt.subscribe("raspberry/topic12");
+                mqtt.subscribe("raspberry/InDerDoor");
                 mqtt.subscribe("raspberry/topic13");
                 mqtt.subscribe("raspberry/topic14");
             }
