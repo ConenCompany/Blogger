@@ -137,11 +137,53 @@
             line-height: 140%;
         }
 
-        #msg12 {
+        #msgPV1E7 {
             background-color: rgb(255, 255, 255);
             font-size: 3;
             font-weight: bold;
             line-height: 140%;
+        }
+
+        #msgPV1E15 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E8 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E17 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%; 
+        }
+
+        #msgPV1E18 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%; 
+        }
+
+        #msgPV1E9 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%; 
+        }
+
+        #msgPV1E6 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%; 
         }
 
         #msg13 {
@@ -152,6 +194,13 @@
         }
 
         #msg14 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E1 {
             background-color: rgb(255, 255, 255);
             font-size: 3;
             font-weight: bold;
@@ -227,64 +276,83 @@
                         document.getElementById("msg2").innerHTML = "<p style='color: red;'>K.A</p>";
                     }
                 }
-                if (topic == "raspberry/topic3") {
-                    document.getElementById("msg3").innerHTML = "<p style='color: green;'>" + out + "</p>";
-                    if (out == "") {
-                        document.getElementById("msg3").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
-                    }
-                }
-                if (topic == "raspberry/topic4") {
-                    document.getElementById("msg4").innerHTML = "<p style='color: green;'>" + out + "</p>";
 
-
-                }
-                if (topic == "raspberry/topic5") {
-                    document.getElementById("msg5").innerHTML = "<p style='color: green;'>" + out + "</p>";
-
-                }
-                if (topic == "raspberry/topic6") {
-                    document.getElementById("msg6").innerHTML = "<p style='color: green;'>" + out + "</p>";
-                    if (out == "") {
-                        document.getElementById("msg6").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
-                    }
-                }
-                if (topic == "raspberry/topic7") {
-                    document.getElementById("msg7").innerHTML = "<p style='color: green;'>" + out + "</p>";
-
-
-                }
-                if (topic == "raspberry/topic8") {
-                    document.getElementById("msg8").innerHTML = "<p style='color: green;'>" + out + "</p>";
-
-                }
-                if (topic == "raspberry/topic9") {
-                    document.getElementById("msg9").innerHTML = "<p style='color: green;'>" + out + "</p>";
-                    if (out == "") {
-                        document.getElementById("msg9").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
-                    }
-                }
-                if (topic == "raspberry/topic10") {
-                    document.getElementById("msg10").innerHTML = "<p style='color: green;'>" + out + "</p>";
-
-
-                }
-                if (topic == "raspberry/topic11") {
-                    document.getElementById("msg11").innerHTML = "<p style='color: green;'>" + out + "</p>";
-
-                }
                 if (topic == "raspberry/InDerDoor") {
-                    document.getElementById("msg12").innerHTML = "<p style='color: green;'>" + out/1000 + " kW </p>";
+                    document.getElementById("msgPV1E7").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
+                        out / 1000 + " kW </button>";
                     if (out == "") {
-                        document.getElementById("msg12").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                        document.getElementById("msgPV1E7").innerHTML =
+                            "<button type='button1' class='btn btn-danger'>NO Value Recieved</button>";
                     }
                 }
-                if (topic == "raspberry/topic13") {
-                    document.getElementById("msg13").innerHTML = "<p style='color: green;'>" + out + "</p>";
 
+                if (topic == "raspberry/Conenstr4") {
+                    document.getElementById("msgPV1E1").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
+                        out / 1000 + " kW </button>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E1").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
 
                 }
-                if (topic == "raspberry/topic14") {
-                    document.getElementById("msg14").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                if (topic == "raspberry/WaldhofBruchweiler") {
+                    document.getElementById("msgPV1E15").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
+                        out + " kW </button>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E15").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/HeinzenbachHolgerOffers") {
+                    document.getElementById("msgPV1E8").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
+                        out + " kW </button>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E8").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/GutenthalMichaelLeis") {
+                    document.getElementById("msgPV1E17").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
+                        out + " kW </button>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E17").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/HundheimErlenhof") {
+                    document.getElementById("msgPV1E18").innerHTML = "<button  style='color: black; type='button1' class='btn btn-success'>" +
+                        out + " kW </button>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E18").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/Bischofsdhron") {
+                    document.getElementById("msgPV1E9").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
+                        out + " kW </button>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E9").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/GonzerathCanadaBlockhaus") {
+                    document.getElementById("msgPV1E6").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
+                        out + " kW </button>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E6").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
 
                 }
 
@@ -318,6 +386,13 @@
                 mqtt.subscribe("raspberry/InDerDoor");
                 mqtt.subscribe("raspberry/topic13");
                 mqtt.subscribe("raspberry/topic14");
+                mqtt.subscribe("raspberry/Conenstr4");
+                mqtt.subscribe("raspberry/WaldhofBruchweiler");
+                mqtt.subscribe("raspberry/HeinzenbachHolgerOffers");
+                mqtt.subscribe("raspberry/GutenthalMichaelLeis");
+                mqtt.subscribe("raspberry/HundheimErlenhof");
+                mqtt.subscribe("raspberry/Bischofsdhron");
+                mqtt.subscribe("raspberry/GonzerathCanadaBlockhaus");
             }
 
 
@@ -469,7 +544,7 @@
                         <th>Internet status</th>
                         <th>Handle</th>
                     </tr>
-                    
+
                     <tr>
                         <td>1</td>
                         <td>PV Droyßig</td>
@@ -483,57 +558,342 @@
                         </td>
 
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>PV Conenstraße</td>
-                        <td>PV-1E13</td>
-                        <td>750</td>
-                        <td id="msg3">
-                        </td>
-                        <td id="msg4">
-                        </td>
-                        <td id="msg5">
-                        </td>
 
                     </tr>
+
                     <tr>
                         <td>1</td>
-                        <td>PV Schollenfeld</td>
+                        <td>HintermDorf 15, Schmiedehausen</td>
                         <td>PV-1E13</td>
                         <td>750</td>
-                        <td id="msg6">
+                        <td><a href="https://19930a7229fa.eu.ngrok.io/" target="_blank">
+                                <button type="button1" class="btn btn-success">Link bereit</button>
+                            </a>
                         </td>
-                        <td id="msg7">
+                        <td><a href="https://3348558ecd68.eu.ngrok.io/" target="_blank">
+                                <button type="button1" class="btn btn-success">Link bereit</button>
+                            </a>
                         </td>
-                        <td id="msg8">
+                        <td>
+                            <button type="button1" class="btn btn-success">Sehr Gut</button>
                         </td>
-
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td>PV HerlachMetall</td>
-                        <td>PV-1E13</td>
-                        <td>750</td>
-                        <td id="msg9">
-                        </td>
-                        <td id="msg10">
-                        </td>
-                        <td id="msg11">
-                        </td>
+                        <td>2</td>
+                        <td>Conenstr. 4, 54497 Morbach Gonzerath</td>
+                        <td>PV-1E1</td>
+                        <td>670</td>
+                        <td id="msgPV1E1">
+                            <button type="button" class="btn btn-success">Loading ...</button>
 
+                        </td>
+                        <td><a href="https://de28626680f1.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        </td>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td>PV InDerDoor</td>
-                        <td>PV-1E13</td>
+                        <td>3</td>
+                        <td>Im Schollenfeld 8, 54497 Morbach</td>
+                        <td>PV-1E3</td>
+                        <td>620</td>
+                        <td><a href="https://35de687561e9.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td><a href="https://e4475b4986c1.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Winterberger Str. 2, 59955 Winterberg</td>
+                        <td>PV-1E12</td>
+                        <td>616.276</td>
+                        <td><a href="" target="_blank">
+                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
+                            </a>
+                        </td>
+                        <td><a href="" target="_blank">
+                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary">K.A</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Waldhof 2, 55758 Bruchweiler</td>
+                        <td>PV-1E15</td>
+                        <td>350</td>
+                        <td id="msgPV1E15">
+                            <button type="button" class="btn btn-success">Loading ...</button>
+
+                        </td>
+                        <td><a href="https://8111565537ef.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Gartenweg 12 Z, Braunshorn</td>
+                        <td>PV-1E19</td>
+                        <td>283</td>
+                        <td><a href="" target="_blank">
+                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
+                            </a>
+                        </td>
+                        <td><a href="" target="_blank">
+                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary">K.A</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>In der Door 16, 54497 Morbach Gonzerath</td>
+                        <td>PV-1E7</td>
                         <td>250</td>
-                        <td id="msg12">
+                        <td id="msgPV1E7">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        <td id="msg13">
+                        <td><a href="https://c903385a9ec1.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
                         </td>
-                        <td id="msg14">
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
                         </td>
-
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Kücherhof 1 , 55483 Heinzenbach</td>
+                        <td>PV-1E8</td>
+                        <td>250</td>
+                        <td id="msgPV1E8">
+                                <button type="button" class="btn btn-success">Loading ...</button>
+                        </td>
+                        <td><a href="https://f32902429b6a.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>In der Strut 17 , 54497 Morbach Gutenthal</td>
+                        <td>PV-1E17</td>
+                        <td>235</td>
+                        <td id="msgPV1E17">
+                                <button type="button" class="btn btn-success">Loading ...</button>
+                        </td>
+                        <td><a href="https://eb388154933c.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>An der Hunsrückhöhenstraße 3 , 54497 Morbach</td>
+                        <td>PV-1E22</td>
+                        <td>218</td>
+                        <td><a href="https://f9f2e66626fb.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td><a href="https://6692a81a328f.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Marktredwitzer Str. 28 , 95659 Arzberg</td>
+                        <td>PV-1E11</td>
+                        <td>209.79</td>
+                        <td><a href="" target="_blank">
+                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
+                            </a>
+                        </td>
+                        <td><a href="" target="_blank">
+                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary">K.A</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Erlenhof 1 Z , 54497 Morbach Hundheim</td>
+                        <td>PV-1E18</td>
+                        <td>160.05</td>
+                        <td id="msgPV1E18">
+                                <button type="button" class="btn btn-success">Loading ...</button>
+                        </td>
+                        <td><a href="https://fa1e6950cc36.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Gewerbestr. 4 , 54497 Morbach Gonzerath</td>
+                        <td>PV-1E4</td>
+                        <td>130</td>
+                        <td><a href="https://1a91c408773c.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td><a href="https://2dae45bc5658.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Idarwaldstr. 16, 54497 Morbach Bischofsdhron</td>
+                        <td>PV-1E9</td>
+                        <td>130</td>
+                        <td id="msgPV1E9">
+                                <button type="button" class="btn btn-success">Loading ...</button>
+                        </td>
+                        <td><a href="https://e1f9e96cfecf.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Hof Geierslay 1 , 54497 Morbach</td>
+                        <td>PV-1E16</td>
+                        <td>130</td>
+                        <td><a href="https://7f33449104b0.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td><a href="https://6db900138147.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Gartenweg 10 A , 56288 Braunshorn</td>
+                        <td>PV-1E19</td>
+                        <td>99.8</td>
+                        <td><a href="" target="_blank">
+                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
+                            </a>
+                        </td>
+                        <td><a href="" target="_blank">
+                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary">K.A</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td> Gewerbestr. 8, 54497 Morbach Gonzerath</td>
+                        <td>PV-1E6</td>
+                        <td>94.25</td>
+                        <td><a href="https://341bac11593d.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td><a href="https://2c8de23e4a68.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success"> Sehr Gut</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Gewerbestr. 6, Morbach Gonzerath</td>
+                        <td>PV-1E5</td>
+                        <td>99</td>
+                        <td id="msgPV1E6">
+                                <button type="button" class="btn btn-success">Loading ...</button>
+                        </td>
+                        <td><a href="https://44727b403a37.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Zum Bieberbach 1, Platten</td>
+                        <td>PV-1E23</td>
+                        <td>75.03</td>
+                        <td><a href="" target="_blank">
+                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
+                            </a>
+                        </td>
+                        <td><a href="" target="_blank">
+                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary">K.A</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Auf der Heide, Morbach</td>
+                        <td>PV-1E21</td>
+                        <td>99</td>
+                        <td><a href="https://8526a4b3c475.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td><a href="https://4a7501ba0372.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Link bereit</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        </td>
                     </tr>
 
                 </table>
