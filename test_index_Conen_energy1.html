@@ -162,28 +162,28 @@
             background-color: rgb(255, 255, 255);
             font-size: 3;
             font-weight: bold;
-            line-height: 140%; 
+            line-height: 140%;
         }
 
         #msgPV1E18 {
             background-color: rgb(255, 255, 255);
             font-size: 3;
             font-weight: bold;
-            line-height: 140%; 
+            line-height: 140%;
         }
 
         #msgPV1E9 {
             background-color: rgb(255, 255, 255);
             font-size: 3;
             font-weight: bold;
-            line-height: 140%; 
+            line-height: 140%;
         }
 
         #msgPV1E6 {
             background-color: rgb(255, 255, 255);
             font-size: 3;
             font-weight: bold;
-            line-height: 140%; 
+            line-height: 140%;
         }
 
         #msg13 {
@@ -278,8 +278,8 @@
                 }
 
                 if (topic == "raspberry/InDerDoor") {
-                    document.getElementById("msgPV1E7").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
-                        out / 1000 + " kW </button>";
+                    document.getElementById("msgPV1E7").innerHTML = "<p style='color: green;'>" + out / 1000 +
+                        " kW </p>"
                     if (out == "") {
                         document.getElementById("msgPV1E7").innerHTML =
                             "<button type='button1' class='btn btn-danger'>NO Value Recieved</button>";
@@ -287,9 +287,7 @@
                 }
 
                 if (topic == "raspberry/Conenstr4") {
-                    document.getElementById("msgPV1E1").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
-                        out / 1000 + " kW </button>";
-
+                    document.getElementById("msgPV1E1").innerHTML = "<p style='color: green;'>" + out / 1000 + " kW </p>"
                     if (out == "") {
                         document.getElementById("msgPV1E1").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -297,9 +295,7 @@
                 }
 
                 if (topic == "raspberry/WaldhofBruchweiler") {
-                    document.getElementById("msgPV1E15").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
-                        out + " kW </button>";
-
+                    document.getElementById("msgPV1E15").innerHTML = "<p style='color: green;'>" + out + " kW </p>"
                     if (out == "") {
                         document.getElementById("msgPV1E15").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -307,8 +303,7 @@
                 }
 
                 if (topic == "raspberry/HeinzenbachHolgerOffers") {
-                    document.getElementById("msgPV1E8").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
-                        out + " kW </button>";
+                    document.getElementById("msgPV1E8").innerHTML = "<p style='color: green;'>" + out + " kW </p>";
 
                     if (out == "") {
                         document.getElementById("msgPV1E8").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
@@ -317,8 +312,7 @@
                 }
 
                 if (topic == "raspberry/GutenthalMichaelLeis") {
-                    document.getElementById("msgPV1E17").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
-                        out + " kW </button>";
+                    document.getElementById("msgPV1E17").innerHTML =  "<p style='color: green;'>" + out + " kW </p>";
 
                     if (out == "") {
                         document.getElementById("msgPV1E17").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
@@ -327,9 +321,7 @@
                 }
 
                 if (topic == "raspberry/HundheimErlenhof") {
-                    document.getElementById("msgPV1E18").innerHTML = "<button  style='color: black; type='button1' class='btn btn-success'>" +
-                        out + " kW </button>";
-
+                    document.getElementById("msgPV1E18").innerHTML = "<p style='color: green;'>" + out + " kW </p>";
                     if (out == "") {
                         document.getElementById("msgPV1E18").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -337,9 +329,7 @@
                 }
 
                 if (topic == "raspberry/Bischofsdhron") {
-                    document.getElementById("msgPV1E9").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
-                        out + " kW </button>";
-
+                    document.getElementById("msgPV1E9").innerHTML = "<p style='color: green;'>" + out + " kW </p>";
                     if (out == "") {
                         document.getElementById("msgPV1E9").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -347,8 +337,7 @@
                 }
 
                 if (topic == "raspberry/GonzerathCanadaBlockhaus") {
-                    document.getElementById("msgPV1E6").innerHTML = "<button style='color: black; type='button1' class='btn btn-success'>" +
-                        out + " kW </button>";
+                    document.getElementById("msgPV1E6").innerHTML = "<p style='color: green;'>" + out + " kW </p>";
 
                     if (out == "") {
                         document.getElementById("msgPV1E6").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
@@ -685,7 +674,7 @@
                         <td>PV-1E8</td>
                         <td>250</td>
                         <td id="msgPV1E8">
-                                <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
                         <td><a href="https://f32902429b6a.eu.ngrok.io/" target="_blank">
                                 <button type="button" class="btn btn-success">Link bereit</button>
@@ -701,7 +690,7 @@
                         <td>PV-1E17</td>
                         <td>235</td>
                         <td id="msgPV1E17">
-                                <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
                         <td><a href="https://eb388154933c.eu.ngrok.io/" target="_blank">
                                 <button type="button" class="btn btn-success">Link bereit</button>
@@ -751,7 +740,7 @@
                         <td>PV-1E18</td>
                         <td>160.05</td>
                         <td id="msgPV1E18">
-                                <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
                         <td><a href="https://fa1e6950cc36.eu.ngrok.io/" target="_blank">
                                 <button type="button" class="btn btn-success">Link bereit</button>
@@ -784,7 +773,7 @@
                         <td>PV-1E9</td>
                         <td>130</td>
                         <td id="msgPV1E9">
-                                <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
                         <td><a href="https://e1f9e96cfecf.eu.ngrok.io/" target="_blank">
                                 <button type="button" class="btn btn-success">Link bereit</button>
@@ -851,7 +840,7 @@
                         <td>PV-1E5</td>
                         <td>99</td>
                         <td id="msgPV1E6">
-                                <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
                         <td><a href="https://44727b403a37.eu.ngrok.io/" target="_blank">
                                 <button type="button" class="btn btn-success">Link bereit</button>
