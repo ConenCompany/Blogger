@@ -186,6 +186,48 @@
             line-height: 140%;
         }
 
+        #msgPV1E13 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E13status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E13bereitschaft {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E3 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E3status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E3bereitschaft {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
         #msg13 {
             background-color: rgb(255, 255, 255);
             font-size: 3;
@@ -256,29 +298,10 @@
                 var topic = r_message.destinationName;
                 console.log(topic);
                 var out = r_message.payloadString;
-                if (topic == "raspberry/topic") {
-                    document.getElementById("messages").innerHTML = "<p style='color: green;'>" + out + "</p>";
-                    if (out == "") {
-                        document.getElementById("messages").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
-                    }
-                }
-                if (topic == "raspberry/topic1") {
-                    document.getElementById("msg1").innerHTML = "<p style='color: green;'>" + out + "</p>";
-                    if (out == "gestoert") {
-                        document.getElementById("msg1").innerHTML = "<p style='color: red;'>gestoert</p>";
-                    }
-
-
-                }
-                if (topic == "raspberry/topic2") {
-                    document.getElementById("msg2").innerHTML = "<p style='color: green;'>" + out + "</p>";
-                    if (out == "ka") {
-                        document.getElementById("msg2").innerHTML = "<p style='color: red;'>K.A</p>";
-                    }
-                }
+                
 
                 if (topic == "raspberry/InDerDoor") {
-                    document.getElementById("msgPV1E7").innerHTML = "<p style='color: green;'>" + out / 1000 +
+                    document.getElementById("msgPV1E7").innerHTML = "<p style='color: green;'>" + Math.round(out / 1000) +
                         " kW </p>"
                     if (out == "") {
                         document.getElementById("msgPV1E7").innerHTML =
@@ -287,7 +310,8 @@
                 }
 
                 if (topic == "raspberry/Conenstr4") {
-                    document.getElementById("msgPV1E1").innerHTML = "<p style='color: green;'>" + out / 1000 + " kW </p>"
+                    document.getElementById("msgPV1E1").innerHTML = "<p style='color: green;'>" + Math.round(out / 1000)  +
+                        " kW </p>"
                     if (out == "") {
                         document.getElementById("msgPV1E1").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -295,7 +319,7 @@
                 }
 
                 if (topic == "raspberry/WaldhofBruchweiler") {
-                    document.getElementById("msgPV1E15").innerHTML = "<p style='color: green;'>" + out + " kW </p>"
+                    document.getElementById("msgPV1E15").innerHTML = "<p style='color: green;'>" + Math.round(out) + " kW </p>"
                     if (out == "") {
                         document.getElementById("msgPV1E15").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -303,7 +327,7 @@
                 }
 
                 if (topic == "raspberry/HeinzenbachHolgerOffers") {
-                    document.getElementById("msgPV1E8").innerHTML = "<p style='color: green;'>" + out + " kW </p>";
+                    document.getElementById("msgPV1E8").innerHTML = "<p style='color: green;'>" + Math.round(out) + " kW </p>";
 
                     if (out == "") {
                         document.getElementById("msgPV1E8").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
@@ -312,7 +336,7 @@
                 }
 
                 if (topic == "raspberry/GutenthalMichaelLeis") {
-                    document.getElementById("msgPV1E17").innerHTML =  "<p style='color: green;'>" + out + " kW </p>";
+                    document.getElementById("msgPV1E17").innerHTML = "<p style='color: green;'>" + Math.round(out) + " kW </p>";
 
                     if (out == "") {
                         document.getElementById("msgPV1E17").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
@@ -321,7 +345,7 @@
                 }
 
                 if (topic == "raspberry/HundheimErlenhof") {
-                    document.getElementById("msgPV1E18").innerHTML = "<p style='color: green;'>" + out + " kW </p>";
+                    document.getElementById("msgPV1E18").innerHTML = "<p style='color: green;'>" + Math.round(out) + " kW </p>";
                     if (out == "") {
                         document.getElementById("msgPV1E18").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -329,7 +353,7 @@
                 }
 
                 if (topic == "raspberry/Bischofsdhron") {
-                    document.getElementById("msgPV1E9").innerHTML = "<p style='color: green;'>" + out + " kW </p>";
+                    document.getElementById("msgPV1E9").innerHTML = "<p style='color: green;'>" + Math.round(out) + " kW </p>";
                     if (out == "") {
                         document.getElementById("msgPV1E9").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -337,10 +361,64 @@
                 }
 
                 if (topic == "raspberry/GonzerathCanadaBlockhaus") {
-                    document.getElementById("msgPV1E6").innerHTML = "<p style='color: green;'>" + out + " kW </p>";
+                    document.getElementById("msgPV1E6").innerHTML = "<p style='color: green;'>" + Math.round(out) + " kW </p>";
 
                     if (out == "") {
                         document.getElementById("msgPV1E6").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/HintermDorf") {
+                    document.getElementById("msgPV1E13").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E13").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/HintermDorfInternetStatus") {
+                    document.getElementById("msgPV1E13status").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E13status").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/HintermDorfbereitschaft") {
+                    document.getElementById("msgPV1E13bereitschaft").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E13bereitschaft").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/Schollenfeld") {
+                    document.getElementById("msgPV1E3").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E3").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/SchollenfeldInternetStatus") {
+                    document.getElementById("msgPV1E3status").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E3status").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/Schollenfeldbereitschaft") {
+                    document.getElementById("msgPV1E3bereitschaft").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E3bereitschaft").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
 
                 }
@@ -382,6 +460,10 @@
                 mqtt.subscribe("raspberry/HundheimErlenhof");
                 mqtt.subscribe("raspberry/Bischofsdhron");
                 mqtt.subscribe("raspberry/GonzerathCanadaBlockhaus");
+                mqtt.subscribe("raspberry/HintermDorf");
+                mqtt.subscribe("raspberry/HintermDorfInternetStatus");
+                mqtt.subscribe("raspberry/HintermDorfbereitschaft")
+                mqtt.subscribe("raspberry/Schollenfeld")
             }
 
 
@@ -534,37 +616,21 @@
                         <th>Handle</th>
                     </tr>
 
-                    <tr>
-                        <td>1</td>
-                        <td>PV Droyßig</td>
-                        <td>PV-1E13</td>
-                        <td>750</td>
-                        <td id="messages">
-                        </td>
-                        <td id="msg1">
-                        </td>
-                        <td id="msg2">
-                        </td>
-
-                    </tr>
-
-                    </tr>
+                   
 
                     <tr>
                         <td>1</td>
                         <td>HintermDorf 15, Schmiedehausen</td>
                         <td>PV-1E13</td>
                         <td>750</td>
-                        <td><a href="https://19930a7229fa.eu.ngrok.io/" target="_blank">
-                                <button type="button1" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E13">
+                            <button type="button1" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td><a href="https://3348558ecd68.eu.ngrok.io/" target="_blank">
-                                <button type="button1" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E13status">
+                                <button type="button1" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td>
-                            <button type="button1" class="btn btn-success">Sehr Gut</button>
+                        <td id="msgPV1E13bereitschaft">
+                            <button type="button1" class="btn btn-warning">Loading ...</button>
                         </td>
                     </tr>
                     <tr>
@@ -573,7 +639,7 @@
                         <td>PV-1E1</td>
                         <td>670</td>
                         <td id="msgPV1E1">
-                            <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-warning">Loading ...</button>
 
                         </td>
                         <td><a href="https://de28626680f1.eu.ngrok.io/" target="_blank">
@@ -589,16 +655,14 @@
                         <td>Im Schollenfeld 8, 54497 Morbach</td>
                         <td>PV-1E3</td>
                         <td>620</td>
-                        <td><a href="https://35de687561e9.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E3">
+                                <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td><a href="https://e4475b4986c1.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E3status">
+                                <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        <td id="msgPV1E3bereitschaft">
+                            <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
                     </tr>
                     <tr>
@@ -624,7 +688,7 @@
                         <td>PV-1E15</td>
                         <td>350</td>
                         <td id="msgPV1E15">
-                            <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-warning">Loading ...</button>
 
                         </td>
                         <td><a href="https://8111565537ef.eu.ngrok.io/" target="_blank">
@@ -658,7 +722,7 @@
                         <td>PV-1E7</td>
                         <td>250</td>
                         <td id="msgPV1E7">
-                            <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
                         <td><a href="https://c903385a9ec1.eu.ngrok.io/" target="_blank">
                                 <button type="button" class="btn btn-success">Link bereit</button>
@@ -674,7 +738,7 @@
                         <td>PV-1E8</td>
                         <td>250</td>
                         <td id="msgPV1E8">
-                            <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
                         <td><a href="https://f32902429b6a.eu.ngrok.io/" target="_blank">
                                 <button type="button" class="btn btn-success">Link bereit</button>
@@ -690,7 +754,7 @@
                         <td>PV-1E17</td>
                         <td>235</td>
                         <td id="msgPV1E17">
-                            <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
                         <td><a href="https://eb388154933c.eu.ngrok.io/" target="_blank">
                                 <button type="button" class="btn btn-success">Link bereit</button>
@@ -740,7 +804,7 @@
                         <td>PV-1E18</td>
                         <td>160.05</td>
                         <td id="msgPV1E18">
-                            <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
                         <td><a href="https://fa1e6950cc36.eu.ngrok.io/" target="_blank">
                                 <button type="button" class="btn btn-success">Link bereit</button>
@@ -773,7 +837,7 @@
                         <td>PV-1E9</td>
                         <td>130</td>
                         <td id="msgPV1E9">
-                            <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
                         <td><a href="https://e1f9e96cfecf.eu.ngrok.io/" target="_blank">
                                 <button type="button" class="btn btn-success">Link bereit</button>
@@ -840,7 +904,7 @@
                         <td>PV-1E5</td>
                         <td>99</td>
                         <td id="msgPV1E6">
-                            <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
                         <td><a href="https://44727b403a37.eu.ngrok.io/" target="_blank">
                                 <button type="button" class="btn btn-success">Link bereit</button>
@@ -890,6 +954,7 @@
                 <div id="status">Connection Status: Not Connected</div>
                 <br>
                 <br>
+                <div id="messages"></div>
 
             </div>
 
