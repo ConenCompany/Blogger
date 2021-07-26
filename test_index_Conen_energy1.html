@@ -228,6 +228,48 @@
             line-height: 140%;
         }
 
+        #msgPV1E22 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E22status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E22bereitschaft {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E4 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E4status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E4bereitschaft {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
         #msg13 {
             background-color: rgb(255, 255, 255);
             font-size: 3;
@@ -381,8 +423,8 @@
                 if (topic == "raspberry/HintermDorfInternetStatus") {
                     document.getElementById("msgPV1E13status").innerHTML = "<p style='color: green;'>" + out + "</p>";
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E13status").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out == "gestoert") {
+                        document.getElementById("msgPV1E13status").innerHTML = "<p style='color: red;'>gestoert</p>";
                     }
 
                 }
@@ -400,7 +442,7 @@
                     document.getElementById("msgPV1E3").innerHTML = "<p style='color: green;'>" + out + "</p>";
 
                     if (out == "") {
-                        document.getElementById("msgPV1E3").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                        document.getElementById("msgPV1E3").innerHTML = "<p style='color: red;'>keine Daten</p>";
                     }
 
                 }
@@ -408,8 +450,8 @@
                 if (topic == "raspberry/SchollenfeldInternetStatus") {
                     document.getElementById("msgPV1E3status").innerHTML = "<p style='color: green;'>" + out + "</p>";
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E3status").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out == "gestoert") {
+                        document.getElementById("msgPV1E3status").innerHTML = "<p style='color: red;'>gestoert</p>";
                     }
 
                 }
@@ -417,8 +459,62 @@
                 if (topic == "raspberry/Schollenfeldbereitschaft") {
                     document.getElementById("msgPV1E3bereitschaft").innerHTML = "<p style='color: green;'>" + out + "</p>";
 
+                    if (out == "ka") {
+                        document.getElementById("msgPV1E3bereitschaft").innerHTML = "<p style='color: red;'>Anlage sofort prüfen</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/EssoTakestelle") {
+                    document.getElementById("msgPV1E22").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
                     if (out == "") {
-                        document.getElementById("msgPV1E3bereitschaft").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                        document.getElementById("msgPV1E22").innerHTML = "<p style='color: red;'>keine Daten</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/EssoTakestelleInternetStatus") {
+                    document.getElementById("msgPV1E22status").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                    if (out == "gestoert") {
+                        document.getElementById("msgPV1E22status").innerHTML = "<p style='color: red;'>gestoert</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/EssoTakestellebereitschaft") {
+                    document.getElementById("msgPV1E22bereitschaft").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E22bereitschaft").innerHTML = "<p style='color: red;'>No</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/Gewerbestr4") {
+                    document.getElementById("msgPV1E4").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E4").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/Gewerbestr4InternetStatus") {
+                    document.getElementById("msgPV1E4status").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                    if (out == "gestoert") {
+                        document.getElementById("msgPV1E4status").innerHTML = "<p style='color: red;'>gestoert</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/Gewerbestr4Gewerbestr4bereitschaft") {
+                    document.getElementById("msgPV1E4bereitschaft").innerHTML = "<p style='color: green;'>" + out + "</p>";
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E4bereitschaft").innerHTML = "<p style='color: red;'>No</p>";
                     }
 
                 }
@@ -464,6 +560,10 @@
                 mqtt.subscribe("raspberry/HintermDorfInternetStatus");
                 mqtt.subscribe("raspberry/HintermDorfbereitschaft")
                 mqtt.subscribe("raspberry/Schollenfeld")
+                mqtt.subscribe("raspberry/SchollenfeldInternetStatus")
+                mqtt.subscribe("raspberry/Schollenfeldbereitschaft")
+                mqtt.subscribe("raspberry/EssoTakestelle")
+                mqtt.subscribe("raspberry/Gewerbestr4")
             }
 
 
@@ -769,16 +869,14 @@
                         <td>An der Hunsrückhöhenstraße 3 , 54497 Morbach</td>
                         <td>PV-1E22</td>
                         <td>218</td>
-                        <td><a href="https://f9f2e66626fb.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E22">
+                                <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        <td><a href="https://6692a81a328f.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E22status">
+                                <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        <td id="msgPV1E22bereitschaft">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
                     </tr>
                     <tr>
@@ -819,7 +917,7 @@
                         <td>Gewerbestr. 4 , 54497 Morbach Gonzerath</td>
                         <td>PV-1E4</td>
                         <td>130</td>
-                        <td><a href="https://1a91c408773c.eu.ngrok.io/" target="_blank">
+                        <td id="msgPV1E4"><a href="https://1a91c408773c.eu.ngrok.io/" target="_blank"></a>
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
