@@ -254,6 +254,7 @@
             font-size: 3;
             font-weight: bold;
             line-height: 140%;
+            animation: success 6s infinite;
         }
 
         #msgPV1E4status {
@@ -264,6 +265,28 @@
         }
 
         #msgPV1E4bereitschaft {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E5 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+            animation: success 6s infinite;
+        }
+
+        #msgPV1E5status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E5bereitschaft {
             background-color: rgb(255, 255, 255);
             font-size: 3;
             font-weight: bold;
@@ -297,6 +320,85 @@
             font-weight: bold;
             color: white;
             line-height: 140%;
+        }
+
+        #PageTunnel {
+            padding-left: 0rem;
+            padding-right: 0rem;
+        }
+
+        #PageTunnelcolorsuccess {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+            animation: success 6s infinite;
+        }
+
+        #PageTunnelcolorfailed {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+            animation: failed 6s infinite;
+        }
+
+        .box-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #contentwidth{
+            padding-left: 6rem;
+            padding-right: 19rem;
+        }
+
+        @keyframes success {
+            from {
+                background-color: rgb(118, 240, 87);
+            }
+
+            to {
+                background-color: rgb(255, 255, 255);
+            }
+
+            from {
+                background-color: greenyellow;
+            }
+
+            to {
+                background-color: rgb(255, 255, 255);
+            }
+
+            from {
+                background-color: greenyellow;
+            }
+        }
+
+        @keyframes failed {
+            from {
+                background-color: rgb(255, 0, 0);
+            }
+
+            to {
+                background-color: rgb(255, 255, 255);
+            }
+
+            from {
+                background-color: rgb(248, 0, 0);
+            }
+
+            to {
+                background-color: rgb(255, 255, 255);
+            }
+
+            from {
+                background-color: rgb(240, 5, 5);
+            }
         }
     </style>
 
@@ -340,11 +442,13 @@
                 var topic = r_message.destinationName;
                 console.log(topic);
                 var out = r_message.payloadString;
-                
+
 
                 if (topic == "raspberry/InDerDoor") {
-                    document.getElementById("msgPV1E7").innerHTML = "<p style='color: green;'>" + Math.round(out / 1000) +
-                        " kW </p>"
+                    document.getElementById("msgPV1E7").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        Math.round(out / 1000) + ' kW </button>';
+
                     if (out == "") {
                         document.getElementById("msgPV1E7").innerHTML =
                             "<button type='button1' class='btn btn-danger'>NO Value Recieved</button>";
@@ -352,8 +456,10 @@
                 }
 
                 if (topic == "raspberry/Conenstr4") {
-                    document.getElementById("msgPV1E1").innerHTML = "<p style='color: green;'>" + Math.round(out / 1000)  +
-                        " kW </p>"
+                    document.getElementById("msgPV1E1").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        Math.round(out / 1000) + ' kW </button>';
+
                     if (out == "") {
                         document.getElementById("msgPV1E1").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -361,7 +467,10 @@
                 }
 
                 if (topic == "raspberry/WaldhofBruchweiler") {
-                    document.getElementById("msgPV1E15").innerHTML = "<p style='color: green;'>" + Math.round(out) + " kW </p>"
+                    document.getElementById("msgPV1E15").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        Math.round(out) + ' kW </button>';
+
                     if (out == "") {
                         document.getElementById("msgPV1E15").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -369,7 +478,10 @@
                 }
 
                 if (topic == "raspberry/HeinzenbachHolgerOffers") {
-                    document.getElementById("msgPV1E8").innerHTML = "<p style='color: green;'>" + Math.round(out) + " kW </p>";
+                    document.getElementById("msgPV1E8").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        Math.round(out) + ' kW</button>';
+
 
                     if (out == "") {
                         document.getElementById("msgPV1E8").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
@@ -378,7 +490,10 @@
                 }
 
                 if (topic == "raspberry/GutenthalMichaelLeis") {
-                    document.getElementById("msgPV1E17").innerHTML = "<p style='color: green;'>" + Math.round(out) + " kW </p>";
+                    document.getElementById("msgPV1E17").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        Math.round(out) + ' kW </button>';
+
 
                     if (out == "") {
                         document.getElementById("msgPV1E17").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
@@ -387,7 +502,10 @@
                 }
 
                 if (topic == "raspberry/HundheimErlenhof") {
-                    document.getElementById("msgPV1E18").innerHTML = "<p style='color: green;'>" + Math.round(out) + " kW </p>";
+                    document.getElementById("msgPV1E18").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        Math.round(out) + ' kW </button>';
+
                     if (out == "") {
                         document.getElementById("msgPV1E18").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -395,7 +513,10 @@
                 }
 
                 if (topic == "raspberry/Bischofsdhron") {
-                    document.getElementById("msgPV1E9").innerHTML = "<p style='color: green;'>" + Math.round(out) + " kW </p>";
+                    document.getElementById("msgPV1E9").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        Math.round(out) + ' kW </button>';
+
                     if (out == "") {
                         document.getElementById("msgPV1E9").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
                     }
@@ -403,7 +524,10 @@
                 }
 
                 if (topic == "raspberry/GonzerathCanadaBlockhaus") {
-                    document.getElementById("msgPV1E6").innerHTML = "<p style='color: green;'>" + Math.round(out) + " kW </p>";
+                    document.getElementById("msgPV1E6").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        Math.round(out) + ' kW </button>';
+
 
                     if (out == "") {
                         document.getElementById("msgPV1E6").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
@@ -412,7 +536,9 @@
                 }
 
                 if (topic == "raspberry/HintermDorf") {
-                    document.getElementById("msgPV1E13").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    document.getElementById("msgPV1E13").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
 
                     if (out == "") {
                         document.getElementById("msgPV1E13").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
@@ -421,7 +547,9 @@
                 }
 
                 if (topic == "raspberry/HintermDorfInternetStatus") {
-                    document.getElementById("msgPV1E13status").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    document.getElementById("msgPV1E13status").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
 
                     if (out == "gestoert") {
                         document.getElementById("msgPV1E13status").innerHTML = "<p style='color: red;'>gestoert</p>";
@@ -430,43 +558,56 @@
                 }
 
                 if (topic == "raspberry/HintermDorfbereitschaft") {
-                    document.getElementById("msgPV1E13bereitschaft").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    document.getElementById("msgPV1E13bereitschaft").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
 
                     if (out == "") {
-                        document.getElementById("msgPV1E13bereitschaft").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                        document.getElementById("msgPV1E13bereitschaft").innerHTML =
+                            "<p style='color: red;'>NO Value Recieved</p>";
                     }
 
                 }
 
                 if (topic == "raspberry/Schollenfeld") {
-                    document.getElementById("msgPV1E3").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    document.getElementById("msgPV1E3").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
 
                     if (out == "") {
-                        document.getElementById("msgPV1E3").innerHTML = "<p style='color: red;'>keine Daten</p>";
+                        document.getElementById("msgPV1E3").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
                     }
 
                 }
 
                 if (topic == "raspberry/SchollenfeldInternetStatus") {
-                    document.getElementById("msgPV1E3status").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    document.getElementById("msgPV1E3status").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
 
                     if (out == "gestoert") {
-                        document.getElementById("msgPV1E3status").innerHTML = "<p style='color: red;'>gestoert</p>";
+                        document.getElementById("msgPV1E3status").innerHTML = '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
 
                 if (topic == "raspberry/Schollenfeldbereitschaft") {
-                    document.getElementById("msgPV1E3bereitschaft").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    document.getElementById("msgPV1E3bereitschaft").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
 
                     if (out == "ka") {
-                        document.getElementById("msgPV1E3bereitschaft").innerHTML = "<p style='color: red;'>Anlage sofort prüfen</p>";
+                        document.getElementById("msgPV1E3bereitschaft").innerHTML =
+                        '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >K.A</button>';
                     }
 
                 }
 
                 if (topic == "raspberry/EssoTakestelle") {
-                    document.getElementById("msgPV1E22").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    document.getElementById("msgPV1E22").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
 
                     if (out == "") {
                         document.getElementById("msgPV1E22").innerHTML = "<p style='color: red;'>keine Daten</p>";
@@ -475,7 +616,9 @@
                 }
 
                 if (topic == "raspberry/EssoTakestelleInternetStatus") {
-                    document.getElementById("msgPV1E22status").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    document.getElementById("msgPV1E22status").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
 
                     if (out == "gestoert") {
                         document.getElementById("msgPV1E22status").innerHTML = "<p style='color: red;'>gestoert</p>";
@@ -484,7 +627,9 @@
                 }
 
                 if (topic == "raspberry/EssoTakestellebereitschaft") {
-                    document.getElementById("msgPV1E22bereitschaft").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    document.getElementById("msgPV1E22bereitschaft").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
 
                     if (out == "") {
                         document.getElementById("msgPV1E22bereitschaft").innerHTML = "<p style='color: red;'>No</p>";
@@ -493,7 +638,9 @@
                 }
 
                 if (topic == "raspberry/Gewerbestr4") {
-                    document.getElementById("msgPV1E4").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    document.getElementById("msgPV1E4").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
 
                     if (out == "") {
                         document.getElementById("msgPV1E4").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
@@ -502,7 +649,9 @@
                 }
 
                 if (topic == "raspberry/Gewerbestr4InternetStatus") {
-                    document.getElementById("msgPV1E4status").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    document.getElementById("msgPV1E4status").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
 
                     if (out == "gestoert") {
                         document.getElementById("msgPV1E4status").innerHTML = "<p style='color: red;'>gestoert</p>";
@@ -511,7 +660,9 @@
                 }
 
                 if (topic == "raspberry/Gewerbestr4Gewerbestr4bereitschaft") {
-                    document.getElementById("msgPV1E4bereitschaft").innerHTML = "<p style='color: green;'>" + out + "</p>";
+                    document.getElementById("msgPV1E4bereitschaft").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
 
                     if (out == "") {
                         document.getElementById("msgPV1E4bereitschaft").innerHTML = "<p style='color: red;'>No</p>";
@@ -674,21 +825,13 @@
         </div>
     </nav>
 
-    <main>
-        <section class="site-title">
-            <div class="site-background1">
-                <h3> Herzlich willkommen </h3>
-                <h1> auf unserer Tunnel Homepage </h1>
-            </div>
-        </section>
 
-    </main>
 
     <!-- Page Content-->
     <div class="container">
         <!-- About-->
-        <section class="resume-section" id="links">
-            <div class="resume-section-content">
+        <section class="resume-section" id="links" id="contentwidth">
+            <div class="resume-section-content" >
                 <div class="Gesellschaft">
                 </div>
                 <h4><u>TUNNEL Website</u>
@@ -698,10 +841,7 @@
 
                     <a href="#"><u>Conenstraße 3, 54497 Morbach-Gonzerath</u></a>
                 </div>
-                <div class="card">
-                    <div id="mapid"></div>
 
-                </div>
 
                 <br>
                 <br>
@@ -716,7 +856,7 @@
                         <th>Handle</th>
                     </tr>
 
-                   
+
 
                     <tr>
                         <td>1</td>
@@ -727,7 +867,7 @@
                             <button type="button1" class="btn btn-warning">Loading ...</button>
                         </td>
                         <td id="msgPV1E13status">
-                                <button type="button1" class="btn btn-warning">Loading ...</button>
+                            <button type="button1" class="btn btn-warning">Loading ...</button>
                         </td>
                         <td id="msgPV1E13bereitschaft">
                             <button type="button1" class="btn btn-warning">Loading ...</button>
@@ -756,10 +896,10 @@
                         <td>PV-1E3</td>
                         <td>620</td>
                         <td id="msgPV1E3">
-                                <button type="button" class="btn btn-warning">Loading ...</button>
+                            <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
                         <td id="msgPV1E3status">
-                                <button type="button" class="btn btn-warning">Loading ...</button>
+                            <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
                         <td id="msgPV1E3bereitschaft">
                             <button type="button" class="btn btn-warning">Loading ...</button>
@@ -870,10 +1010,10 @@
                         <td>PV-1E22</td>
                         <td>218</td>
                         <td id="msgPV1E22">
-                                <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
                         <td id="msgPV1E22status">
-                                <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
                         <td id="msgPV1E22bereitschaft">
                             <button type="button" class="btn btn-success">Loading ...</button>
@@ -918,7 +1058,7 @@
                         <td>PV-1E4</td>
                         <td>130</td>
                         <td id="msgPV1E4"><a href="https://1a91c408773c.eu.ngrok.io/" target="_blank"></a>
-                                <button type="button" class="btn btn-success">Link bereit</button>
+                            <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
                         <td><a href="https://2dae45bc5658.eu.ngrok.io/" target="_blank">
@@ -984,16 +1124,15 @@
                         <td> Gewerbestr. 8, 54497 Morbach Gonzerath</td>
                         <td>PV-1E6</td>
                         <td>94.25</td>
-                        <td><a href="https://341bac11593d.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E6">
+                            <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td><a href="https://2c8de23e4a68.eu.ngrok.io/" target="_blank">
+                        <td><a href="https://44727b403a37.eu.ngrok.io/" target="_blank">
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-success"> Sehr Gut</button>
+                            <button type="button" class="btn btn-success">Sehr Gut</button>
                         </td>
                     </tr>
                     <tr>
@@ -1001,7 +1140,7 @@
                         <td>Gewerbestr. 6, Morbach Gonzerath</td>
                         <td>PV-1E5</td>
                         <td>99</td>
-                        <td id="msgPV1E6">
+                        <td id="msgPV1E5">
                             <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
                         <td><a href="https://44727b403a37.eu.ngrok.io/" target="_blank">
@@ -1058,7 +1197,6 @@
 
             <hr class="m-100" />
 
-
     </div>
 
     <script src="./js/jquery.js"></script>
@@ -1073,331 +1211,7 @@
         </iframe>
     </div>
 
-    <script>
-        var cities = L.layerGroup();
 
-        var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            mbUrl =
-            'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
-
-        var
-            satellite = L.tileLayer(mbUrl, {
-                id: 'mapbox/satellite-v9',
-                tileSize: 512,
-                zoomOffset: -1,
-                attribution: mbAttr
-            }),
-
-
-            grayscale = L.tileLayer(mbUrl, {
-                id: 'mapbox/light-v9',
-                tileSize: 512,
-                zoomOffset: -1,
-                attribution: mbAttr
-            }),
-            streets = L.tileLayer(mbUrl, {
-                id: 'mapbox/streets-v11',
-                tileSize: 512,
-                zoomOffset: -1,
-                attribution: mbAttr
-            }),
-            outdoors = L.tileLayer(mbUrl, {
-                id: 'mapbox/outdoors-v11',
-                tileSize: 512,
-                zoomOffset: -1,
-                attribution: mbAttr
-            }),
-            dark = L.tileLayer(mbUrl, {
-                id: 'mapbox/dark-v10',
-                tileSize: 512,
-                zoomOffset: -1,
-                attribution: mbAttr
-            })
-
-
-
-        var mymap = L.map('mapid', {
-            center: [51.694693, 32.27678],
-            zoom: 3.9,
-            layers: [outdoors, cities]
-        });
-        var baseLayers = {
-            "Satellite": satellite,
-            "Outdoors": outdoors,
-            "Grayscale": grayscale,
-            "Streets": streets,
-            "Dark": dark,
-
-
-        };
-
-
-        L.control.layers(baseLayers).addTo(mymap);
-
-
-        var popup = L.popup();
-
-        function onMapClick(e) {
-            popup
-                .setLatLng(e.latlng)
-                .setContent("Koordinaten eines Orts ermitteln " + e.latlng.toString())
-                .openOn(mymap);
-        }
-
-        mymap.on('click', onMapClick);
-
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.80774871354025, 7.114322076707525]).bindPopup(
-            '<a class="mybox" href="./photos/Auto 24 3.jpg" title="Auto 24  177 [KWP]" data-lcl-txt="Anlage 2"data-lcl-author="Conen Energy"><img src="./photos/Auto 24 3-klein.jpg" width="300" height="300" ></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >MORBACH Wetter Real Time</a> <br>   <b>   Morbach Esso Tankstelle An der Hunsrückhöhenstraße 3 54497 Morbach</b><br> PV-1E22 ---- 99 [kWp] '
-        ).addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-
-        var circle = L.circle([49.80774871354025, 7.114322076707525], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.8596577540509, 7.12797549085363]).bindPopup(
-            ' <a class="mybox" href="./photos/Möbelfabrik Conen Gonzerath.jpg" title="Anlage 37"data-lcl-txt="Möbelfabrik Conen Gonzerath" data-lcl-author="Conen Energy"><img src="./photos/Möbelfabrik Conen Gonzerath-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >MORBACH Wetter Real Time</a> <br>  <b>  Conen Produkte GmbH, Conenstraße, Morbach</b><br> PV-1E1 ---- 670[kWp] '
-        ).addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-
-        var circle = L.circle([49.8596577540509, 7.12797549085363], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.807634145857584, 7.115260204606089]).bindPopup(
-            ' <a class="mybox" href="./photos/Lagerhalle Schollenfeld Morbach.jpg" title="Anlage 33"data-lcl-txt="Lagerhalle Schollenfeld Morbach" data-lcl-author="Conen Energy"><img src="./photos/Lagerhalle Schollenfeld Morbach-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >MORBACH Wetter Real Time</a> <br> <b>   Morbach Möbelhof (neu) Im Schollenfeld 8 54497 Morbach </b><br> PV-1E3 ---- 620 [kWp] '
-        ).addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-
-        var circle = L.circle([49.807634145857584, 7.115260204606089], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([51.169043595622576, 8.487163308267279]).bindPopup(
-            '<a class="weatherwidget-io" href="https://forecast7.com/de/51d198d53/winterberg/" data-label_1="WINTERBERG" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >WINTERBERG Wetter Real Time</a> <br> <b>   Winterberg Kartbahn Winterberger Str.2   59955 Winterberg </b><br> PV-1E12 ---- 616,276 [kWp] '
-        ).addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-
-        var circle = L.circle([51.169043595622576, 8.487163308267279], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.80308968239619, 7.2233368510439435]).bindPopup(
-            ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d807d22/bruchweiler/" data-label_1="BRUCHWEILER" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >BRUCHWEILER Wetter Real Time</a> <br>  <b>   Bruchweiler Reiterhof Waldhof 2 55758 Bruchweiler </b><br> PV-1E15 ---- 350 [kWp] '
-        ).addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-
-        var circle = L.circle([49.80308968239619, 7.2233368510439435], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([50.091488924595694, 7.519006363352011]).bindPopup(
-            ' <a class="weatherwidget-io" href="https://forecast7.com/de/50d097d52/braunshorn/" data-label_1="BRAUNSHORN" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >BRAUNSHORN Wetter Real Time</a>  <b> Braunshorn Rippel Viehhandel Gartenweg 12 Z. 56288 Braunshorn </b><br> PV-1E19 ---- 283 [kWp] '
-        ).addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-
-        var circle = L.circle([50.091488924595694, 7.519006363352011], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.85563818491182, 7.1201755740310215]).bindPopup(
-            ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >GONZERATH Wetter Real Time</a> <br> <b>   Gonzerath Hof Aans PietIn der Door 16, 54497 Morbach Gonzerath</b><br> PV-1E7 ---- 250[kWp] '
-        ).addTo(mymap);
-
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-
-        var circle = L.circle([49.85563818491182, 7.1201755740310215], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.97331893083356, 7.386410116911322]).bindPopup(
-            '  <a class="mybox" href="./photos/Reiterhof Holger Offers 1.jpg" title="Anlage 51"data-lcl-txt="Reioterhof Holger Offers [250 KWP]" data-lcl-author="Conen Energy"><img src="./photos/Reiterhof Holger Offers 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d977d42/heinzenbach/" data-label_1="HEINZENBACH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >HEINZENBACH Wetter Real Time</a> <br>  <b>   Heinzenbach Holger Offers Kücherhof 1 55483 Heinzenbach </b><br> PV-1E8 ---- 250 [kWp] '
-        ).addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-
-        var circle = L.circle([49.97331893083356, 7.386410116911322], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.79068668052287, 7.115025593635773]).bindPopup(
-            ' <a class="mybox" href="./photos/Gertnerrei Berg 1.jpg" title="Anlage 14" data-lcl-txt="Gertnerrei Berg"data-lcl-author="Conen Energy"><img src="./photos/Gertnerrei Berg 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d816d69/auf-der-heide/" data-label_1="AUF DER HEIDE" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >AUF DER HEIDE Wetter Real Time</a> <br>  <b>Auf der Heide 54497 Morbach</b><br> PV-1E21 ------ 99 [kWp]'
-        ).addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-
-        var circle = L.circle([49.79068668052287, 7.115025593635773], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.81332224968441, 7.155965571590137]).bindPopup(
-            ' <a class="mybox" href="./photos/Freizeitzentrum Idarwald Bischhofsdhron.jpg" title="Anlage 12"data-lcl-txt="Feinkost Fritschen Trier 1.jpg" data-lcl-author="Conen Energy"><img src="./photos/Freizeitzentrum Idarwald Bischhofsdhron-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d827d15/bischofsdhron/" data-label_1="BISCHOFSDHRON" data-label_2="Wetter" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >BISCHOFSDHRON Wetter</a> <br>  <b>  Idarwaldstr. 16, 54497 Morbach Bischofsdhron</b><br> PV-1E9 ------ 130 [kWp]'
-        ).addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-
-        var circle = L.circle([49.81332224968441, 7.155965571590137], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.86172886270462, 7.12463125067508]).bindPopup(
-            ' <a class="mybox" href="./photos/Herlach 1.jpg" title="Anlage 26" data-lcl-txt="Herlach"data-lcl-author="Conen Energy"><img src="./photos/Herlach 1-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >GONZERATH Wetter Real Time</a> <br> <b>  Gewerbestr. 8, 54497 Morbach Gonzerath</b><br> PV-1E6 ------ 94,25 [kWp]'
-        ).addTo(mymap);
-
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-
-        var circle = L.circle([49.86172886270462, 7.12463125067508], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([50.05503109657376, 12.177053069996443]).bindPopup(
-            ' <a class="weatherwidget-io" href="https://forecast7.com/de/50d0612d19/arzberg/" data-label_1="ARZBERG" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >ARZBERG Wetter Real Time</a>  <br> <b> Arzberg Edeka Marktredwitzer Str. 28, 95659 Arzberg</b><br> PV-1E11 ------ 209.79[kWp]'
-        ).addTo(
-            mymap);
-
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-        var circle = L.circle([50.05503109657376, 12.177053069996443], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.48412469650521, 7.252542137411973]).bindPopup(
-            ' <a class="mybox" href="./photos/Erlenhof Hundheim.jpg" title="Erlenhof Hundheim"data-lcl-txt=" Anlage 8" data-lcl-author="Conen Energy"><img src="./photos/Erlenhof Hundheim-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d837d15/hundheim/" data-label_1="HUNDHEIM" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >HUNDHEIM Wetter Real Time</a> <br> <b> Hundheim Erlenhof Erlenhof 1 Z 54497 Morbach Hundheim </b><br> PV-1E18 ------ 160.05 [kWp]'
-        ).addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-        var circle = L.circle([49.48412469650521, 7.252542137411973], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.8610006959286, 7.125092237317544]).bindPopup(
-                ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >GONZERATH Wetter Real Time</a>  <br> <b> Gonzerath Herlach Metall Gewerbestr. 4 54497 Morbach Gonzerath </b><br> PV-1E4 ------ 130 [kWp]'
-            )
-            .addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-        var circle = L.circle([49.8610006959286, 7.125092237317544], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.86148940956437, 7.124909546971596]).bindPopup(
-            '  <a class="mybox" href="./photos/Herlach 2.jpg" title="Anlage 27" data-lcl-txt="Herlach"data-lcl-author="Conen Energy"><img src="./photos/Herlach 2-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/49d867d12/gonzerath/" data-label_1="GONZERATH" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >GONZERATH Wetter Real Time</a> <b> Gonzerath Herlach Bau Gewerbestr. 6, 54497 Morbach Gonzerath </b><br> PV-1E5  ------ 99 [kWp]'
-        ).addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-        var circle = L.circle([49.86148940956437, 7.124909546971596], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.82130972503102, 7.123378318286416]).bindPopup(
-            ' <a class="weatherwidget-io" href="https://forecast7.com/de/49d817d13/morbach/" data-label_1="MORBACH" data-label_2="Wetter Real Time" data-font="Arial Black" data-icons="Climacons Animated" data-theme="weather_one" >MORBACH Wetter Real Time</a> <br> <b> Morbach Hof Geierslay Hof Geierslay 1 54497 Morbach </b><br> PV-1E16  ------ 130 [kWp]'
-        ).addTo(
-            mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-        var circle = L.circle([49.82130972503102, 7.123378318286416], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-
-        /******************************************************************************************************************************************************/
-        var marker = L.marker([49.955535828245466, 6.955899920622974]).bindPopup(
-            ' <a class="mybox" href="./photos/Auto 24 3.jpg" title="Auto 24  [177 KWP]" data-lcl-txt="Anlage 2"data-lcl-author="Conen Energy"><img src="./photos/Auto 24 3-klein.jpg" width="300" height="300"></a> <a class="weatherwidget-io" href="https://forecast7.com/de/48d659d20/plattenhardt/" data-label_1="PLATTENHARDT" data-label_2="Wetter Real Time" data-icons="Climacons Animated" data-theme="metallic" >PLATTENHARDT Wetter Real Time</a> <br> <b>Platten Auto Mambo Zum Bieberbach 1, 554518 Platten </b><br> PV-1E23 ------ 75,03[kWp]'
-        ).addTo(mymap);
-        marker.addEventListener('popupopen', function (e) {
-            __weatherwidget_init()
-        })
-        var circle = L.circle([49.955535828245466, 6.955899920622974], {
-            color: 'blue',
-            fillColor: 'transparent',
-            fillOpacity: 0.5,
-            radius: 8
-        }).addTo(mymap);
-    </script>
 
     <div class="edit">
 
