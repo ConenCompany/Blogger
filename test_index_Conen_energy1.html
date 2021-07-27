@@ -293,6 +293,28 @@
             line-height: 140%;
         }
 
+        #msgPV1E16 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+            animation: success 6s infinite;
+        }
+
+        #msgPV1E16status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E16bereitschaft {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
         #msg13 {
             background-color: rgb(255, 255, 255);
             font-size: 3;
@@ -323,8 +345,8 @@
         }
 
         #PageTunnel {
-            padding-left: 0rem;
-            padding-right: 0rem;
+            padding-left: 20rem;
+            padding-right: 20rem;
         }
 
         #PageTunnelcolorsuccess {
@@ -355,6 +377,7 @@
         #contentwidth{
             padding-left: 6rem;
             padding-right: 19rem;
+            padding: 3rem;
         }
 
         @keyframes success {
@@ -703,6 +726,39 @@
 
                 }
 
+                if (topic == "raspberry/HofGeierslay1") {
+                    document.getElementById("msgPV1E16").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                            out + '</button>';
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E16").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/HofGeierslay1InternetStatus") {
+                    document.getElementById("msgPV1E16status").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
+
+                    if (out == "gestoert") {
+                        document.getElementById("msgPV1E16status").innerHTML = "<p style='color: red;'>gestoert</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/HofGeierslay1Baubereitschaft") {
+                    document.getElementById("msgPV1E16bereitschaft").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out  + '</button>';
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E16bereitschaft").innerHTML = "<p style='color: red;'>No</p>";
+                    }
+
+                }
+
 
             }
 
@@ -749,6 +805,7 @@
                 mqtt.subscribe("raspberry/EssoTakestelle")
                 mqtt.subscribe("raspberry/Gewerbestr4")
                 mqtt.subscribe("raspberry/GonzerathHerlachBau")
+                mqtt.subscribe("raspberry/HofGeierslay1")
             }
 
 
@@ -862,9 +919,9 @@
 
 
     <!-- Page Content-->
-    <div class="container">
+    <div class="container" id="PageTunnel" >
         <!-- About-->
-        <section class="resume-section" id="links" id="contentwidth">
+        <section class="resume-section" id="links" >
             <div class="resume-section-content" >
                 <div class="Gesellschaft">
                 </div>
@@ -1124,16 +1181,14 @@
                         <td>Hof Geierslay 1 , 54497 Morbach</td>
                         <td>PV-1E16</td>
                         <td>130</td>
-                        <td><a href="https://7f33449104b0.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E16">
+                                <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        <td><a href="https://6db900138147.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E16status">
+                                <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
+                        <td id="msgPV1E16bereitschaft">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
                     </tr>
                     <tr>
