@@ -659,13 +659,46 @@
 
                 }
 
-                if (topic == "raspberry/Gewerbestr4Gewerbestr4bereitschaft") {
+                if (topic == "raspberry/Gewerbestr4bereitschaft") {
                     document.getElementById("msgPV1E4bereitschaft").innerHTML =
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         out + '</button>';
 
                     if (out == "") {
                         document.getElementById("msgPV1E4bereitschaft").innerHTML = "<p style='color: red;'>No</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/GonzerathHerlachBau") {
+                    document.getElementById("msgPV1E5").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                            Math.round(out) + ' kW </button>';
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E5").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/GonzerathHerlachBauInternetStatus") {
+                    document.getElementById("msgPV1E5status").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
+
+                    if (out == "gestoert") {
+                        document.getElementById("msgPV1E5status").innerHTML = "<p style='color: red;'>gestoert</p>";
+                    }
+
+                }
+
+                if (topic == "raspberry/GonzerathHerlachBaubereitschaft") {
+                    document.getElementById("msgPV1E5bereitschaft").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out  + '</button>';
+
+                    if (out == "") {
+                        document.getElementById("msgPV1E5bereitschaft").innerHTML = "<p style='color: red;'>No</p>";
                     }
 
                 }
@@ -715,6 +748,7 @@
                 mqtt.subscribe("raspberry/Schollenfeldbereitschaft")
                 mqtt.subscribe("raspberry/EssoTakestelle")
                 mqtt.subscribe("raspberry/Gewerbestr4")
+                mqtt.subscribe("raspberry/GonzerathHerlachBau")
             }
 
 
