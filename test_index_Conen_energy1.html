@@ -144,7 +144,21 @@
             line-height: 140%;
         }
 
+        #msgPV1E7status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
         #msgPV1E15 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E15status {
             background-color: rgb(255, 255, 255);
             font-size: 3;
             font-weight: bold;
@@ -158,6 +172,13 @@
             line-height: 140%;
         }
 
+        #msgPV1E8status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
         #msgPV1E17 {
             background-color: rgb(255, 255, 255);
             font-size: 3;
@@ -165,7 +186,21 @@
             line-height: 140%;
         }
 
+        #msgPV1E17status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
         #msgPV1E18 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E18status {
             background-color: rgb(255, 255, 255);
             font-size: 3;
             font-weight: bold;
@@ -180,6 +215,13 @@
         }
 
         #msgPV1E6 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E6status {
             background-color: rgb(255, 255, 255);
             font-size: 3;
             font-weight: bold;
@@ -264,12 +306,6 @@
             line-height: 140%;
         }
 
-        #msgPV1E4bereitschaft {
-            background-color: rgb(255, 255, 255);
-            font-size: 3;
-            font-weight: bold;
-            line-height: 140%;
-        }
 
         #msgPV1E5 {
             background-color: rgb(255, 255, 255);
@@ -330,6 +366,13 @@
         }
 
         #msgPV1E1 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E1status {
             background-color: rgb(255, 255, 255);
             font-size: 3;
             font-weight: bold;
@@ -472,9 +515,17 @@
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         Math.round(out / 1000) + ' kW </button>';
 
-                    if (out == "") {
+                    if (out <= -0.01) {
                         document.getElementById("msgPV1E7").innerHTML =
-                            "<button type='button1' class='btn btn-danger'>NO Value Recieved</button>";
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E7status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E7status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
                 }
 
@@ -483,8 +534,17 @@
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         Math.round(out / 1000) + ' kW </button>';
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E1").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E1").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E1status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E1status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
@@ -494,8 +554,17 @@
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         Math.round(out) + ' kW </button>';
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E15").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E15").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E15status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E15status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
@@ -506,8 +575,17 @@
                         Math.round(out) + ' kW</button>';
 
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E8").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E8").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E8status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E8status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
@@ -518,8 +596,17 @@
                         Math.round(out) + ' kW </button>';
 
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E17").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E17").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E17status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E17status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
@@ -529,8 +616,17 @@
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         Math.round(out) + ' kW </button>';
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E18").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E18").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E18status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E18status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
@@ -540,8 +636,17 @@
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         Math.round(out) + ' kW </button>';
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E9").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E9").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E9status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E9status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
@@ -552,8 +657,17 @@
                         Math.round(out) + ' kW </button>';
 
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E6").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E6").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E6status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E6status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
@@ -563,24 +677,20 @@
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         out + '</button>';
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E13").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E13").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E13status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E13status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
-
-                if (topic == "raspberry/HintermDorfInternetStatus") {
-                    document.getElementById("msgPV1E13status").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out + '</button>';
-
-                    if (out == "gestoert") {
-                        document.getElementById("msgPV1E13status").innerHTML = "<p style='color: red;'>gestoert</p>";
-                    }
-
-                }
-
-               
 
                 if (topic == "raspberry/Schollenfeld") {
                     document.getElementById("msgPV1E3").innerHTML =
@@ -606,39 +716,46 @@
 
                 }
 
-                
+
 
                 if (topic == "raspberry/EssoTakestelle") {
                     document.getElementById("msgPV1E22").innerHTML =
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         out + '</button>';
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E22").innerHTML = "<p style='color: red;'>keine Daten</p>";
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E22").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E22status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E22status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
 
-                if (topic == "raspberry/EssoTakestelleInternetStatus") {
-                    document.getElementById("msgPV1E22status").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out + '</button>';
 
-                    if (out == "gestoert") {
-                        document.getElementById("msgPV1E22status").innerHTML = "<p style='color: red;'>gestoert</p>";
-                    }
-
-                }
-
-                
 
                 if (topic == "raspberry/Gewerbestr4") {
                     document.getElementById("msgPV1E4").innerHTML =
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         out + '</button>';
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E4").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E4").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E4status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E4status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
@@ -654,55 +771,48 @@
 
                 }
 
-            
+
 
                 if (topic == "raspberry/GonzerathHerlachBau") {
                     document.getElementById("msgPV1E5").innerHTML =
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         Math.round(out) + ' kW </button>';
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E5").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E5").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E5status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E5status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
 
-                if (topic == "raspberry/GonzerathHerlachBauInternetStatus") {
-                    document.getElementById("msgPV1E5status").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out + '</button>';
-
-                    if (out == "gestoert") {
-                        document.getElementById("msgPV1E5status").innerHTML = "<p style='color: red;'>gestoert</p>";
-                    }
-
-                }
-
-               
 
                 if (topic == "raspberry/HofGeierslay1") {
                     document.getElementById("msgPV1E16").innerHTML =
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         out + '</button>';
 
-                    if (out == "") {
-                        document.getElementById("msgPV1E16").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E16").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E16status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E16status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
-
-                if (topic == "raspberry/HofGeierslay1InternetStatus") {
-                    document.getElementById("msgPV1E16status").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out + '</button>';
-
-                    if (out == "gestoert") {
-                        document.getElementById("msgPV1E16status").innerHTML = "<p style='color: red;'>gestoert</p>";
-                    }
-
-                }
-
-                
 
 
             }
@@ -914,11 +1024,10 @@
                             <button type="button" class="btn btn-warning">Loading ...</button>
 
                         </td>
-                        <td><a href="https://de28626680f1.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E1status">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        
+
                     </tr>
                     <tr>
                         <td>3</td>
@@ -931,7 +1040,7 @@
                         <td id="msgPV1E3status">
                             <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
-                        
+
                     </tr>
                     <tr>
                         <td>4</td>
@@ -946,7 +1055,7 @@
                                 <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
                         </td>
-                       
+
                     </tr>
                     <tr>
                         <td>5</td>
@@ -957,11 +1066,10 @@
                             <button type="button" class="btn btn-warning">Loading ...</button>
 
                         </td>
-                        <td><a href="https://8111565537ef.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E15status">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        
+
                     </tr>
                     <tr>
                         <td>6</td>
@@ -976,7 +1084,7 @@
                                 <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
                         </td>
-                        
+
                     </tr>
                     <tr>
                         <td>7</td>
@@ -986,11 +1094,10 @@
                         <td id="msgPV1E7">
                             <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td><a href="https://c903385a9ec1.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E7status">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                       
+
                     </tr>
                     <tr>
                         <td>8</td>
@@ -1000,11 +1107,10 @@
                         <td id="msgPV1E8">
                             <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td><a href="https://f32902429b6a.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E8status">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        
+
                     </tr>
                     <tr>
                         <td>9</td>
@@ -1014,11 +1120,10 @@
                         <td id="msgPV1E17">
                             <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td><a href="https://eb388154933c.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E17status">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        
+
                     </tr>
                     <tr>
                         <td>10</td>
@@ -1031,7 +1136,7 @@
                         <td id="msgPV1E22status">
                             <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        
+
                     </tr>
                     <tr>
                         <td>11</td>
@@ -1046,7 +1151,7 @@
                                 <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
                         </td>
-                       
+
                     </tr>
                     <tr>
                         <td>12</td>
@@ -1056,11 +1161,10 @@
                         <td id="msgPV1E18">
                             <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td><a href="https://fa1e6950cc36.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E18status">
+                            <button type="button" class="btn btn-success">Link bereit</button>
                         </td>
-                       
+
                     </tr>
                     <tr>
                         <td>13</td>
@@ -1071,11 +1175,10 @@
                             <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
-                        <td><a href="https://2dae45bc5658.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E4status">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        
+
                     </tr>
                     <tr>
                         <td>14</td>
@@ -1085,11 +1188,10 @@
                         <td id="msgPV1E9">
                             <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td><a href="https://e1f9e96cfecf.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E9status">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                       
+
                     </tr>
                     <tr>
                         <td>15</td>
@@ -1102,7 +1204,7 @@
                         <td id="msgPV1E16status">
                             <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                       
+
                     </tr>
                     <tr>
                         <td>16</td>
@@ -1117,7 +1219,7 @@
                                 <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
                         </td>
-                      
+
                     </tr>
                     <tr>
                         <td>17</td>
@@ -1127,11 +1229,10 @@
                         <td id="msgPV1E6">
                             <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td><a href="https://44727b403a37.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E6status">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                      
+
                     </tr>
                     <tr>
                         <td>18</td>
@@ -1141,11 +1242,10 @@
                         <td id="msgPV1E5">
                             <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td><a href="https://44727b403a37.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E5status">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                    
+
                     </tr>
                     <tr>
                         <td>19</td>
@@ -1160,22 +1260,20 @@
                                 <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
                         </td>
-                     
+
                     </tr>
                     <tr>
                         <td>20</td>
                         <td>Auf der Heide, Morbach</td>
                         <td>PV-1E21</td>
                         <td>99</td>
-                        <td><a href="https://8526a4b3c475.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E21">
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        <td><a href="https://4a7501ba0372.eu.ngrok.io/" target="_blank">
-                                <button type="button" class="btn btn-success">Link bereit</button>
-                            </a>
+                        <td id="msgPV1E21status"><a href="https://4a7501ba0372.eu.ngrok.io/" target="_blank">
+                                <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                      
+
                     </tr>
 
                 </table>
