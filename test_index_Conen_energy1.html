@@ -374,7 +374,7 @@
             overflow: hidden;
         }
 
-        #contentwidth{
+        #contentwidth {
             padding-left: 6rem;
             padding-right: 19rem;
             padding: 3rem;
@@ -580,17 +580,7 @@
 
                 }
 
-                if (topic == "raspberry/HintermDorfbereitschaft") {
-                    document.getElementById("msgPV1E13bereitschaft").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out + '</button>';
-
-                    if (out == "") {
-                        document.getElementById("msgPV1E13bereitschaft").innerHTML =
-                            "<p style='color: red;'>NO Value Recieved</p>";
-                    }
-
-                }
+               
 
                 if (topic == "raspberry/Schollenfeld") {
                     document.getElementById("msgPV1E3").innerHTML =
@@ -609,23 +599,14 @@
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         out + '</button>';
 
-                    if (out == "gestoert") {
-                        document.getElementById("msgPV1E3status").innerHTML = '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
+                    if (out == "") {
+                        document.getElementById("msgPV1E3status").innerHTML =
+                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
 
-                if (topic == "raspberry/Schollenfeldbereitschaft") {
-                    document.getElementById("msgPV1E3bereitschaft").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out + '</button>';
-
-                    if (out == "ka") {
-                        document.getElementById("msgPV1E3bereitschaft").innerHTML =
-                        '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >K.A</button>';
-                    }
-
-                }
+                
 
                 if (topic == "raspberry/EssoTakestelle") {
                     document.getElementById("msgPV1E22").innerHTML =
@@ -649,16 +630,7 @@
 
                 }
 
-                if (topic == "raspberry/EssoTakestellebereitschaft") {
-                    document.getElementById("msgPV1E22bereitschaft").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out + '</button>';
-
-                    if (out == "") {
-                        document.getElementById("msgPV1E22bereitschaft").innerHTML = "<p style='color: red;'>No</p>";
-                    }
-
-                }
+                
 
                 if (topic == "raspberry/Gewerbestr4") {
                     document.getElementById("msgPV1E4").innerHTML =
@@ -682,21 +654,12 @@
 
                 }
 
-                if (topic == "raspberry/Gewerbestr4bereitschaft") {
-                    document.getElementById("msgPV1E4bereitschaft").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out + '</button>';
-
-                    if (out == "") {
-                        document.getElementById("msgPV1E4bereitschaft").innerHTML = "<p style='color: red;'>No</p>";
-                    }
-
-                }
+            
 
                 if (topic == "raspberry/GonzerathHerlachBau") {
                     document.getElementById("msgPV1E5").innerHTML =
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                            Math.round(out) + ' kW </button>';
+                        Math.round(out) + ' kW </button>';
 
                     if (out == "") {
                         document.getElementById("msgPV1E5").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
@@ -715,21 +678,12 @@
 
                 }
 
-                if (topic == "raspberry/GonzerathHerlachBaubereitschaft") {
-                    document.getElementById("msgPV1E5bereitschaft").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out  + '</button>';
-
-                    if (out == "") {
-                        document.getElementById("msgPV1E5bereitschaft").innerHTML = "<p style='color: red;'>No</p>";
-                    }
-
-                }
+               
 
                 if (topic == "raspberry/HofGeierslay1") {
                     document.getElementById("msgPV1E16").innerHTML =
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                            out + '</button>';
+                        out + '</button>';
 
                     if (out == "") {
                         document.getElementById("msgPV1E16").innerHTML = "<p style='color: red;'>NO Value Recieved</p>";
@@ -748,16 +702,7 @@
 
                 }
 
-                if (topic == "raspberry/HofGeierslay1Baubereitschaft") {
-                    document.getElementById("msgPV1E16bereitschaft").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out  + '</button>';
-
-                    if (out == "") {
-                        document.getElementById("msgPV1E16bereitschaft").innerHTML = "<p style='color: red;'>No</p>";
-                    }
-
-                }
+                
 
 
             }
@@ -919,10 +864,10 @@
 
 
     <!-- Page Content-->
-    <div class="container" id="PageTunnel" >
+    <div class="container" id="PageTunnel">
         <!-- About-->
-        <section class="resume-section" id="links" >
-            <div class="resume-section-content" >
+        <section class="resume-section" id="links">
+            <div class="resume-section-content">
                 <div class="Gesellschaft">
                 </div>
                 <h4><u>TUNNEL Website</u>
@@ -944,7 +889,6 @@
                         <th>Anlagegröße kWp</th>
                         <th>Echtzeitsproduktion</th>
                         <th>Internet status</th>
-                        <th>Handle</th>
                     </tr>
 
 
@@ -958,9 +902,6 @@
                             <button type="button1" class="btn btn-warning">Loading ...</button>
                         </td>
                         <td id="msgPV1E13status">
-                            <button type="button1" class="btn btn-warning">Loading ...</button>
-                        </td>
-                        <td id="msgPV1E13bereitschaft">
                             <button type="button1" class="btn btn-warning">Loading ...</button>
                         </td>
                     </tr>
@@ -977,9 +918,7 @@
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>3</td>
@@ -992,9 +931,7 @@
                         <td id="msgPV1E3status">
                             <button type="button" class="btn btn-warning">Loading ...</button>
                         </td>
-                        <td id="msgPV1E3bereitschaft">
-                            <button type="button" class="btn btn-warning">Loading ...</button>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>4</td>
@@ -1009,9 +946,7 @@
                                 <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary">K.A</button>
-                        </td>
+                       
                     </tr>
                     <tr>
                         <td>5</td>
@@ -1026,9 +961,7 @@
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>6</td>
@@ -1043,9 +976,7 @@
                                 <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary">K.A</button>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>7</td>
@@ -1059,9 +990,7 @@
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
-                        </td>
+                       
                     </tr>
                     <tr>
                         <td>8</td>
@@ -1075,9 +1004,7 @@
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>9</td>
@@ -1091,9 +1018,7 @@
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>10</td>
@@ -1106,9 +1031,7 @@
                         <td id="msgPV1E22status">
                             <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        <td id="msgPV1E22bereitschaft">
-                            <button type="button" class="btn btn-success">Loading ...</button>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>11</td>
@@ -1123,9 +1046,7 @@
                                 <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary">K.A</button>
-                        </td>
+                       
                     </tr>
                     <tr>
                         <td>12</td>
@@ -1139,9 +1060,7 @@
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
-                        </td>
+                       
                     </tr>
                     <tr>
                         <td>13</td>
@@ -1156,9 +1075,7 @@
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
-                        </td>
+                        
                     </tr>
                     <tr>
                         <td>14</td>
@@ -1172,9 +1089,7 @@
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
-                        </td>
+                       
                     </tr>
                     <tr>
                         <td>15</td>
@@ -1182,14 +1097,12 @@
                         <td>PV-1E16</td>
                         <td>130</td>
                         <td id="msgPV1E16">
-                                <button type="button" class="btn btn-success">Loading ...</button>
-                        </td>
-                        <td id="msgPV1E16status">
-                                <button type="button" class="btn btn-success">Loading ...</button>
-                        </td>
-                        <td id="msgPV1E16bereitschaft">
                             <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
+                        <td id="msgPV1E16status">
+                            <button type="button" class="btn btn-success">Loading ...</button>
+                        </td>
+                       
                     </tr>
                     <tr>
                         <td>16</td>
@@ -1204,9 +1117,7 @@
                                 <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary">K.A</button>
-                        </td>
+                      
                     </tr>
                     <tr>
                         <td>17</td>
@@ -1220,9 +1131,7 @@
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
-                        </td>
+                      
                     </tr>
                     <tr>
                         <td>18</td>
@@ -1236,9 +1145,7 @@
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
-                        </td>
+                    
                     </tr>
                     <tr>
                         <td>19</td>
@@ -1253,9 +1160,7 @@
                                 <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-secondary">K.A</button>
-                        </td>
+                     
                     </tr>
                     <tr>
                         <td>20</td>
@@ -1270,9 +1175,7 @@
                                 <button type="button" class="btn btn-success">Link bereit</button>
                             </a>
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-success">Sehr Gut</button>
-                        </td>
+                      
                     </tr>
 
                 </table>
