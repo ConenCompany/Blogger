@@ -405,7 +405,7 @@
             font-size: 3;
             font-weight: bold;
             line-height: 140%;
-            animation: failed 6s infinite;
+            animation: failed 2s infinite;
         }
 
         .box-area {
@@ -484,11 +484,22 @@
             var sub_topic = "raspberry/topic";
 
 
-            function onConnectionLost() {
+            function onConnectionLost(r_message) {
                 console.log("connection lost");
                 document.getElementById("status").innerHTML = "Connection Lost";
                 document.getElementById("messages").innerHTML = "Connection Lost";
                 connected_flag = 0;
+                var topic = r_message.destinationName;
+                //console.log(topic);
+                var out = r_message.payloadString;
+
+                if (topic != "raspberry/HintermDorf") {
+                    document.getElementById("msgPV1E13").innerHTML =
+                        '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+
+                } else {
+
+                }
             }
 
 
@@ -814,7 +825,7 @@
 
                 }
 
-
+                out = ""
             }
 
 
@@ -826,24 +837,12 @@
             function onConnect() {
                 // Once a connection has been made, make a subscription and send a message.
                 document.getElementById("messages").innerHTML = "Connected to " + host + "on port " + port;
-                connected_flag = 1
+                connected_flag = 0
                 document.getElementById("status").innerHTML = "Connected";
                 console.log("on Connect " + connected_flag);
                 mqtt.subscribe(sub_topic);
-                mqtt.subscribe("raspberry/topic1");
-                mqtt.subscribe("raspberry/topic2");
-                mqtt.subscribe("raspberry/topic3");
-                mqtt.subscribe("raspberry/topic4");
-                mqtt.subscribe("raspberry/topic5");
-                mqtt.subscribe("raspberry/topic6");
-                mqtt.subscribe("raspberry/topic7");
-                mqtt.subscribe("raspberry/topic8");
-                mqtt.subscribe("raspberry/topic9");
-                mqtt.subscribe("raspberry/topic10");
-                mqtt.subscribe("raspberry/topic11");
+
                 mqtt.subscribe("raspberry/InDerDoor");
-                mqtt.subscribe("raspberry/topic13");
-                mqtt.subscribe("raspberry/topic14");
                 mqtt.subscribe("raspberry/Conenstr4");
                 mqtt.subscribe("raspberry/WaldhofBruchweiler");
                 mqtt.subscribe("raspberry/HeinzenbachHolgerOffers");

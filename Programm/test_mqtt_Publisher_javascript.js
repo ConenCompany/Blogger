@@ -7,8 +7,8 @@ client.on('connect', function () {
     client.subscribe('shellies/shellydimmer2-E8DB84D6A2CA/temperature');
     client.subscribe('shellies/shellydimmer2-E8DB84D6A2CA/light/0/status');
     client.subscribe('shellies/shellydimmer2-E8DB84D6A2CA/light/0');
-    client.publish("shellies/shellydimmer2-E8DB84D6A2CA/light/0/command", "off", function () {
-        console.log("sent ==> ", "off");
+    client.publish("shellies/shellydimmer2-E8DB84D6A2CA/light/0/command", "on", function () {
+        console.log("sent ==> ", "on");
     });
 
     
