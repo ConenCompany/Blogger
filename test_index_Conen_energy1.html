@@ -379,6 +379,21 @@
             line-height: 140%;
         }
 
+        #msgPV1E21 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E21status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+        
+
         #status {
             background-color: green;
             font-size: 4;
@@ -397,7 +412,7 @@
             font-size: 3;
             font-weight: bold;
             line-height: 140%;
-            animation: success 6s infinite;
+            animation: success 5s infinite;
         }
 
         #PageTunnelcolorfailed {
@@ -405,7 +420,7 @@
             font-size: 3;
             font-weight: bold;
             line-height: 140%;
-            animation: failed 2s infinite;
+            animation: failed 1s infinite;
         }
 
         .box-area {
@@ -493,14 +508,21 @@
                 //console.log(topic);
                 var out = r_message.payloadString;
 
-                if (topic != "raspberry/HintermDorf") {
+                if (topic !== "raspberry/HintermDorf") {
                     document.getElementById("msgPV1E13").innerHTML =
                         '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
 
-                } else {
+                }
+
+                if (topic !== "raspberry/Schollenfeld1") {
+                    document.getElementById("msgPV1E3").innerHTML =
+                        '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
 
                 }
+
+
             }
+
 
 
             function onFailure(message) {
@@ -703,31 +725,25 @@
 
                 }
 
-                if (topic == "raspberry/Schollenfeld") {
+                if (topic == "raspberry/Schollenfeld1") {
                     document.getElementById("msgPV1E3").innerHTML =
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
                         out + '</button>';
 
-                    if (out == "") {
+                    if (out <= -0.01) {
                         document.getElementById("msgPV1E3").innerHTML =
                             '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                    } else {
+                        document.getElementById("msgPV1E3status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
                     }
-
-                }
-
-                if (topic == "raspberry/SchollenfeldInternetStatus") {
-                    document.getElementById("msgPV1E3status").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out + '</button>';
-
-                    if (out == "") {
+                    if (out <= -0.01) {
                         document.getElementById("msgPV1E3status").innerHTML =
                             '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
                     }
 
                 }
-
-
 
                 if (topic == "raspberry/EssoTakestelle") {
                     document.getElementById("msgPV1E22").innerHTML =
@@ -853,9 +869,7 @@
                 mqtt.subscribe("raspberry/HintermDorf");
                 mqtt.subscribe("raspberry/HintermDorfInternetStatus");
                 mqtt.subscribe("raspberry/HintermDorfbereitschaft")
-                mqtt.subscribe("raspberry/Schollenfeld")
-                mqtt.subscribe("raspberry/SchollenfeldInternetStatus")
-                mqtt.subscribe("raspberry/Schollenfeldbereitschaft")
+                mqtt.subscribe("raspberry/Schollenfeld1")
                 mqtt.subscribe("raspberry/EssoTakestelle")
                 mqtt.subscribe("raspberry/Gewerbestr4")
                 mqtt.subscribe("raspberry/GonzerathHerlachBau")
@@ -878,7 +892,7 @@
                 mqtt.onMessageArrived = onMessageArrived;
                 mqtt.onConnected = onConnected;
                 mqtt.connect(options);
-                return false;
+                return true;
             }
 
 
