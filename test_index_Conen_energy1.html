@@ -296,7 +296,6 @@
             font-size: 3;
             font-weight: bold;
             line-height: 140%;
-            animation: success 6s infinite;
         }
 
         #msgPV1E4status {
@@ -334,7 +333,6 @@
             font-size: 3;
             font-weight: bold;
             line-height: 140%;
-            animation: success 6s infinite;
         }
 
         #msgPV1E16status {
@@ -392,7 +390,7 @@
             font-weight: bold;
             line-height: 140%;
         }
-        
+
 
         #status {
             background-color: green;
@@ -423,6 +421,14 @@
             animation: failed 1s infinite;
         }
 
+        #PageTunnelcolormaintenance {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+            animation: maintenance 4s infinite;
+        }
+
         .box-area {
             position: absolute;
             top: 0;
@@ -436,6 +442,17 @@
             padding-left: 6rem;
             padding-right: 19rem;
             padding: 3rem;
+        }
+
+        @keyframes maintenance {
+            from {
+                background-color: rgb(102, 96, 96);
+            }
+
+            to {
+                background-color: rgba(250, 174, 61, 0.207);
+            }
+
         }
 
         @keyframes success {
@@ -712,7 +729,7 @@
 
                     if (out <= -0.01) {
                         document.getElementById("msgPV1E13").innerHTML =
-                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                            '<button id="PageTunnelcolormaintenance" style="color: white;  button type="button" class="btn btn-warning" >Im Aufbauprozess...</button>';
                     } else {
                         document.getElementById("msgPV1E13status").innerHTML =
                             '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
@@ -720,7 +737,7 @@
                     }
                     if (out <= -0.01) {
                         document.getElementById("msgPV1E13status").innerHTML =
-                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
+                            '<button id="PageTunnelcolormaintenance" style="color: white; button type="button" class="btn btn-warning" > K.A </button>';
                     }
 
                 }
@@ -746,13 +763,13 @@
                 }
 
                 if (topic == "raspberry/EssoTakestelle") {
-                    document.getElementById("msgPV1E22").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out + '</button>';
+                    document.getElementById("msgPV1E22status").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
 
                     if (out <= -0.01) {
                         document.getElementById("msgPV1E22").innerHTML =
-                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                            '<button id="PageTunnelcolormaintenance" button type="button" class="btn btn-warning" >Im Aufbauprozess...</button>';
                     } else {
                         document.getElementById("msgPV1E22status").innerHTML =
                             '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
@@ -760,7 +777,7 @@
                     }
                     if (out <= -0.01) {
                         document.getElementById("msgPV1E22status").innerHTML =
-                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
+                            '<button id="PageTunnelcolormaintenance" button type="button" class="btn btn-warning" > K.A </button>';
                     }
 
                 }
@@ -774,7 +791,7 @@
 
                     if (out <= -0.01) {
                         document.getElementById("msgPV1E4").innerHTML =
-                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                            '<button id="PageTunnelcolormaintenance" button type="button" class="btn btn-warning" >Im Aufbauprozess...</button>';
                     } else {
                         document.getElementById("msgPV1E4status").innerHTML =
                             '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
@@ -782,22 +799,10 @@
                     }
                     if (out <= -0.01) {
                         document.getElementById("msgPV1E4status").innerHTML =
-                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
+                            '<button id="PageTunnelcolormaintenance" button type="button" class="btn btn-warning" > K.A </button>';
                     }
 
                 }
-
-                if (topic == "raspberry/Gewerbestr4InternetStatus") {
-                    document.getElementById("msgPV1E4status").innerHTML =
-                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out + '</button>';
-
-                    if (out == "gestoert") {
-                        document.getElementById("msgPV1E4status").innerHTML = "<p style='color: red;'>gestoert</p>";
-                    }
-
-                }
-
 
 
                 if (topic == "raspberry/GonzerathHerlachBau") {
@@ -828,7 +833,7 @@
 
                     if (out <= -0.01) {
                         document.getElementById("msgPV1E16").innerHTML =
-                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >keine Daten</button>';
+                            '<button id="PageTunnelcolormaintenance" button type="button" class="btn btn-warning" >Im Aufbauprozess...</button>';
                     } else {
                         document.getElementById("msgPV1E16status").innerHTML =
                             '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
@@ -836,7 +841,27 @@
                     }
                     if (out <= -0.01) {
                         document.getElementById("msgPV1E16status").innerHTML =
-                            '<button id="PageTunnelcolorfailed" button type="button" class="btn btn-warning" >Gestoert</button>';
+                            '<button id="PageTunnelcolormaintenance" button type="button" class="btn btn-warning" > K.A </button>';
+                    }
+
+                }
+
+                if (topic == "raspberry/AufderHeide") {
+                    document.getElementById("msgPV1E21").innerHTML =
+                        '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
+
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E21").innerHTML =
+                            '<button id="PageTunnelcolormaintenance" button type="button" class="btn btn-warning" >Im Aufbauprozess...</button>';
+                    } else {
+                        document.getElementById("msgPV1E21status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E21status").innerHTML =
+                            '<button id="PageTunnelcolormaintenance" button type="button" class="btn btn-warning" > K.A </button>';
                     }
 
                 }
@@ -868,12 +893,13 @@
                 mqtt.subscribe("raspberry/GonzerathCanadaBlockhaus");
                 mqtt.subscribe("raspberry/HintermDorf");
                 mqtt.subscribe("raspberry/HintermDorfInternetStatus");
-                mqtt.subscribe("raspberry/HintermDorfbereitschaft")
-                mqtt.subscribe("raspberry/Schollenfeld1")
-                mqtt.subscribe("raspberry/EssoTakestelle")
-                mqtt.subscribe("raspberry/Gewerbestr4")
-                mqtt.subscribe("raspberry/GonzerathHerlachBau")
-                mqtt.subscribe("raspberry/HofGeierslay1")
+                mqtt.subscribe("raspberry/HintermDorfbereitschaft");
+                mqtt.subscribe("raspberry/Schollenfeld1");
+                mqtt.subscribe("raspberry/EssoTakestelle");
+                mqtt.subscribe("raspberry/Gewerbestr4");
+                mqtt.subscribe("raspberry/GonzerathHerlachBau");
+                mqtt.subscribe("raspberry/HofGeierslay1");
+                mqtt.subscribe("raspberry/AufderHeide");
             }
 
 
@@ -1283,7 +1309,7 @@
                         <td id="msgPV1E21">
                             <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
-                        <td id="msgPV1E21status"><a href="https://4a7501ba0372.eu.ngrok.io/" target="_blank">
+                        <td id="msgPV1E21status">
                                 <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
 
