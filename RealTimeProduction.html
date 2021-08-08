@@ -242,7 +242,91 @@
             line-height: 140%;
         }
 
+        #msgPV1E12 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E12status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E19 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E19status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E11 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E11status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E19 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E19status {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E19Braunshorn {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E19statusBraunshorn {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
         #msgPV1E13bereitschaft {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E23 {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+        }
+
+        #msgPV1E23status {
             background-color: rgb(255, 255, 255);
             font-size: 3;
             font-weight: bold;
@@ -311,7 +395,6 @@
             font-size: 3;
             font-weight: bold;
             line-height: 140%;
-            animation: success 6s infinite;
         }
 
         #msgPV1E5status {
@@ -393,11 +476,12 @@
 
 
         #status {
-            background-color: green;
-            font-size: 4;
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            color: honeydew;
             font-weight: bold;
-            color: white;
             line-height: 140%;
+            animation: StatusConnection .3s infinite;
         }
 
         #PageTunnel {
@@ -427,6 +511,14 @@
             font-weight: bold;
             line-height: 140%;
             animation: maintenance 4s infinite;
+        }
+
+        #PageTunnelcolorNotInstalled {
+            background-color: rgb(255, 255, 255);
+            font-size: 3;
+            font-weight: bold;
+            line-height: 140%;
+            animation: NotInstalled 8s infinite;
         }
 
         .box-area {
@@ -496,6 +588,386 @@
 
             from {
                 background-color: rgb(240, 5, 5);
+            }
+        }
+
+        @keyframes NotInstalled {
+            from {
+                background-color: rgb(255, 157, 0);
+            }
+
+            to {
+                background-color: rgba(4, 255, 146, 0.076);
+            }
+        }
+
+
+        @keyframes StatusConnection {
+            from {
+                background-color: rgb(118, 240, 87);
+            }
+
+            to {
+                background-color: rgb(145, 117, 117);
+            }
+
+            from {
+                background-color: rgb(70, 107, 14);
+            }
+
+            to {
+                background-color: rgb(39, 197, 39);
+            }
+
+            from {
+                background-color: rgb(191, 237, 122);
+            }
+        }
+
+        @media only screen and (max-width: 2100px) {
+
+            .container {
+                padding-left: 9rem;
+                padding-right: 9rem;
+            }
+
+            .container tr,
+            th,
+            td {
+                box-shadow: 2px 5px 20px rgba(118, 112, 112, 0.576);
+                border: .8px solid white;
+                border-radius: 0rem;
+            }
+
+            .btn {
+                border-radius: 0rem;
+                font-size: 3;
+                font-weight: bold;
+                line-height: 140%;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+            }
+
+
+        }
+
+        @media only screen and (max-width: 1488px) {
+
+            .container {
+                padding-left: 9rem;
+                padding-right: 9rem;
+            }
+
+            .container tr,
+            th,
+            td {
+                box-shadow: 2px 5px 20px rgba(118, 112, 112, 0.576);
+                border: .8px solid white;
+                border-radius: 0rem;
+            }
+
+            .btn {
+                border-radius: 0rem;
+                font-size: 3;
+                font-weight: bold;
+                line-height: 140%;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+            }
+        }
+
+        @media only screen and (max-width: 1416px) {
+
+            .container {
+                padding-left: 9rem;
+                padding-right: 9rem;
+            }
+
+            .container tr,
+            th,
+            td {
+                box-shadow: 2px 5px 20px rgba(118, 112, 112, 0.576);
+                border: .8px solid white;
+                border-radius: 0rem;
+            }
+
+            .btn {
+                border-radius: 0rem;
+                font-size: .82rem;
+                font-weight: bold;
+                line-height: 80%;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+            }
+        }
+
+        @media only screen and (max-width: 1360px) {
+
+            .container {
+                padding-left: 4rem;
+                padding-right: 4rem;
+            }
+
+            .container tr,
+            th,
+            td {
+                box-shadow: 2px 5px 20px rgba(118, 112, 112, 0.576);
+                border: .8px solid white;
+                border-radius: 0rem;
+                font-size: .72rem;
+            }
+
+            .btn {
+                border-radius: 0rem;
+                font-size: .72rem;
+                font-weight: bold;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+            }
+        }
+
+        @media only screen and (max-width: 1117px) {
+
+            .container {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+
+            .container .resume-section .resume-section-content .subheading {
+                font-size: 1rem;
+                font-family: var(--Noto_1);
+                padding: 2rem .1rem;
+                display: inherit;
+                flex-direction: column;
+                box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
+                border-radius: 1rem;
+                border: 1px solid white;
+                background: rgb(226, 226, 226);
+
+            }
+
+            .container .resume-section .resume-section-content .subheading a {
+                font-size: 1rem;
+                font-family: var(--Noto_1);
+                margin: 3rem 0;
+                color: var(--text-gray);
+            }
+
+            h4 {
+                font-size: 3.6rem;
+            }
+
+            .container tr,
+            th,
+            td {
+                box-shadow: 2px 5px 20px rgba(118, 112, 112, 0.576);
+                border: .8px solid white;
+                border-radius: 0rem;
+                font-size: .62rem;
+            }
+
+            .btn {
+                border-radius: 0rem;
+                font-size: .62rem;
+                font-weight: bold;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+            }
+        }
+
+        @media only screen and (max-width: 1015px) {
+
+            .container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .container .resume-section .resume-section-content .subheading {
+                font-size: 1rem;
+                font-family: var(--Noto_1);
+                padding: 2rem .1rem;
+                display: inherit;
+                flex-direction: column;
+                box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
+                border-radius: 1rem;
+                border: 1px solid white;
+                background: rgb(226, 226, 226);
+
+            }
+
+            .container .resume-section .resume-section-content .subheading a {
+                font-size: 1rem;
+                font-family: var(--Noto_1);
+                margin: 3rem 0;
+                color: var(--text-gray);
+            }
+
+            h4 {
+                font-size: 3.2rem;
+            }
+
+            .container tr,
+            th,
+            td {
+                box-shadow: 2px 5px 20px rgba(118, 112, 112, 0.576);
+                border: .8px solid white;
+                border-radius: 0rem;
+                font-size: .52rem;
+            }
+
+            .btn {
+                border-radius: 0rem;
+                font-size: .52rem;
+                font-weight: bold;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+            }
+        }
+
+        @media only screen and (max-width: 910px) {
+
+            .container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .container .resume-section .resume-section-content .subheading {
+                font-size: 1rem;
+                font-family: var(--Noto_1);
+                padding: 2rem .1rem;
+                display: inherit;
+                flex-direction: column;
+                box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
+                border-radius: 1rem;
+                border: 1px solid white;
+                background: rgb(226, 226, 226);
+
+            }
+
+            .container .resume-section .resume-section-content .subheading a {
+                font-size: 1rem;
+                font-family: var(--Noto_1);
+                margin: 3rem 0;
+                color: var(--text-gray);
+            }
+
+            h4 {
+                font-size: 3.2rem;
+            }
+
+            .container tr,
+            th,
+            td {
+                box-shadow: 2px 5px 20px rgba(118, 112, 112, 0.576);
+                border: .8px solid white;
+                border-radius: 0rem;
+                font-size: .42rem;
+            }
+
+            .btn {
+                border-radius: 0rem;
+                font-size: .42rem;
+                font-weight: bold;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+            }
+        }
+
+        @media only screen and (max-width: 828px) {
+
+            .container {
+                padding-left: 4rem;
+                padding-right: 4rem;
+            }
+
+            .container .resume-section .resume-section-content .subheading {
+                font-size: 1rem;
+                font-family: var(--Noto_1);
+                padding: 2rem .1rem;
+                display: inherit;
+                flex-direction: column;
+                box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
+                border-radius: 1rem;
+                border: 1px solid white;
+                background: rgb(226, 226, 226);
+
+            }
+
+            .container .resume-section .resume-section-content .subheading a {
+                font-size: 1rem;
+                font-family: var(--Noto_1);
+                margin: 3rem 0;
+                color: var(--text-gray);
+            }
+
+            h4 {
+                font-size: 2.6rem;
+            }
+
+            .container tr,
+            th,
+            td {
+                box-shadow: 2px 5px 20px rgba(118, 112, 112, 0.576);
+                border: .8px solid white;
+                border-radius: 0rem;
+                font-size: .32rem;
+            }
+
+            .btn {
+                border-radius: 0rem;
+                font-size: .32rem;
+                font-weight: bold;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+            }
+        }
+
+        @media only screen and (max-width: 680px) {
+
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .container .resume-section .resume-section-content .subheading {
+                font-size: 1rem;
+                font-family: var(--Noto_1);
+                padding: 2rem .1rem;
+                display: inherit;
+                flex-direction: column;
+                box-shadow: 20px 5px 20px rgba(0, 0, 0, 0.2);
+                border-radius: 1rem;
+                border: 1px solid white;
+                background: rgb(226, 226, 226);
+
+            }
+
+            .container .resume-section .resume-section-content .subheading a {
+                font-size: 1rem;
+                font-family: var(--Noto_1);
+                margin: 3rem 0;
+                color: var(--text-gray);
+            }
+
+            h4 {
+                font-size: 2.6rem;
+            }
+
+            .container tr,
+            th,
+            td {
+                box-shadow: 2px 5px 20px rgba(118, 112, 112, 0.576);
+                border: .8px solid white;
+                border-radius: 0rem;
+                font-size: .32rem;
+            }
+
+            .btn {
+                border-radius: 0rem;
+                font-size: .32rem;
+                font-weight: bold;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
             }
         }
     </style>
@@ -866,6 +1338,106 @@
 
                 }
 
+                if (topic == "raspberry/Winterberger") {
+                    document.getElementById("msgPV1E12").innerHTML =
+                        '<button id="PageTunnelcolorNotInstalled" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
+
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E12").innerHTML =
+                            '<button id="PageTunnelcolorNotInstalled" button type="button" class="btn btn-warning" >Im Aufbauprozess...</button>';
+                    } else {
+                        document.getElementById("msgPV1E12status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E12status").innerHTML =
+                            '<button id="PageTunnelcolorNotInstalled" button type="button" class="btn btn-warning" > Im Aufbauprozess... </button>';
+                    }
+
+                }
+
+                if (topic == "raspberry/Gartenweg12ZBraunshorn") {
+                    document.getElementById("msgPV1E19").innerHTML =
+                        '<button id="PageTunnelcolorNotInstalled" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
+
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E19").innerHTML =
+                            '<button id="PageTunnelcolorNotInstalled" button type="button" class="btn btn-warning" >Im Aufbauprozess...</button>';
+                    } else {
+                        document.getElementById("msgPV1E19status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E19status").innerHTML =
+                            '<button id="PageTunnelcolorNotInstalled" button type="button" class="btn btn-warning" > Im Aufbauprozess... </button>';
+                    }
+
+                }
+
+                if (topic == "raspberry/Arzberg") {
+                    document.getElementById("msgPV1E11").innerHTML =
+                        '<button id="PageTunnelcolorNotInstalled" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
+
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E11").innerHTML =
+                            '<button id="PageTunnelcolorNotInstalled" button type="button" class="btn btn-warning" >Im Aufbauprozess...</button>';
+                    } else {
+                        document.getElementById("msgPV1E11status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E11status").innerHTML =
+                            '<button id="PageTunnelcolorNotInstalled" button type="button" class="btn btn-warning" > Im Aufbauprozess... </button>';
+                    }
+
+                }
+
+                if (topic == "raspberry/Gartenweg10ABraunshorn") {
+                    document.getElementById("msgPV1E19Braunshorn").innerHTML =
+                        '<button id="PageTunnelcolorNotInstalled" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
+
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E19Braunshorn").innerHTML =
+                            '<button id="PageTunnelcolorNotInstalled" button type="button" class="btn btn-warning" >Im Aufbauprozess...</button>';
+                    } else {
+                        document.getElementById("msgPV1E19statusBraunshorn").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E19statusBraunshorn").innerHTML =
+                            '<button id="PageTunnelcolorNotInstalled" button type="button" class="btn btn-warning" > Im Aufbauprozess... </button>';
+                    }
+
+                }
+
+                if (topic == "raspberry/Platten") {
+                    document.getElementById("msgPV1E23").innerHTML =
+                        '<button id="PageTunnelcolorNotInstalled" style="color: green;" button type="button" class="btn btn-warning" >' +
+                        out + '</button>';
+
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E23").innerHTML =
+                            '<button id="PageTunnelcolorNotInstalled" button type="button" class="btn btn-warning" >Im Aufbauprozess...</button>';
+                    } else {
+                        document.getElementById("msgPV1E23status").innerHTML =
+                            '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" > OK </button>';
+
+                    }
+                    if (out <= -0.01) {
+                        document.getElementById("msgPV1E23status").innerHTML =
+                            '<button id="PageTunnelcolorNotInstalled" button type="button" class="btn btn-warning" > Im Aufbauprozess... </button>';
+                    }
+
+                }
+
                 out = ""
             }
 
@@ -900,6 +1472,11 @@
                 mqtt.subscribe("raspberry/GonzerathHerlachBau");
                 mqtt.subscribe("raspberry/HofGeierslay1");
                 mqtt.subscribe("raspberry/AufderHeide");
+                mqtt.subscribe("raspberry/Winterberger");
+                mqtt.subscribe("raspberry/Platten");
+                mqtt.subscribe("raspberry/Gartenweg10ABraunshorn");
+                mqtt.subscribe("raspberry/Arzberg");
+                mqtt.subscribe("raspberry/Gartenweg12ZBraunshorn");
             }
 
 
@@ -964,11 +1541,11 @@
 <body id="page-top" onload="MQTTconnect()">
     <!-- Navigation-->
 
-   
+
 
 
     <!-- Page Content-->
-    <div class="container" id="PageTunnel">
+    <div class="container">
         <!-- About-->
         <section class="resume-section" id="links">
             <div class="resume-section-content">
@@ -1041,13 +1618,11 @@
                         <td>Winterberger Str. 2, 59955 Winterberg</td>
                         <td>PV-1E12</td>
                         <td>616.3</td>
-                        <td><a href="" target="_blank">
-                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
-                            </a>
+                        <td id="msgPV1E12">
+                            <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                         </td>
-                        <td><a href="" target="_blank">
-                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
-                            </a>
+                        <td id="msgPV1E12status">
+                            <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                         </td>
 
                     </tr>
@@ -1070,11 +1645,11 @@
                         <td>Gartenweg 12 Z, Braunshorn</td>
                         <td>PV-1E19</td>
                         <td>283</td>
-                        <td><a href="" target="_blank">
-                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
+                        <td id="msgPV1E19"><a href="" target="_blank"></a>
+                            <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
                         </td>
-                        <td><a href="" target="_blank">
+                        <td id="msgPV1E19status"><a href="" target="_blank">
                                 <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                             </a>
                         </td>
@@ -1137,13 +1712,11 @@
                         <td>Marktredwitzer Str. 28 , 95659 Arzberg</td>
                         <td>PV-1E11</td>
                         <td>209.79</td>
-                        <td><a href="" target="_blank">
-                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
-                            </a>
+                        <td id="msgPV1E11">
+                            <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                         </td>
-                        <td><a href="" target="_blank">
-                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
-                            </a>
+                        <td id="msgPV1E11status">
+                            <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                         </td>
 
                     </tr>
@@ -1205,13 +1778,11 @@
                         <td>Gartenweg 10 A , 56288 Braunshorn</td>
                         <td>PV-1E19</td>
                         <td>99.8</td>
-                        <td><a href="" target="_blank">
-                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
-                            </a>
+                        <td id="msgPV1E19Braunshorn">
+                            <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                         </td>
-                        <td><a href="" target="_blank">
-                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
-                            </a>
+                        <td id="msgPV1E19statusBraunshorn">
+                            <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                         </td>
 
                     </tr>
@@ -1246,13 +1817,11 @@
                         <td>Zum Bieberbach 1, Platten</td>
                         <td>PV-1E23</td>
                         <td>75.03</td>
-                        <td><a href="" target="_blank">
-                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
-                            </a>
+                        <td id="msgPV1E23">
+                            <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                         </td>
-                        <td><a href="" target="_blank">
-                                <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
-                            </a>
+                        <td id="msgPV1E23status">
+                            <button type="button" class="btn btn-warning">Im Aufbauprozess...</button>
                         </td>
 
                     </tr>
@@ -1265,7 +1834,7 @@
                             <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
                         <td id="msgPV1E21status">
-                                <button type="button" class="btn btn-success">Loading ...</button>
+                            <button type="button" class="btn btn-success">Loading ...</button>
                         </td>
 
                     </tr>
