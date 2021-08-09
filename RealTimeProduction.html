@@ -1424,7 +1424,7 @@
                 if (topic == "raspberry/Schollenfeld1") {
                     document.getElementById("msgPV1E3").innerHTML =
                         '<button id="PageTunnelcolorsuccess" style="color: green;" button type="button" class="btn btn-warning" >' +
-                        out + '</button>';
+                            Math.round(out) + ' kW </button>';
 
                     if (out <= -0.01) {
                         document.getElementById("msgPV1E3").innerHTML =

@@ -5,8 +5,8 @@ client.on('connect', function () {
     console.log('Connection has been established successfully!');
 
     //client.subscribe('shellies/shellydimmer2-E8DB84D6A2CA/temperature');
-    //client.subscribe('shellies/shellydimmer2-E8DB84D6A2CA/light/0/status');
-    //client.subscribe('shellies/shellydimmer2-E8DB84D6A2CA/light/0');
+    client.subscribe('shellies/shellydimmer2-E8DB84D6A2CA/light/0/status');
+    client.subscribe('shellies/shellydimmer2-E8DB84D6A2CA/light/0');
     //client.subscribe('esp32/distance/hcsr04/Value');
     client.subscribe('shellies/shellymotion-60A42386D374/status');
     client.subscribe('shellies/shellygas-E868E7C6E54A/sensor/operation');
@@ -15,15 +15,20 @@ client.on('connect', function () {
     client.subscribe('esp32/distance/hcsr04/Value');
     //client.publish('shellies/shellydimmer2-E8DB84D6A2CA/light/0/command', "on");
     //client.publish("shellies/shellydimmer2-E8DB84D6A2CA/light/0/command", "on", function () {
-       // console.log("sent ==> ", "on");
+    // console.log("sent ==> ", "on");
     //});
+    client.publish('shellies/shellydimmer2-E8DB84D6A2CA/light/0/set', JSON.stringify({
+        "brightness": 100,/* output brightness 1..100 */
+        "turn": "on" /* one of "on", "off", or "toggle" */
+    }));
 
-    
+
 });
 
 
 client.on('message', function (topic, message) {
     // message is Buffer
     console.log(message.toString())
+    console.log(topic.toString())
     client.reconnecting
 })
